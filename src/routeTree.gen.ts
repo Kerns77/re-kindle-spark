@@ -9,38 +9,321 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StockroomRouteImport } from './routes/stockroom'
+import { Route as SellRouteImport } from './routes/sell'
+import { Route as RetailRouteImport } from './routes/retail'
+import { Route as RefurbishersRouteImport } from './routes/refurbishers'
+import { Route as PulseRouteImport } from './routes/pulse'
+import { Route as ProvenanceRouteImport } from './routes/provenance'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PhoneCheckRouteImport } from './routes/phone-check'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as FlowRouteImport } from './routes/flow'
+import { Route as CustomerBuybackTemplateRouteImport } from './routes/customer-buyback-template'
+import { Route as BuybackRouteImport } from './routes/buyback'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnterpriseIndexRouteImport } from './routes/enterprise/index'
+import { Route as EnterprisePricerRouteImport } from './routes/enterprise/pricer'
+import { Route as EnterpriseContactRouteImport } from './routes/enterprise/contact'
 
+const StockroomRoute = StockroomRouteImport.update({
+  id: '/stockroom',
+  path: '/stockroom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RetailRoute = RetailRouteImport.update({
+  id: '/retail',
+  path: '/retail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefurbishersRoute = RefurbishersRouteImport.update({
+  id: '/refurbishers',
+  path: '/refurbishers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PulseRoute = PulseRouteImport.update({
+  id: '/pulse',
+  path: '/pulse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvenanceRoute = ProvenanceRouteImport.update({
+  id: '/provenance',
+  path: '/provenance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhoneCheckRoute = PhoneCheckRouteImport.update({
+  id: '/phone-check',
+  path: '/phone-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlowRoute = FlowRouteImport.update({
+  id: '/flow',
+  path: '/flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomerBuybackTemplateRoute = CustomerBuybackTemplateRouteImport.update({
+  id: '/customer-buyback-template',
+  path: '/customer-buyback-template',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuybackRoute = BuybackRouteImport.update({
+  id: '/buyback',
+  path: '/buyback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnterpriseIndexRoute = EnterpriseIndexRouteImport.update({
+  id: '/enterprise/',
+  path: '/enterprise/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterprisePricerRoute = EnterprisePricerRouteImport.update({
+  id: '/enterprise/pricer',
+  path: '/enterprise/pricer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterpriseContactRoute = EnterpriseContactRouteImport.update({
+  id: '/enterprise/contact',
+  path: '/enterprise/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buyback': typeof BuybackRoute
+  '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
+  '/flow': typeof FlowRoute
+  '/integrations': typeof IntegrationsRoute
+  '/phone-check': typeof PhoneCheckRoute
+  '/pricing': typeof PricingRoute
+  '/provenance': typeof ProvenanceRoute
+  '/pulse': typeof PulseRoute
+  '/refurbishers': typeof RefurbishersRoute
+  '/retail': typeof RetailRoute
+  '/sell': typeof SellRoute
+  '/stockroom': typeof StockroomRoute
+  '/enterprise/contact': typeof EnterpriseContactRoute
+  '/enterprise/pricer': typeof EnterprisePricerRoute
+  '/enterprise/': typeof EnterpriseIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buyback': typeof BuybackRoute
+  '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
+  '/flow': typeof FlowRoute
+  '/integrations': typeof IntegrationsRoute
+  '/phone-check': typeof PhoneCheckRoute
+  '/pricing': typeof PricingRoute
+  '/provenance': typeof ProvenanceRoute
+  '/pulse': typeof PulseRoute
+  '/refurbishers': typeof RefurbishersRoute
+  '/retail': typeof RetailRoute
+  '/sell': typeof SellRoute
+  '/stockroom': typeof StockroomRoute
+  '/enterprise/contact': typeof EnterpriseContactRoute
+  '/enterprise/pricer': typeof EnterprisePricerRoute
+  '/enterprise': typeof EnterpriseIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buyback': typeof BuybackRoute
+  '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
+  '/flow': typeof FlowRoute
+  '/integrations': typeof IntegrationsRoute
+  '/phone-check': typeof PhoneCheckRoute
+  '/pricing': typeof PricingRoute
+  '/provenance': typeof ProvenanceRoute
+  '/pulse': typeof PulseRoute
+  '/refurbishers': typeof RefurbishersRoute
+  '/retail': typeof RetailRoute
+  '/sell': typeof SellRoute
+  '/stockroom': typeof StockroomRoute
+  '/enterprise/contact': typeof EnterpriseContactRoute
+  '/enterprise/pricer': typeof EnterprisePricerRoute
+  '/enterprise/': typeof EnterpriseIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/buyback'
+    | '/customer-buyback-template'
+    | '/flow'
+    | '/integrations'
+    | '/phone-check'
+    | '/pricing'
+    | '/provenance'
+    | '/pulse'
+    | '/refurbishers'
+    | '/retail'
+    | '/sell'
+    | '/stockroom'
+    | '/enterprise/contact'
+    | '/enterprise/pricer'
+    | '/enterprise/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/buyback'
+    | '/customer-buyback-template'
+    | '/flow'
+    | '/integrations'
+    | '/phone-check'
+    | '/pricing'
+    | '/provenance'
+    | '/pulse'
+    | '/refurbishers'
+    | '/retail'
+    | '/sell'
+    | '/stockroom'
+    | '/enterprise/contact'
+    | '/enterprise/pricer'
+    | '/enterprise'
+  id:
+    | '__root__'
+    | '/'
+    | '/buyback'
+    | '/customer-buyback-template'
+    | '/flow'
+    | '/integrations'
+    | '/phone-check'
+    | '/pricing'
+    | '/provenance'
+    | '/pulse'
+    | '/refurbishers'
+    | '/retail'
+    | '/sell'
+    | '/stockroom'
+    | '/enterprise/contact'
+    | '/enterprise/pricer'
+    | '/enterprise/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuybackRoute: typeof BuybackRoute
+  CustomerBuybackTemplateRoute: typeof CustomerBuybackTemplateRoute
+  FlowRoute: typeof FlowRoute
+  IntegrationsRoute: typeof IntegrationsRoute
+  PhoneCheckRoute: typeof PhoneCheckRoute
+  PricingRoute: typeof PricingRoute
+  ProvenanceRoute: typeof ProvenanceRoute
+  PulseRoute: typeof PulseRoute
+  RefurbishersRoute: typeof RefurbishersRoute
+  RetailRoute: typeof RetailRoute
+  SellRoute: typeof SellRoute
+  StockroomRoute: typeof StockroomRoute
+  EnterpriseContactRoute: typeof EnterpriseContactRoute
+  EnterprisePricerRoute: typeof EnterprisePricerRoute
+  EnterpriseIndexRoute: typeof EnterpriseIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/stockroom': {
+      id: '/stockroom'
+      path: '/stockroom'
+      fullPath: '/stockroom'
+      preLoaderRoute: typeof StockroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/retail': {
+      id: '/retail'
+      path: '/retail'
+      fullPath: '/retail'
+      preLoaderRoute: typeof RetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refurbishers': {
+      id: '/refurbishers'
+      path: '/refurbishers'
+      fullPath: '/refurbishers'
+      preLoaderRoute: typeof RefurbishersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pulse': {
+      id: '/pulse'
+      path: '/pulse'
+      fullPath: '/pulse'
+      preLoaderRoute: typeof PulseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/provenance': {
+      id: '/provenance'
+      path: '/provenance'
+      fullPath: '/provenance'
+      preLoaderRoute: typeof ProvenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phone-check': {
+      id: '/phone-check'
+      path: '/phone-check'
+      fullPath: '/phone-check'
+      preLoaderRoute: typeof PhoneCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flow': {
+      id: '/flow'
+      path: '/flow'
+      fullPath: '/flow'
+      preLoaderRoute: typeof FlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customer-buyback-template': {
+      id: '/customer-buyback-template'
+      path: '/customer-buyback-template'
+      fullPath: '/customer-buyback-template'
+      preLoaderRoute: typeof CustomerBuybackTemplateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buyback': {
+      id: '/buyback'
+      path: '/buyback'
+      fullPath: '/buyback'
+      preLoaderRoute: typeof BuybackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +331,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/enterprise/': {
+      id: '/enterprise/'
+      path: '/enterprise'
+      fullPath: '/enterprise/'
+      preLoaderRoute: typeof EnterpriseIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise/pricer': {
+      id: '/enterprise/pricer'
+      path: '/enterprise/pricer'
+      fullPath: '/enterprise/pricer'
+      preLoaderRoute: typeof EnterprisePricerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise/contact': {
+      id: '/enterprise/contact'
+      path: '/enterprise/contact'
+      fullPath: '/enterprise/contact'
+      preLoaderRoute: typeof EnterpriseContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuybackRoute: BuybackRoute,
+  CustomerBuybackTemplateRoute: CustomerBuybackTemplateRoute,
+  FlowRoute: FlowRoute,
+  IntegrationsRoute: IntegrationsRoute,
+  PhoneCheckRoute: PhoneCheckRoute,
+  PricingRoute: PricingRoute,
+  ProvenanceRoute: ProvenanceRoute,
+  PulseRoute: PulseRoute,
+  RefurbishersRoute: RefurbishersRoute,
+  RetailRoute: RetailRoute,
+  SellRoute: SellRoute,
+  StockroomRoute: StockroomRoute,
+  EnterpriseContactRoute: EnterpriseContactRoute,
+  EnterprisePricerRoute: EnterprisePricerRoute,
+  EnterpriseIndexRoute: EnterpriseIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
