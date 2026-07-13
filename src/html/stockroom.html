@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX Stockroom — Inventory Management &amp; Marketplace Listings</title>
+<meta name="description" content="One inventory. Every marketplace. Auto-receive checked devices, add manual stock, and push listings to eBay, BackMarket, Amazon and Shopify in one click.">
+<link rel="canonical" href="https://gsx.co.uk/stockroom">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/stockroom">
+<meta property="og:title" content="GSX Stockroom — Inventory Management & Marketplace Listings">
+<meta property="og:description" content="One inventory. Every marketplace. Auto-receive checked devices, add manual stock, and push listings to eBay, BackMarket, Amazon and Shopify in one click.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+<meta property="og:site_name" content="GSX">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GSX Stockroom — One inventory. Every marketplace.">
+<meta name="twitter:description" content="Push phone listings to eBay, BackMarket, Amazon and Shopify from one inventory. No double-selling.">
+<meta name="twitter:image" content="https://gsx.co.uk/icon-512.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GSX Stockroom",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://gsx.co.uk/stockroom",
+  "description": "Inventory management and multi-marketplace listing tool for phone retailers. Push to eBay, BackMarket, On Buy, Refurbed and Temu from a single inventory record.",
+  "offers": { "@type": "Offer", "priceCurrency": "GBP" },
+  "publisher": { "@type": "Organization", "name": "GSX",
+  "legalName": "GSX (Global Seller Exchange)",
+  "alternateName": "Global Seller Exchange", "url": "https://gsx.co.uk/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I use Stockroom without PhoneCheck?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add stock manually — every device in the Product Database is one search away, so specs and title fill in for you. PhoneCheck just makes the process zero-keystroke for devices you've checked." } },
+    { "@type": "Question", "name": "Which marketplaces does Stockroom push to?", "acceptedAnswer": { "@type": "Answer", "text": "eBay, BackMarket, On Buy, Refurbed and Temu at launch. More are being added — Amazon, Reebelo, TikTok Shop and Shopify are high on the list. Tell us which one your business needs most." } },
+    { "@type": "Question", "name": "Can I edit listings per marketplace?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The default is one source record pushing identical listings everywhere, but per-channel overrides let you tune title, photos or price where a specific marketplace needs something different." } },
+    { "@type": "Question", "name": "What happens when something sells?", "acceptedAnswer": { "@type": "Answer", "text": "When a marketplace confirms a sale, Stockroom marks the device sold and pulls the listing from every other channel immediately — no double-selling." } },
+    { "@type": "Question", "name": "Is the inventory view really read-only?", "acceptedAnswer": { "@type": "Answer", "text": "The main dashboard view is read-only on purpose — safe for staff to reference without fear of accidental edits. Edit mode requires a deliberate action, and edits are logged per user." } },
+    { "@type": "Question", "name": "Can I export my inventory?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — CSV export of the full inventory at any time, plus API access on higher plans for anyone integrating with their own warehouse or accounting system." } },
+    { "@type": "Question", "name": "Does Stockroom replace my accounting system?", "acceptedAnswer": { "@type": "Answer", "text": "No — it's an operational inventory tool, not a full accounting package. But it integrates to QuickBooks, Stripe and Excel for your bookkeeper to work with." } }
+  ]
+}
+</script>
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c;
+        --brand-dark: #061e46;
+        --brand-light: #eff6ff;
+        --accent: #059669;
+        --accent-light: #d1fae5;
+        --danger: #dc2626;
+        --danger-light: #fee2e2;
+        --warn: #d97706;
+        --warn-light: #fef3c7;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --ink-muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    nav.top { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--line); }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 13px; }
+
+    /* Audience switch (Retail / Refurbishers / Enterprise) */
+    .audience-switch { display: inline-flex; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; }
+    .audience-switch a { font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; color: var(--ink-muted); text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active { background: white; color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.06); }
+    @media (max-width: 960px) { .audience-switch { align-self: center; margin: 6px 0; } }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.signin { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
+    .nav-links a.signin:hover { border-color: var(--ink-muted); text-decoration: none; }
+    .nav-toggle {
+        display: none; background: none; border: 0; cursor: pointer;
+        width: 40px; height: 40px; border-radius: 8px; padding: 0;
+        align-items: center; justify-content: center;
+    }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars,
+    .nav-toggle .bars::before,
+    .nav-toggle .bars::after {
+        content: ''; display: block; width: 22px; height: 2px;
+        background: var(--ink); border-radius: 2px; position: relative;
+        transition: transform 0.2s ease, top 0.2s ease, opacity 0.15s ease;
+    }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 0; transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease; text-align: center; text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    .hero { padding: 80px 0 60px; background: radial-gradient(ellipse at top right, rgba(10,46,92,0.08), transparent 60%), radial-gradient(ellipse at bottom left, rgba(5,150,105,0.06), transparent 60%), var(--bg); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--brand-light); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { font-size: 52px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 20px; font-weight: 800; color: var(--ink); }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead { font-size: 19px; color: var(--ink-soft); margin: 0 0 28px; max-width: 520px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust-line { margin-top: 28px; color: var(--ink-muted); font-size: 13px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .trust-line span::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    /* Stockroom mockup */
+    .sr {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        box-shadow: var(--shadow-lg); padding: 0; overflow: hidden;
+    }
+    .sr-head {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 16px 20px; border-bottom: 1px solid var(--line);
+        background: var(--bg-soft);
+    }
+    .sr-head .t-title { font-size: 11px; color: var(--ink-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .sr-head h3 { margin: 2px 0 0; font-size: 16px; letter-spacing: -0.01em; }
+    .sr-actions { display: flex; gap: 8px; align-items: center; }
+    .sr-actions .pill {
+        padding: 5px 10px; border-radius: 7px; font-size: 11px; font-weight: 600;
+        background: var(--brand); color: white;
+    }
+    .sr-actions .pill.ghost { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); }
+
+    .sr-stats {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        border-bottom: 1px solid var(--line);
+    }
+    .sr-stats .s { padding: 12px 14px; border-right: 1px solid var(--line); }
+    .sr-stats .s:last-child { border-right: 0; }
+    .sr-stats .s .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 600; }
+    .sr-stats .s .v { font-size: 18px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; margin-top: 2px; }
+    .sr-stats .s .v.accent { color: var(--accent); }
+
+    .sr-filters {
+        display: flex; gap: 6px; padding: 12px 16px; flex-wrap: wrap;
+        border-bottom: 1px solid var(--line);
+    }
+    .filter {
+        padding: 5px 11px; border-radius: 7px;
+        background: var(--bg-soft); border: 1px solid var(--line);
+        font-size: 12px; font-weight: 500; color: var(--ink-soft);
+    }
+    .filter.active { background: var(--brand-light); color: var(--brand); border-color: var(--brand); font-weight: 600; }
+
+    .sr-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .sr-table thead th {
+        text-align: left; padding: 9px 14px; font-weight: 600; font-size: 10px;
+        color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;
+        border-bottom: 1px solid var(--line); background: var(--bg-soft);
+    }
+    .sr-table thead th.num { text-align: right; }
+    .sr-table tbody td {
+        padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle;
+    }
+    .sr-table tbody tr:last-child td { border-bottom: 0; }
+    .sr-table td.sku { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: var(--ink-muted); }
+    .sr-table td.dev { font-weight: 600; color: var(--ink); }
+    .sr-table td.dev small { display: block; font-weight: 400; color: var(--ink-muted); font-size: 11px; margin-top: 2px; }
+    .sr-table td.price { text-align: right; font-weight: 700; color: var(--ink); }
+    .chip {
+        display: inline-flex; align-items: center; gap: 4px;
+        padding: 2px 8px; border-radius: 999px;
+        font-size: 11px; font-weight: 600;
+    }
+    .chip.ok { background: var(--accent-light); color: var(--accent); }
+    .chip.warn { background: var(--warn-light); color: var(--warn); }
+    .chip.neutral { background: var(--bg-soft); color: var(--ink-soft); border: 1px solid var(--line); }
+    .source-tag {
+        display: inline-flex; align-items: center; gap: 4px;
+        padding: 2px 7px; border-radius: 5px;
+        font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .source-tag.auto { background: var(--brand-light); color: var(--brand); }
+    .source-tag.manual { background: var(--warn-light); color: var(--warn); }
+    .listed { display: flex; gap: 4px; }
+    .listed .mk {
+        width: 20px; height: 20px; border-radius: 5px;
+        background: var(--bg-soft); border: 1px solid var(--line);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 10px; font-weight: 700; color: var(--ink-muted);
+    }
+    .listed .mk.on { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    section.dark { background: var(--ink); color: white; border: 0; }
+    section.dark h2 { color: white; }
+    section.dark p { color: rgba(255,255,255,0.75); }
+    .section-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 12px; }
+    h2 { font-size: 36px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; font-weight: 800; }
+    .section-head p { font-size: 17px; color: var(--ink-soft); margin: 0; }
+    section.dark .section-head p { color: rgba(255,255,255,0.7); }
+    section.dark .eyebrow { background: rgba(255,255,255,0.08); color: #93c5fd; }
+
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .feature { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .feature:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .feature-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--brand-light); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
+    .feature h3 { font-size: 17px; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .feature p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+    section.dark .feature { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    section.dark .feature:hover { border-color: #1e5d99; }
+    section.dark .feature-icon { background: rgba(30,93,153,0.15); color: #93c5fd; }
+    section.dark .feature h3 { color: white; }
+    section.dark .feature p { color: rgba(255,255,255,0.7); }
+
+    /* Marketplace logos strip */
+    .marketplaces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 40px auto 0; }
+    .mp-card {
+        background: white; border: 1px solid var(--line); border-radius: 14px;
+        padding: 22px; text-align: center; transition: border-color 0.2s, transform 0.2s;
+    }
+    .mp-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .mp-card .logo-txt {
+        font-size: 18px; font-weight: 800; letter-spacing: -0.02em;
+        color: var(--ink); margin-bottom: 4px;
+    }
+    .mp-card .t { font-size: 12px; color: var(--ink-muted); }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .split h2 { font-size: 30px; }
+    .split p { color: var(--ink-soft); font-size: 16px; margin: 0 0 14px; }
+    .split ul { list-style: none; padding: 0; margin: 20px 0 0; }
+    .split ul li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; }
+    .split ul li:last-child { border-bottom: 0; }
+    .split ul li .check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin-top: 1px; }
+    .split ul li strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+    .split ul li span.d { font-size: 14px; color: var(--ink-soft); }
+
+    /* Device detail card mockup */
+    .dev-card {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 24px; box-shadow: var(--shadow-md);
+    }
+    .dev-card .dc-head { display: flex; gap: 14px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .dev-card .dc-head .ico { width: 48px; height: 48px; border-radius: 10px; background: var(--ink); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .dev-card .dc-head h4 { margin: 0; font-size: 16px; letter-spacing: -0.01em; }
+    .dev-card .dc-head .sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .dev-card .row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+    .dev-card .row:last-child { border-bottom: 0; }
+    .dev-card .row .k { color: var(--ink-muted); }
+    .dev-card .row .v { color: var(--ink); font-weight: 600; }
+    .dev-card .listings { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .dev-card .lh { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 600; margin-bottom: 10px; }
+    .dev-card .lrow { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; font-size: 13px; }
+    .dev-card .lrow .mp { font-weight: 600; color: var(--ink); }
+    .dev-card .lrow .st { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+
+    /* Flow diagram: Phone Check → Stockroom → Marketplaces */
+    .flow-card {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 22px; box-shadow: var(--shadow-md);
+    }
+    .flow-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 10px; }
+    .flow-node { text-align: center; padding: 14px 8px; background: var(--bg-soft); border-radius: 10px; border: 1px solid var(--line); }
+    .flow-node .e { font-size: 24px; }
+    .flow-node .nm { font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 4px; }
+    .flow-node .d { font-size: 10px; color: var(--ink-muted); margin-top: 2px; }
+    .flow-node.center { background: var(--brand); border-color: var(--brand); }
+    .flow-node.center .nm, .flow-node.center .d { color: white; }
+    .flow-node.center .d { color: rgba(255,255,255,0.8); }
+    .flow-arrow { color: var(--brand); font-weight: 700; font-size: 20px; }
+
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; cursor: pointer; }
+    .faq details summary { font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .faq details summary::-webkit-details-marker { display: none; }
+    .faq details summary::after { content: '+'; font-size: 22px; color: var(--ink-muted); font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details p { margin: 10px 0 0; color: var(--ink-soft); font-size: 15px; }
+
+    .cta-block { background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%); color: white; border-radius: 20px; padding: 56px; text-align: center; position: relative; overflow: hidden; }
+    .cta-block::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%); transform: rotate(15deg); }
+    .cta-block > * { position: relative; }
+    .cta-block h2 { color: white; font-size: 32px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.75); font-size: 17px; margin: 0 0 28px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 40px 0; color: var(--ink-muted); font-size: 14px; }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 900px) {
+        .hero-grid, .split { grid-template-columns: 1fr; gap: 40px; }
+        .features, .marketplaces { grid-template-columns: 1fr 1fr; }
+        h1 { font-size: 38px; }
+        h2 { font-size: 28px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links {
+            display: none;
+            position: absolute; top: 64px; left: 0; right: 0;
+            flex-direction: column; align-items: stretch; gap: 4px;
+            background: white; border-bottom: 1px solid var(--line);
+            box-shadow: var(--shadow-sm); padding: 12px 20px 16px;
+        }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .nav-links a:hover { background: var(--bg-soft); }
+        .cta-block { padding: 40px 24px; }
+        .sr-stats { grid-template-columns: 1fr 1fr; }
+        .sr-stats .s:nth-child(2) { border-right: 0; }
+        .sr-stats .s:nth-child(1), .sr-stats .s:nth-child(2) { border-bottom: 1px solid var(--line); }
+        .sr-table thead th:nth-child(3), .sr-table tbody td:nth-child(3) { display: none; }
+        .flow-row { grid-template-columns: 1fr; }
+        .flow-arrow { display: none; }
+    }
+    @media (max-width: 520px) {
+        section { padding: 60px 0; }
+        .sr-table thead th:nth-child(5), .sr-table tbody td:nth-child(5) { display: none; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" class="active" role="tab" aria-selected="true">Retail</a>
+            <a href="/refurbishers/" role="tab" aria-selected="false">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <span class="eyebrow">GSX Service · Stockroom</span>
+            <h1>One inventory. <span class="hl">Every</span> marketplace.</h1>
+            <p class="lead">
+                Every device you check or add lands in one place — then pushes out to eBay, BackMarket, On Buy, Refurbed, Temu  and others with a click. Less re-keying. More listings live. Faster turn.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="#how" class="btn btn-secondary btn-lg">See it work</a>
+            </div>
+            <div class="trust-line">
+                <span>Auto-receive from Phone Check</span>
+                <span>Manual stock entry</span>
+                <span>Push to 4+ marketplaces</span>
+            </div>
+        </div>
+        <div>
+            <!-- Stockroom mockup -->
+            <div class="sr">
+                <div class="sr-head">
+                    <div>
+                        <div class="t-title">Stockroom · Counter 01</div>
+                        <h3>Live inventory</h3>
+                    </div>
+                    <div class="sr-actions">
+                        <span class="pill ghost">+ Add stock</span>
+                        <span class="pill">List to marketplaces</span>
+                    </div>
+                </div>
+                <div class="sr-stats">
+                    <div class="s">
+                        <div class="k">In stock</div>
+                        <div class="v">248</div>
+                    </div>
+                    <div class="s">
+                        <div class="k">Listed live</div>
+                        <div class="v accent">231</div>
+                    </div>
+                    <div class="s">
+                        <div class="k">Ready to list</div>
+                        <div class="v">17</div>
+                    </div>
+                    <div class="s">
+                        <div class="k">Total value</div>
+                        <div class="v">£62,840</div>
+                    </div>
+                </div>
+                <div class="sr-filters">
+                    <span class="filter active">All</span>
+                    <span class="filter">Phones</span>
+                    <span class="filter">Tablets</span>
+                    <span class="filter">Laptops</span>
+                    <span class="filter">Listed</span>
+                    <span class="filter">Unlisted</span>
+                </div>
+                <table class="sr-table">
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Source</th>
+                            <th>SKU</th>
+                            <th>Listed on</th>
+                            <th class="num">Ask</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="dev">iPhone 15 Pro · 256GB<small>Natural Titanium · Grade A</small></td>
+                            <td><span class="source-tag auto">auto</span></td>
+                            <td class="sku">GSX-48291</td>
+                            <td><span class="listed"><span class="mk on">eB</span><span class="mk on">BM</span><span class="mk on">Ob</span><span class="mk on">R</span></span></td>
+                            <td class="price">£749</td>
+                        </tr>
+                        <tr>
+                            <td class="dev">iPhone 14 · 128GB<small>Midnight · Grade B</small></td>
+                            <td><span class="source-tag auto">auto</span></td>
+                            <td class="sku">GSX-48289</td>
+                            <td><span class="listed"><span class="mk on">eB</span><span class="mk on">BM</span><span class="mk">R</span><span class="mk on">T</span></span></td>
+                            <td class="price">£419</td>
+                        </tr>
+                        <tr>
+                            <td class="dev">Galaxy S23 · 256GB<small>Phantom Black · Grade A</small></td>
+                            <td><span class="source-tag manual">manual</span></td>
+                            <td class="sku">GSX-48288</td>
+                            <td><span class="listed"><span class="mk on">eB</span><span class="mk">BM</span><span class="mk">Ob</span><span class="mk on">R</span></span></td>
+                            <td class="price">£485</td>
+                        </tr>
+                        <tr>
+                            <td class="dev">iPad Air 5 · 64GB<small>Space Grey · Grade A</small></td>
+                            <td><span class="source-tag auto">auto</span></td>
+                            <td class="sku">GSX-48285</td>
+                            <td><span class="listed"><span class="mk on">eB</span><span class="mk on">BM</span><span class="mk on">Ob</span><span class="mk on">R</span></span></td>
+                            <td class="price">£389</td>
+                        </tr>
+                        <tr>
+                            <td class="dev">MacBook Air M2 · 256GB<small>Silver · Grade A</small></td>
+                            <td><span class="source-tag manual">manual</span></td>
+                            <td class="sku">GSX-48283</td>
+                            <td><span class="listed"><span class="mk">eB</span><span class="mk">BM</span><span class="mk">Ob</span><span class="mk">R</span></span></td>
+                            <td class="price">£819</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What it is -->
+<section id="what" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">What it is</span>
+            <h2>Four jobs. One Stockroom.</h2>
+            <p>Stockroom isn't just a storage list. It's the resale launch pad — the place your stock comes from, sits in, and goes out to market from.</p>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Auto-receive</h3>
+                <p>Every device checked with PhoneCheck lands in Stockroom automatically — grade, IMEI, report and all.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <h3>Manual entry</h3>
+                <p>Add stock you didn't check — trade stock, wholesale pallets, legacy inventory — with a lightweight add-stock form.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Push to marketplaces</h3>
+                <p>One-click listings to eBay, BackMarket, On Buy, Refurbed, Temu. Titles, photos, specs and prices pre-filled.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Live inventory view</h3>
+                <p>One read-only view across every device — what you have, what's listed where, what's sold, what's returning.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marketplaces -->
+<section id="marketplaces">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Push channels</span>
+            <h2>List once. Sell everywhere.</h2>
+            <p>Stockroom pushes every device to the channels your customers actually buy from — with the right listing format for each one.</p>
+        </div>
+        <div class="marketplaces">
+            <div class="mp-card">
+                <div class="logo-txt">eBay</div>
+                <div class="t">UK + international</div>
+            </div>
+            <div class="mp-card">
+                <div class="logo-txt">BackMarket</div>
+                <div class="t">Refurb-first marketplace</div>
+            </div>
+            <div class="mp-card">
+                <div class="logo-txt">On Buy</div>
+                <div class="t">Renewed &amp; Used</div>
+            </div>
+            <div class="mp-card">
+                <div class="logo-txt">Refurbed</div>
+                <div class="t">UK + International</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 28px; color: var(--ink-muted); font-size: 13px;">More channels (Vinted, CEX, Swappa, Gumtree Pro) being added — tell us the one you need prioritised.</p>
+    </div>
+</section>
+
+<!-- Flow: PhoneCheck → Stockroom → Marketplaces -->
+<section id="how" class="alt">
+    <div class="container split">
+        <div>
+            <span class="eyebrow">The flow</span>
+            <h2>Check once. Sit once. Sell four times.</h2>
+            <p>
+                Before Stockroom, listing a phone meant re-keying model, capacity, colour, IMEI, grade, battery health, photos and price into each marketplace — every time. Stockroom collapses that into a single record that fans out to every channel.
+            </p>
+            <p>
+                Pull a device off the PhoneCheck hub and by the time you've put it back on the shelf, it's already live on four marketplaces.
+            </p>
+            <ul>
+                <li><span class="check">✓</span><div><strong>No re-keying</strong><span class="d">Auto-received devices land with every field filled. Manual entries use the Product Database to auto-fill titles and specs.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Photos flow through</strong><span class="d">Attach once, the right photos go to the right marketplaces at the right resolution.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Prices stay in sync</strong><span class="d">Change a price in Stockroom, every listing updates. Sell on one channel, the others pull down.</span></div></li>
+            </ul>
+        </div>
+        <div>
+            <div class="flow-card">
+                <div class="flow-row">
+                    <div class="flow-node">
+                        <div class="e">
+                            <a href="https://www.phonecheck.com/" target="_blank" rel="noopener">
+                                <img src="https://assets.phonecheck.com/Phonecheck_WhitePill@2x.png"
+                                     alt="Used device certification by Phonecheck"
+                                     style="height:32px;width:auto;border:0;display:inline-block;vertical-align:middle;">
+                            </a>
+                        </div>
+                        <div class="nm">PhoneCheck</div>
+                        <div class="d">Desktop app</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-node center">
+                        <div class="e">
+                            <span style="display:inline-flex;background:white;border-radius:8px;padding:4px;">
+                                <img src="favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;">
+                            </span>
+                        </div>
+                        <div class="nm">Stockroom</div>
+                        <div class="d">Single source of truth</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-node">
+                        <div class="e">
+                            <img src="ebay-logo.svg" alt="eBay" style="height:28px;width:auto;display:inline-block;vertical-align:middle;">
+                        </div>
+                        <div class="nm">Marketplaces</div>
+                        <div class="d">eBay · BM · Ob · T . R .</div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);">
+                    <div class="lrow" style="display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-muted);">
+                        <span>Manual stock can be added to Stockroom directly</span>
+                        <span style="color: var(--brand); font-weight: 600;">+ Add stock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Device detail -->
+<section id="record">
+    <div class="container split">
+        <div>
+            <div class="dev-card">
+                <div class="dc-head">
+                    <div class="ico"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                    <div>
+                        <h4>iPhone 15 Pro · 256GB · Natural Titanium</h4>
+                        <div class="sub">SKU: GSX-48291 · IMEI: 35 294011 987654 3</div>
+                    </div>
+                </div>
+                <div class="row"><span class="k">Grade</span><span class="v">A — Good</span></div>
+                <div class="row"><span class="k">Battery health</span><span class="v">91%</span></div>
+                <div class="row"><span class="k">Source</span><span class="v">Phone Check · auto</span></div>
+                <div class="row"><span class="k">Received</span><span class="v">Today, 14:02</span></div>
+                <div class="row"><span class="k">Cost</span><span class="v">£540</span></div>
+                <div class="row"><span class="k">Market avg</span><span class="v">£740</span></div>
+                <div class="row"><span class="k">Your ask</span><span class="v" style="color: var(--brand);">£749</span></div>
+                <div class="listings">
+                    <div class="lh">Listed on</div>
+                    <div class="lrow"><span class="mp">eBay UK</span><span class="st chip ok">Live · £749</span></div>
+                    <div class="lrow"><span class="mp">BackMarket</span><span class="st chip ok">Live · £749</span></div>
+                    <div class="lrow"><span class="mp">Amazon Renewed</span><span class="st chip ok">Live · £749</span></div>
+                    <div class="lrow"><span class="mp">Shopify (your site)</span><span class="st chip ok">Live · £749</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span class="eyebrow">Every device, one record</span>
+            <h2>A single truth for every piece of stock.</h2>
+            <p>
+                Each device in Stockroom is one record with every fact attached — grade, battery health, IMEI, photos, cost, ask price, marketplace status, full Phone Check report.
+            </p>
+            <p>
+                When something sells, returns, or gets re-priced, the record updates in one place and every channel follows. No stale listings. No missed margin.
+            </p>
+            <ul>
+                <li><span class="check">✓</span><div><strong>Read-only inventory view</strong><span class="d">See everything you have, everywhere it's listed, at every price — without fear of accidental edits.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Full PhoneCheck report attached</strong><span class="d">Customer disputes a grade? Pull up the timestamped diagnostic QR code in seconds.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Cost vs ask vs market</strong><span class="d">Every record shows what you paid, what you're asking, and what the market's doing — live.</span></div></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- How it fits -->
+<section class="dark">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">How it fits</span>
+            <h2>Stockroom connects everything else.</h2>
+            <p>It's the bridge between the devices coming in and the cash going out. Every other GSX service plugs into it.</p>
+        </div>
+        <div class="features" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="feature">
+                <div class="feature-icon">
+                    <a href="https://www.phonecheck.com/" target="_blank" rel="noopener" style="display:inline-flex;">
+                        <img src="https://assets.phonecheck.com/Phonecheck_WhiteBox@2x.png"
+                             alt="Used device certification by Phonecheck"
+                             style="height:34px;width:auto;border:0;display:block;">
+                    </a>
+                </div>
+                <h3>← PhoneCheck</h3>
+                <p>Every checked device auto-creates a Stockroom record — no re-keying, no missing fields.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>↔ GSX Pulse</h3>
+                <p>Every record in Stockroom is priced against live market data. Raise, hold or drop — always informed.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>↔ Buyback Widget</h3>
+                <p>Your Stockroom IMEI list powers your buyback quotes — quote smarter because you know what you already hold.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Common questions</h2>
+        </div>
+        <div class="faq">
+            <details>
+                <summary>Can I use Stockroom without PhoneCheck?</summary>
+                <p>Yes. You can add stock manually — every device in the Product Database is one search away, so specs and title fill in for you. PhoneCheck just makes the process zero-keystroke for devices you've checked.</p>
+            </details>
+            <details>
+                <summary>Which marketplaces does Stockroom push to?</summary>
+                <p>eBay, BackMarket, On Buy, Refurbed and Temu at launch. More are being added — Amazon, Reebelo, TikTok Shop and Shopify are high on the list. Tell us which one your business needs most.</p>
+            </details>
+            <details>
+                <summary>Can I edit listings per marketplace?</summary>
+                <p>Yes. The default is one source record pushing identical listings everywhere, but per-channel overrides let you tune title, photos or price where a specific marketplace needs something different.</p>
+            </details>
+            <details>
+                <summary>What happens when something sells?</summary>
+                <p>When a marketplace confirms a sale, Stockroom marks the device sold and pulls the listing from every other channel immediately — no double-selling.</p>
+            </details>
+            <details>
+                <summary>Is the inventory view really read-only?</summary>
+                <p>The main dashboard view is read-only on purpose — safe for staff to reference without fear of accidental edits. Edit mode requires a deliberate action, and edits are logged per user.</p>
+            </details>
+            <details>
+                <summary>Can I export my inventory?</summary>
+                <p>Yes — CSV export of the full inventory at any time, plus API access on higher plans for anyone integrating with their own warehouse or accounting system.</p>
+            </details>
+            <details>
+                <summary>Does Stockroom replace my accounting system?</summary>
+                <p>No — it's an operational inventory tool, not a full accounting package. But it intergrates to QuickBooks, Stripe and Excel for your bookkeeper to work with.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="demo">
+    <div class="container">
+        <div class="cta-block">
+            <h2>See a device go from counter to four marketplaces.</h2>
+            <p>Book a 20-minute demo. We'll walk a real device from PhoneCheck, into Stockroom, out to eBay, BackMarket and beyond — in real time.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:hello@2wc2.com?subject=Stockroom%20Demo" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="https://app.gsx.co.uk" class="btn btn-secondary btn-lg">Sign in to your portal →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <a href="https://app.gsx.co.uk" style="color: var(--ink-soft); font-weight: 500;">Sign in to your portal →</a>
+            <span>&copy; GSX (Global Seller Exchange). The complete buy & sell intelligence platform for mobile retailers.</span>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    try { localStorage.setItem('gsx_audience', 'retail'); } catch (e) {}
+
+    // Mobile nav toggle
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>

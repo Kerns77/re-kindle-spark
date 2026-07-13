@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX for Retail — Buy & sell intelligence for independent mobile retailers.</title>
+<meta name="description" content="GSX for Retail: the complete buy & sell intelligence platform for UK independent mobile phone retailers. Buy from consumers at the right price, test and process devices in-store, resell across every marketplace. From £49/month.">
+<link rel="canonical" href="https://gsx.co.uk/retail/">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/retail/">
+<meta property="og:title" content="GSX for Retail — Buy & sell intelligence for independent mobile retailers">
+<meta property="og:description" content="Buy from consumers at the right price. Test, wipe and process devices in-store. Resell across every marketplace. From £49/month.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:site_name" content="GSX">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GSX for Retail — Buy & sell intelligence for mobile retailers">
+<meta name="twitter:description" content="The complete platform for UK independent phone retailers. Buyback, diagnostics, inventory, marketplace listings — all connected.">
+<meta name="twitter:image" content="https://gsx.co.uk/icon-512.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GSX",
+  "legalName": "GSX (Global Seller Exchange)",
+  "alternateName": "Global Seller Exchange",
+  "url": "https://gsx.co.uk/",
+  "logo": "https://gsx.co.uk/icon-512.png",
+  "description": "GSX is the Mobile IQ Platform — the complete operating system for the mobile device lifecycle. GSX for Retail packages the platform for UK independent mobile phone retailers.",
+  "areaServed": "GB",
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "GSX for Retail",
+  "url": "https://gsx.co.uk/retail/",
+  "inLanguage": "en-GB",
+  "isPartOf": { "@type": "WebSite", "name": "GSX", "url": "https://gsx.co.uk/" },
+  "publisher": { "@type": "Organization", "name": "GSX" }
+}
+</script>
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c;
+        --brand-dark: #061e46;
+        --brand-light: #eff6ff;
+        --accent: #059669;
+        --accent-light: #d1fae5;
+        --warn: #d97706;
+        --warn-light: #fef3c7;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --ink-muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0; padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink); background: var(--bg);
+        line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav.top {
+        position: sticky; top: 0; z-index: 20;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: saturate(180%) blur(8px);
+        border-bottom: 1px solid var(--line);
+    }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo {
+        display: flex; align-items: center; gap: 10px;
+        font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em;
+        text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+    .logo-mark {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: white; font-weight: 800; font-size: 13px;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.signin {
+        padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line);
+        color: var(--ink); font-weight: 600;
+    }
+    .nav-links a.signin:hover { border-color: var(--ink-muted); text-decoration: none; }
+
+    /* Audience switch */
+    .audience-switch {
+        display: inline-flex; padding: 3px;
+        background: var(--bg-soft); border: 1px solid var(--line);
+        border-radius: 999px;
+    }
+    .audience-switch a {
+        font-size: 13px; font-weight: 600; padding: 6px 14px;
+        border-radius: 999px; color: var(--ink-muted);
+        text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active {
+        background: white; color: var(--ink);
+        box-shadow: 0 1px 2px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.06);
+    }
+
+    .nav-toggle {
+        display: none; background: none; border: 0; cursor: pointer;
+        width: 40px; height: 40px; border-radius: 8px; padding: 0;
+        align-items: center; justify-content: center;
+    }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars,
+    .nav-toggle .bars::before,
+    .nav-toggle .bars::after {
+        content: ''; display: block; width: 22px; height: 2px;
+        background: var(--ink); border-radius: 2px; position: relative;
+        transition: transform 0.2s ease, top 0.2s ease;
+    }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+    .btn {
+        display: inline-block; padding: 10px 18px; border-radius: 8px;
+        font-weight: 600; font-size: 14px; cursor: pointer; border: 0;
+        transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+        text-align: center; text-decoration: none;
+    }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    /* Hero */
+    .hero {
+        padding: 90px 0 70px;
+        background:
+            radial-gradient(ellipse at top right, rgba(10,46,92,0.1), transparent 60%),
+            radial-gradient(ellipse at bottom left, rgba(5,150,105,0.07), transparent 60%),
+            var(--bg);
+        text-align: center;
+    }
+    .eyebrow {
+        display: inline-block; padding: 6px 12px; border-radius: 999px;
+        background: var(--brand-light); color: var(--brand);
+        font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+    h1 {
+        font-size: 60px; line-height: 1.05; letter-spacing: -0.03em;
+        margin: 0 auto 22px; font-weight: 800; color: var(--ink);
+        max-width: 900px;
+    }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead {
+        font-size: 20px; color: var(--ink-soft); margin: 0 auto 32px; max-width: 720px;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .trust-line {
+        margin-top: 36px; color: var(--ink-muted); font-size: 13px;
+        display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+    }
+    .trust-line span::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 12px; }
+    h2 {
+        font-size: 38px; letter-spacing: -0.02em; line-height: 1.15;
+        margin: 0 0 14px; font-weight: 800;
+    }
+    .section-head p { font-size: 18px; color: var(--ink-soft); margin: 0; }
+
+    /* Pillars */
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 28px; }
+    .pillar {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 32px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        display: flex; flex-direction: column; position: relative;
+    }
+    .pillar:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .pillar.featured { border-color: var(--brand); box-shadow: var(--shadow-md); }
+    .pillar .top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .pillar .num {
+        width: 40px; height: 40px; border-radius: 10px;
+        background: var(--brand-light); color: var(--brand);
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 800; font-size: 16px;
+    }
+    .pillar h3 { font-size: 22px; margin: 0; letter-spacing: -0.01em; font-weight: 700; }
+    .pillar .status {
+        margin-left: auto; font-size: 11px; font-weight: 600;
+        padding: 4px 10px; border-radius: 999px;
+        text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .status.live { background: var(--accent-light); color: var(--accent); }
+    .pillar .tagline { font-size: 16px; color: var(--ink); font-weight: 600; margin: 0 0 10px; }
+    .pillar p.body { font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; flex-grow: 1; }
+    .pillar .bullets { list-style: none; padding: 0; margin: 0 0 20px; font-size: 14px; color: var(--ink-soft); }
+    .pillar .bullets li { padding: 4px 0; padding-left: 22px; position: relative; }
+    .pillar .bullets li::before {
+        content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+    }
+    .pillar .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Foundation strip */
+    .foundation {
+        margin-top: 28px;
+        background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+        color: white; border-radius: 16px; padding: 32px 36px;
+        display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center;
+        position: relative; overflow: hidden;
+    }
+    .foundation::before {
+        content: ''; position: absolute; top: -50%; right: -20%;
+        width: 60%; height: 200%;
+        background: radial-gradient(circle, rgba(10,46,92,0.35), transparent 70%);
+        transform: rotate(15deg);
+    }
+    .foundation > * { position: relative; }
+    .foundation .icon {
+        width: 56px; height: 56px; border-radius: 14px;
+        background: rgba(255,255,255,0.1); color: white;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .foundation .content h3 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.01em; }
+    .foundation .content p { margin: 0; color: rgba(255,255,255,0.82); font-size: 15px; max-width: 620px; }
+    .foundation .tag {
+        padding: 6px 14px; border-radius: 999px;
+        background: rgba(255,255,255,0.1); font-size: 12px; font-weight: 600;
+        letter-spacing: 0.04em; text-transform: uppercase;
+    }
+
+    /* Flow */
+    .flow-wrap {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        padding: 36px 28px; box-shadow: var(--shadow-sm);
+    }
+    .flow-top {
+        padding: 12px 18px; background: var(--brand-light); color: var(--brand);
+        border-radius: 10px; font-size: 13px; font-weight: 600; margin-bottom: 22px;
+        text-align: center; border: 1px dashed var(--brand);
+    }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+    .flow-step {
+        text-align: center; padding: 24px 14px;
+        background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+        position: relative;
+    }
+    .flow-step .icon {
+        width: 44px; height: 44px; border-radius: 10px;
+        background: white; color: var(--brand); border: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 12px;
+    }
+    .flow-step h4 {
+        margin: 0 0 4px; font-size: 14px; letter-spacing: -0.01em;
+        text-transform: uppercase; font-weight: 700; color: var(--ink);
+    }
+    .flow-step p { margin: 0; font-size: 12.5px; color: var(--ink-muted); }
+    .flow-step::after {
+        content: '→'; position: absolute; top: 50%; right: -14px; transform: translateY(-50%);
+        width: 28px; height: 28px; border-radius: 50%;
+        background: white; border: 1px solid var(--line);
+        color: var(--ink-muted); font-size: 16px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-base {
+        margin-top: 22px;
+        padding: 12px 18px; background: var(--bg-soft); border: 1px solid var(--line);
+        border-radius: 10px; text-align: center; font-size: 13px; color: var(--ink-muted);
+    }
+
+    /* Pricing */
+    .price-wrap {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        padding: 44px; box-shadow: var(--shadow-md);
+        display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    .price-wrap h2 { font-size: 32px; }
+    .price-wrap ul { list-style: none; padding: 0; margin: 18px 0 0; }
+    .price-wrap ul li {
+        padding: 12px 0; border-bottom: 1px solid var(--line);
+        display: flex; gap: 12px; align-items: flex-start;
+    }
+    .price-wrap ul li:last-child { border-bottom: 0; }
+    .price-wrap ul li .check {
+        flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+        background: var(--accent); color: white;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .price-wrap ul li strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+    .price-wrap ul li span.d { font-size: 14px; color: var(--ink-soft); }
+    .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .module {
+        padding: 16px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px;
+        font-size: 14px; font-weight: 600; color: var(--ink);
+        display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .module .m-icon {
+        width: 32px; height: 32px; border-radius: 8px;
+        background: white; color: var(--brand); border: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .module .m-txt { flex-grow: 1; }
+    .module .m-toggle {
+        width: 36px; height: 20px; border-radius: 999px; background: var(--accent);
+        position: relative;
+    }
+    .module .m-toggle::after {
+        content: ''; position: absolute; right: 2px; top: 2px;
+        width: 16px; height: 16px; border-radius: 50%; background: white;
+    }
+    .module.off .m-toggle { background: var(--line); }
+    .module.off .m-toggle::after { left: 2px; right: auto; }
+
+    /* Who */
+    .audience-strip {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        padding: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px;
+        align-items: center;
+    }
+    .audience-strip h2 { font-size: 30px; margin-bottom: 10px; }
+    .audience-strip p { color: var(--ink-soft); font-size: 16px; margin: 0 0 8px; }
+    .audience-grid-sm { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .audience-grid-sm .item {
+        padding: 14px 16px; background: var(--bg-soft);
+        border: 1px solid var(--line); border-radius: 10px;
+        font-size: 14px; color: var(--ink-soft);
+    }
+    .audience-grid-sm .item strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+    /* Enterprise nudge */
+    .ent-callout {
+        max-width: 860px; margin: 0 auto;
+        padding: 28px 32px; border-radius: var(--radius);
+        border: 1px solid var(--line); background: white;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .ent-callout h4 { margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em; }
+    .ent-callout p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+    /* CTA */
+    .cta-block {
+        background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+        color: white; border-radius: 20px; padding: 64px 40px; text-align: center;
+        position: relative; overflow: hidden;
+    }
+    .cta-block::before {
+        content: ''; position: absolute; top: -50%; right: -20%;
+        width: 60%; height: 200%;
+        background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%);
+        transform: rotate(15deg);
+    }
+    .cta-block > * { position: relative; }
+    .cta-block .eyebrow { background: rgba(255,255,255,0.1); color: white; }
+    .cta-block h2 { color: white; font-size: 36px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.8); font-size: 18px; margin: 0 auto 32px; max-width: 560px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    footer {
+        background: var(--bg-soft); border-top: 1px solid var(--line);
+        padding: 40px 0; color: var(--ink-muted); font-size: 14px;
+    }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    footer .linkset { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    footer .linkset a { color: var(--ink-soft); font-weight: 500; }
+
+    @media (max-width: 960px) {
+        .flow { grid-template-columns: 1fr 1fr; }
+        .flow-step:nth-child(2)::after { display: none; }
+        .pillars { grid-template-columns: 1fr; }
+        .audience-strip { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+        .price-wrap { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+        .foundation { grid-template-columns: 1fr; text-align: center; }
+        h1 { font-size: 44px; }
+        h2 { font-size: 28px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links {
+            display: none;
+            position: absolute; top: 64px; left: 0; right: 0;
+            flex-direction: column; align-items: stretch; gap: 4px;
+            background: white; border-bottom: 1px solid var(--line);
+            box-shadow: var(--shadow-sm); padding: 12px 20px 16px;
+        }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .nav-links a:hover { background: var(--bg-soft); }
+        .audience-switch { align-self: center; margin: 6px 0; }
+    }
+    @media (max-width: 520px) {
+        .flow { grid-template-columns: 1fr; }
+        .flow-step::after { display: none; }
+        .module-grid { grid-template-columns: 1fr; }
+        section { padding: 60px 0; }
+        .hero { padding: 60px 0 40px; }
+        h1 { font-size: 36px; }
+        .cta-block { padding: 44px 24px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" class="active" role="tab" aria-selected="true">Retail</a>
+            <a href="/refurbishers/" role="tab" aria-selected="false">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">GSX for Retail</span>
+        <h1>The complete buy &amp; sell intelligence platform <span class="hl">for mobile retailers</span>.</h1>
+        <p class="lead">
+            Buy from consumers at the right price, every time — with live market data doing the thinking for you.
+            Test, wipe and process devices in-store, then resell with confidence using real-time retail and marketplace pricing guidance.
+            From acquisition to resale, everything is connected. One platform. Total control of your margins.
+        </p>
+        <div class="hero-cta">
+            <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+            <a href="/pricing" class="btn btn-secondary btn-lg">See pricing</a>
+        </div>
+        <div class="trust-line">
+            <span>Built for independent retailers</span>
+            <span>From £49/month — cancel any time</span>
+            <span>Modular — add blocks as you grow</span>
+        </div>
+    </div>
+</section>
+
+<!-- Pillars -->
+<section id="pillars" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">What's included</span>
+            <h2>The complete device trading stack.</h2>
+            <p>Most retailers can't justify building this themselves — pricing intelligence, buyback widget, diagnostics, stock management, and a full device database.
+            We've already built it. You get everything in one subscription.</p>
+        </div>
+
+        <div class="pillars">
+
+            <div class="pillar featured">
+                <div class="top">
+                    <div class="num">1</div>
+                    <h3>Buyback Widget</h3>
+                    <span class="status live">Live</span>
+                </div>
+                <p class="tagline">Your branded trade-in widget. Drops into any website.</p>
+                <p class="body">
+                    A customer-facing widget that lets shoppers sell their phone to you, directly from your site. Instant quotes, postage included, price held for 14 days. You choose the devices, you choose the margin.
+                </p>
+                <ul class="bullets">
+                    <li>Embeds into Shopify, WooCommerce, Wix or custom sites</li>
+                    <li>Branded to your store — not ours</li>
+                    <li>Mobile-first, conversion-optimised</li>
+                </ul>
+                <div class="actions">
+                    <a href="/buyback" class="btn btn-primary">See the full page →</a>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="top">
+                    <div class="num">2</div>
+                    <h3>GSX Pulse</h3>
+                    <span class="status live">Live</span>
+                </div>
+                <p class="tagline">Live buyback pricing intelligence across the UK market.</p>
+                <p class="body">
+                    Track real-time offers across leading UK buyback providers — by make, model, capacity and grade.
+                    Includes last-checked and last-changed pricing, refreshed multiple times a day.
+                </p>
+                <ul class="bullets">
+                    <li>Updated multiple times per day</li>
+                    <li>Full price-change history, not just snapshots</li>
+                    <li>Benchmark against any competitor or market average</li>
+                </ul>
+                <div class="actions">
+                    <a href="/pulse/" class="btn btn-primary">See the full page →</a>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="top">
+                    <div class="num">3</div>
+                    <h3>PhoneCheck</h3>
+                    <span class="status live">Live</span>
+                </div>
+                <p class="tagline">Every device verified in one check — diagnostics, blacklist, IMEI, warranty, OEM parts.</p>
+                <p class="body">
+                    Mac and Windows desktop app. Runs full cosmetic and hardware diagnostics plus blacklist, SIM, IMEI and warranty checks, followed by Secure Data Wipe on phones, tablets, Apple Watch, MacBooks and laptops. Powered by phonecheck.com.
+                </p>
+                <ul class="bullets">
+                    <li>Desktop app — Mac &amp; Windows</li>
+                    <li>Covers phones, tablets, Apple Watch, MacBook &amp; laptops</li>
+                    <li>Device lands in your Stockroom automatically</li>
+                </ul>
+                <div class="actions">
+                    <a href="/phone-check" class="btn btn-primary">See the full page →</a>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="top">
+                    <div class="num">4</div>
+                    <h3>Stockroom</h3>
+                    <span class="status live">Live</span>
+                </div>
+                <p class="tagline">Every device you buy, catalogued, graded — ready to resell.</p>
+                <p class="body">
+                    Auto-receives stock from PhoneCheck. Allows manual entries. Lists directly to marketplaces. Your single dashboard for every device in stock.
+                </p>
+                <ul class="bullets">
+                    <li>Auto-populated from PhoneCheck + manual entry</li>
+                    <li>Pushes listings to eBay, BackMarket, OnBuy, Shopify and more</li>
+                    <li>Per-device audit trail: IMEI, photos, diagnostics, margin</li>
+                </ul>
+                <div class="actions">
+                    <a href="/stockroom" class="btn btn-primary">See the full page →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="foundation">
+            <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:40px;height:40px;display:block;"></div>
+            <div class="content">
+                <h3>Powered by the GSX Product Database</h3>
+                <p>Every GSX service runs on our complete device database — every brand, every model, every variant, every spec, every image. Maintained by us. You never touch a spreadsheet.</p>
+            </div>
+            <div class="tag">The foundation</div>
+        </div>
+    </div>
+</section>
+
+<!-- Flow -->
+<section id="flow">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">How it flows</span>
+            <h2>Every device, end-to-end, on one platform.</h2>
+            <p>From the moment a customer hits your site to the moment their device is graded and ready to resell.</p>
+        </div>
+        <div class="flow-wrap">
+            <div class="flow-top"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"> GSX Pulse feeds live pricing into every step below</div>
+            <div class="flow">
+                <div class="flow-step">
+                    <div class="icon"><img src="/favicon.svg" alt="" style="width:30px;height:30px;display:block;"></div>
+                    <h4>Quote</h4>
+                    <p>Customer uses your widget, gets an instant price</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon"><img src="/favicon.svg" alt="" style="width:30px;height:30px;display:block;"></div>
+                    <h4>Receive</h4>
+                    <p>Device ships to your location, free tracked postage</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon"><img src="/favicon.svg" alt="" style="width:30px;height:30px;display:block;"></div>
+                    <h4>Check</h4>
+                    <p>PhoneCheck runs full diagnostic + blacklist</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon"><img src="/favicon.svg" alt="" style="width:30px;height:30px;display:block;"></div>
+                    <h4>Stock</h4>
+                    <p>Device appears in Stockroom, graded and ready</p>
+                </div>
+            </div>
+            <div class="flow-base">
+                <img src="/favicon.svg" alt="" style="width:18px;height:18px;vertical-align:-4px;margin-right:6px;"> Every step pulls from the GSX Product Database — so every device, every spec, every image is already there
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing strip -->
+<section id="pricing" class="alt">
+    <div class="container">
+        <div class="price-wrap">
+            <div>
+                <span class="eyebrow">Subscription &amp; modular</span>
+                <h2>Start small. Add modules as you grow.</h2>
+                <p style="color: var(--ink-soft); font-size: 16px; margin: 14px 0 0;">
+                    GSX is a subscription platform designed for independent retailers — without the cost of building it yourself.
+                    Start with the buyback widget, then layer in GSX Pulse for smarter pricing, Phone Check for processing, and Stockroom as your volume grows.
+                    Turn modules on or off as your business evolves.
+                </p>
+                <p style="font-size: 17px; margin: 18px 0 4px; color: var(--ink);">
+                    <strong>From £49/month.</strong> Save 20% with annual billing.
+                </p>
+                <ul>
+                    <li><span class="check">✓</span><div><strong>Pay for what you use</strong><span class="d">Per-module subscription. Flexible billing, no setup fees.</span></div></li>
+                    <li><span class="check">✓</span><div><strong>Add or drop modules any time</strong><span class="d">Scale up in peak trade-in season, scale back when you don't need it.</span></div></li>
+                    <li><span class="check">✓</span><div><strong>Save up to 20% with annual billing</strong><span class="d">Pay monthly, quarterly (–10%) or annually (–20%) — whatever suits your cash flow.</span></div></li>
+                </ul>
+                <p style="margin: 20px 0 0;">
+                    <a href="/pricing" style="font-weight: 600; font-size: 15px;">See full plans &amp; pricing →</a>
+                </p>
+            </div>
+            <div>
+                <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; color: var(--ink-muted); margin-bottom: 12px;">Your subscription — switch modules on &amp; off</div>
+                <div class="module-grid">
+                    <div class="module"><div class="m-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div><div class="m-txt">Buyback Widget</div><div class="m-toggle"></div></div>
+                    <div class="module"><div class="m-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div><div class="m-txt">GSX Pulse</div><div class="m-toggle"></div></div>
+                    <div class="module"><div class="m-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div><div class="m-txt">Phone Check</div><div class="m-toggle"></div></div>
+                    <div class="module off"><div class="m-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div><div class="m-txt">Stockroom</div><div class="m-toggle"></div></div>
+                </div>
+                <div style="font-size: 12px; color: var(--ink-muted); margin-top: 12px; text-align: center;">Product Database is included with every subscription.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who it's for -->
+<section id="who">
+    <div class="container">
+        <div class="audience-strip">
+            <div>
+                <span class="eyebrow">Who it's for</span>
+                <h2>Independent retailers.</h2>
+                <p>If you sell devices online, buy in store, or run a Shopify store in this space — GSX was built for you.</p>
+                <p>Purpose-built for independents — not enterprise platforms retrofitted for smaller businesses.
+                Finally, tools that fit how you actually trade.</p>
+            </div>
+            <div class="audience-grid-sm">
+                <div class="item"><strong>Independent retailers</strong>Online, on the high street, or both.</div>
+                <div class="item"><strong>Shopify &amp; small-merchant stores</strong>Selling devices and ready to buy them in too.</div>
+                <div class="item"><strong>Repair-led businesses</strong>Adding buyback and stock management.</div>
+                <div class="item"><strong>Refurb resellers</strong>Who need a consumer-facing acquisition channel.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enterprise nudge -->
+<section style="padding: 40px 0 80px;">
+    <div class="container">
+        <div class="ent-callout">
+            <div>
+                <h4>Running a bigger operation?</h4>
+                <p>Selling across multiple marketplaces, moving 1,000+ devices a month, or running 5+ stores? Look at <strong>GSX for Enterprise</strong> — Pricer, multi-site Stockroom, bulk valuation API, dedicated CSM.</p>
+            </div>
+            <a href="/enterprise/" class="btn btn-secondary">Explore GSX for Enterprise →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="demo">
+    <div class="container">
+        <div class="cta-block">
+            <span class="eyebrow">Book a demo</span>
+            <h2>See GSX running on a shop like yours.</h2>
+            <p>20 minutes. We'll walk you through the widget, show you live competitor pricing for your top sellers, and quote you a subscription that fits your size.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:hello@2wc2.com?subject=GSX%20Demo%20Request" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="/buyback" class="btn btn-secondary btn-lg">Start with Buyback →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="linkset">
+            <a href="/">Platform home</a>
+            <a href="/enterprise/">For Enterprise</a>
+            <a href="https://app.gsx.co.uk">Sign in →</a>
+        </div>
+        <span>&copy; GSX (Global Seller Exchange). The Mobile IQ Platform.</span>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+    try { localStorage.setItem('gsx_audience', 'retail'); } catch (e) {}
+</script>
+
+</body>
+</html>

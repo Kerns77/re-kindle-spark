@@ -1,0 +1,33 @@
+# Cloudflare Pages redirects
+
+# Retail (.html files) — normalise trailing slashes
+/buyback/          /buyback          301
+/phone-check/      /phone-check      301
+/stockroom/        /stockroom        301
+/pricing/          /pricing          301
+
+# GSX Pulse — Market Tracker rename (June 2026)
+/market-tracker            /pulse/         301
+/market-tracker/           /pulse/         301
+/market-tracker.html       /pulse/         301
+/pulse                     /pulse/         301
+
+# Directory routes — add trailing slash for relative URL safety
+/retail               /retail/                301
+/refurbishers         /refurbishers/          301
+/enterprise           /enterprise/            301
+/flow                 /flow/                  301
+/provenance           /provenance/            301
+/integrations         /integrations/          301
+/sell                 /sell/                  301
+/enterprise/pricer    /enterprise/pricer/     301
+/enterprise/contact   /enterprise/contact/    301
+
+# Legacy paths
+/gsx-buyback-service       /buyback         301
+/gsx-buyback-service.html  /buyback         301
+/buyback.html              /buyback         301
+/phone-check.html          /phone-check     301
+/stockroom.html            /stockroom       301
+/pricing.html              /pricing         301
+/index.html                /                301

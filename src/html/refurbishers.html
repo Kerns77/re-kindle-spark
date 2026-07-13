@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX for Refurbishers — Auto-routing, marketplace compliance and multi-country pricing.</title>
+<meta name="description" content="GSX for Refurbishers: the compliance and intelligence layer for operations processing 100–5,000 devices a month. Auto-routing with Flow. Per-channel pricing with Pricer. One-click push to nine marketplaces, with the audit trail Amazon Renewed, BackMarket and Refurbed require.">
+<link rel="canonical" href="https://gsx.co.uk/refurbishers/">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/refurbishers/">
+<meta property="og:title" content="GSX for Refurbishers — Auto-routing, compliance, multi-country pricing">
+<meta property="og:description" content="Built for floors processing 100–5,000 devices/month. Auto-routing, marketplace compliance, per-channel pricing.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "GSX for Refurbishers",
+  "url": "https://gsx.co.uk/refurbishers/",
+  "description": "The compliance and intelligence layer for refurbishers processing 100–5,000 devices per month. Auto-routing, per-channel pricing, multi-country market data, marketplace push.",
+  "inLanguage": "en-GB",
+  "isPartOf": { "@type": "WebSite", "name": "GSX", "url": "https://gsx.co.uk/" },
+  "publisher": { "@type": "Organization", "name": "GSX" }
+}
+</script>
+
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c; --brand-dark: #061e46; --brand-light: #eff6ff;
+        --accent: #059669; --accent-light: #d1fae5;
+        --warn: #d97706; --warn-light: #fef3c7;
+        --bad: #dc2626; --bad-light: #fee2e2;
+        --ink: #0f172a; --ink-soft: #334155; --ink-muted: #64748b;
+        --line: #e2e8f0; --bg: #ffffff; --bg-soft: #f8fafc; --bg-dark: #0f172a;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0; padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink); background: var(--bg);
+        line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+    nav.top {
+        position: sticky; top: 0; z-index: 20;
+        background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(8px);
+        border-bottom: 1px solid var(--line);
+    }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 13px; }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.signin { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
+    .audience-switch { display: inline-flex; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; }
+    .audience-switch a { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--ink-muted); text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active { background: white; color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,0.08); }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; width: 40px; height: 40px; border-radius: 8px; padding: 0; align-items: center; justify-content: center; }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars, .nav-toggle .bars::before, .nav-toggle .bars::after { content: ''; display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; position: relative; transition: transform 0.2s ease, top 0.2s ease; }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 0; transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease; text-align: center; text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    /* Hero */
+    .hero { padding: 90px 0 70px; background: radial-gradient(ellipse at top right, rgba(10,46,92,0.12), transparent 60%), radial-gradient(ellipse at bottom left, rgba(15,23,42,0.06), transparent 60%), var(--bg); }
+    .hero-row { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+    .eyebrow { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--brand-light); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { font-size: 52px; line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 18px; font-weight: 800; color: var(--ink); }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead { font-size: 19px; color: var(--ink-soft); margin: 0 0 14px; }
+    .hero p.sub { font-size: 15px; color: var(--ink-muted); margin: 0 0 28px; max-width: 580px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-card { background: var(--bg-dark); color: white; border-radius: 16px; padding: 28px; position: relative; overflow: hidden; }
+    .hero-card::before { content: ''; position: absolute; top: -40%; right: -30%; width: 70%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.35), transparent 70%); transform: rotate(15deg); }
+    .hero-card > * { position: relative; }
+    .hero-card .tagline { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 16px; }
+    .hero-card h3 { font-size: 19px; margin: 0 0 18px; letter-spacing: -0.01em; }
+    .hero-card .metric { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: baseline; }
+    .hero-card .metric:last-child { border-bottom: 0; padding-bottom: 0; }
+    .hero-card .metric .label { font-size: 13px; color: rgba(255,255,255,0.7); }
+    .hero-card .metric .value { font-size: 20px; font-weight: 800; color: white; letter-spacing: -0.01em; }
+    .hero-card .metric .value.win { color: #34d399; }
+
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { max-width: 800px; margin: 0 auto 48px; text-align: center; }
+    h2 { font-size: 38px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; font-weight: 800; }
+    .section-head p { font-size: 18px; color: var(--ink-soft); margin: 0; }
+
+    /* Problem */
+    .problem { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 40px 44px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+    .problem h3 { font-size: 26px; margin: 0 0 14px; letter-spacing: -0.02em; }
+    .problem p { font-size: 16px; color: var(--ink-soft); margin: 0; }
+    .problem-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .problem-list .pl { padding: 14px 16px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; font-size: 13px; }
+    .problem-list .pl strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+    .problem-list .pl span { color: var(--ink-muted); }
+
+    /* Stack cards */
+    .stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .stack-card { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 30px; position: relative; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .stack-card:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .stack-card.featured { border-color: var(--brand); box-shadow: var(--shadow-md); }
+    .stack-card .badge { position: absolute; top: 18px; right: 22px; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stack-card .badge.live { background: var(--accent-light); color: var(--accent); }
+    .stack-card .badge.flag { background: var(--brand-light); color: var(--brand); }
+    .stack-card .head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .stack-card .icon { width: 48px; height: 48px; border-radius: 12px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stack-card h3 { font-size: 21px; margin: 0; letter-spacing: -0.01em; font-weight: 800; }
+    .stack-card .tagline { font-size: 14.5px; color: var(--ink); font-weight: 600; margin: 0 0 10px; }
+    .stack-card p.body { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; flex-grow: 1; }
+    .stack-card ul { list-style: none; padding: 0; margin: 0 0 16px; font-size: 13px; color: var(--ink-soft); }
+    .stack-card ul li { padding: 4px 0; padding-left: 22px; position: relative; }
+    .stack-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .stack-card .footer-link { font-size: 14px; font-weight: 600; color: var(--brand); }
+
+    /* Marketplace strip */
+    .mkt-strip { margin-top: 22px; background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%); color: white; border-radius: 14px; padding: 26px 28px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; position: relative; overflow: hidden; }
+    .mkt-strip::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%); transform: rotate(15deg); }
+    .mkt-strip > * { position: relative; }
+    .mkt-strip .mh { flex: 0 0 auto; min-width: 230px; }
+    .mkt-strip .mh strong { display: block; font-size: 17px; margin: 0 0 2px; }
+    .mkt-strip .mh span { font-size: 13px; color: rgba(255,255,255,0.75); }
+    .mkt-list { flex: 1; display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .mkt-pill { padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 12.5px; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.15); }
+
+    /* Why */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .why-card { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
+    .why-card .wi { width: 42px; height: 42px; border-radius: 10px; background: var(--brand-light); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .why-card h4 { font-size: 17px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .why-card p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+    /* Pricing band */
+    .pricing-band { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 36px 40px; text-align: center; }
+    .pricing-band .from { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 700; margin-bottom: 8px; }
+    .pricing-band .price { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+    .pricing-band .price small { font-size: 17px; color: var(--ink-muted); font-weight: 500; }
+    .pricing-band .range { font-size: 15px; color: var(--ink-soft); margin: 8px 0 22px; }
+    .pricing-band .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 22px 0 0; }
+    .pricing-band .point { font-size: 13px; color: var(--ink-soft); padding: 14px 16px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; }
+    .pricing-band .point strong { display: block; color: var(--ink); margin-bottom: 4px; font-size: 13.5px; }
+
+    /* CTA */
+    .cta-block { background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%); color: white; border-radius: 20px; padding: 56px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-block::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%); transform: rotate(15deg); }
+    .cta-block > * { position: relative; }
+    .cta-block .eyebrow { background: rgba(255,255,255,0.1); color: white; }
+    .cta-block h2 { color: white; font-size: 32px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.8); font-size: 17px; margin: 0 auto 28px; max-width: 580px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 40px 0; color: var(--ink-muted); font-size: 14px; }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    footer .linkset { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    footer .linkset a { color: var(--ink-soft); font-weight: 500; }
+
+    @media (max-width: 960px) {
+        .hero-row, .problem { grid-template-columns: 1fr; gap: 30px; }
+        .problem-list { grid-template-columns: 1fr; }
+        .stack { grid-template-columns: 1fr; }
+        .why-grid { grid-template-columns: 1fr; }
+        .pricing-band .points { grid-template-columns: 1fr; }
+        .mkt-strip { flex-direction: column; align-items: flex-start; }
+        .mkt-list { justify-content: flex-start; }
+        h1 { font-size: 38px; }
+        h2 { font-size: 28px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; background: white; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-sm); padding: 12px 20px 16px; }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .audience-switch { align-self: center; margin: 6px 0; }
+    }
+    @media (max-width: 520px) {
+        section { padding: 50px 0; }
+        .hero { padding: 50px 0 30px; }
+        h1 { font-size: 30px; }
+        .problem, .pricing-band { padding: 28px 24px; }
+        .cta-block { padding: 40px 24px; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" role="tab" aria-selected="false">Retail</a>
+            <a href="/refurbishers/" class="active" role="tab" aria-selected="true">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/refurbishers/#pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-row">
+            <div>
+                <span class="eyebrow">GSX for Refurbishers</span>
+                <h1>Built for the floor. Built for the <span class="hl">marketplaces.</span></h1>
+                <p class="lead">
+                    GSX runs the operations and the audit trail every modern refurbisher needs — auto-routing through Flow, per-channel pricing through Pricer, one-click push to nine marketplaces. With the compliance stamp Amazon Renewed, BackMarket and Refurbed auditors want.
+                </p>
+                <p class="sub">
+                    For UK operations processing 100 to 5,000 devices a month. Talk-to-sales pricing. Dedicated success manager. Onboarding in weeks, not months.
+                </p>
+                <div class="hero-cta">
+                    <a href="/enterprise/contact/" class="btn btn-primary btn-lg">Request a sample report</a>
+                    <a href="/flow/" class="btn btn-secondary btn-lg">See Flow →</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="tagline">Sample refurbisher · 1,000 devices/day</div>
+                <h3>What GSX delivered last week</h3>
+                <div class="metric">
+                    <span class="label">Devices auto-routed</span>
+                    <span class="value win">96.4%</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Audit-trail coverage</span>
+                    <span class="value win">100%</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Capturable margin (Pricer)</span>
+                    <span class="value">£17,408</span>
+                </div>
+                <div class="metric">
+                    <span class="label">BackMarket buybox win-rate</span>
+                    <span class="value win">81.8%</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Marketplaces pushed to</span>
+                    <span class="value">9</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem -->
+<section>
+    <div class="container">
+        <div class="problem">
+            <div>
+                <span class="eyebrow">The problem we solve</span>
+                <h3>Marketplaces are tightening. Your floor isn't.</h3>
+                <p>You're processing thousands of devices a month across multiple marketplaces. Each platform has different grade rules, different compliance requirements, different competitor sets, different audit cadences. Manual routing and spreadsheet pricing can't keep up — and Amazon Renewed suspensions are running at all-time highs.</p>
+            </div>
+            <div class="problem-list">
+                <div class="pl"><strong>5,000+ devices/month</strong><span>Operator routing decisions don't scale</span></div>
+                <div class="pl"><strong>9 marketplace channels</strong><span>Each with different rules and audits</span></div>
+                <div class="pl"><strong>Per-channel pricing</strong><span>One blanket price loses buyboxes</span></div>
+                <div class="pl"><strong>Audit trail required</strong><span>Or lose the seller account</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stack cards -->
+<section id="stack" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">The Refurbisher stack</span>
+            <h2>Six modules. One platform. The whole loop.</h2>
+            <p>Flow is the headline — the auto-routing engine that runs your floor. Pricer drives the per-channel resale decisions. Marketplace Push gets it sold. Stockroom Pro, B2B Trade Zone and multi-country GSX Pulse fill in the rest.</p>
+        </div>
+
+        <div class="stack">
+
+            <a href="/flow/" class="stack-card featured" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>Flow</h3>
+                </div>
+                <p class="tagline">Auto-routing and compliance for every device.</p>
+                <p class="body">
+                    Every device that completes PhoneCheck gets routed automatically — by IMEI status, grade, condition and target channel. Audit trail attached. Exception queue for the 3% that need human judgement. The compliance backbone Amazon Renewed and BackMarket want.
+                </p>
+                <ul>
+                    <li>IMEI-aware, grade-aware, channel-aware routing</li>
+                    <li>Audit trail stamped per device</li>
+                    <li>Marketplace-ready compliance exports</li>
+                </ul>
+                <span class="footer-link">See the full Flow page →</span>
+            </a>
+
+            <a href="/provenance/" class="stack-card featured" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>Provenance</h3>
+                </div>
+                <p class="tagline">The check that comes after the blacklist check.</p>
+                <p class="body">
+                    Not all working phones are safe to buy — and not all are eligible for the UK VAT Margin Scheme. Provenance verifies original retailer, activation date, warranty and country of first sale. Catches devices at risk of silent blacklisting when the original buyer defaults on handset finance. Evidences the UK-first-sale requirement HMRC wants for margin-scheme eligibility on imported stock.
+                </p>
+                <ul>
+                    <li>Original retailer, activation date, warranty state</li>
+                    <li>Country of first sale — margin scheme evidence layer</li>
+                    <li>Finance-risk flags feed Flow routing rules</li>
+                    <li>Per-check or bulk-included at your tier</li>
+                </ul>
+                <span class="footer-link">See the full Provenance page →</span>
+            </a>
+
+            <a href="/enterprise/pricer/" class="stack-card" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>Pricer</h3>
+                </div>
+                <p class="tagline">Per-channel, per-SKU pricing recommendations.</p>
+                <p class="body">
+                    Pricer benchmarks every SKU against the right competitive set on each of your six channels. Surfaces buybox losses, move-up margin opportunities, repricing alerts. Sample customer captured £17,408 of margin in one report.
+                </p>
+                <ul>
+                    <li>Per-channel benchmarking + buybox tracking</li>
+                    <li>Move-up margin capture (pure profit)</li>
+                    <li>Grade-normalised matching across platforms</li>
+                </ul>
+                <span class="footer-link">See the full Pricer page →</span>
+            </a>
+
+            <a href="/enterprise/contact/" class="stack-card" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>Marketplace Push</h3>
+                </div>
+                <p class="tagline">One click. Nine channels. Audit trail attached.</p>
+                <p class="body">
+                    Push stock to eBay, Amazon, BackMarket, ReBuy, OnBuy, Refurbed, TikTok Shop, Temu and Shopify — with the audit trail and grade definitions each one expects, pre-formatted. Listings stay in sync with Stockroom.
+                </p>
+                <ul>
+                    <li>Nine channels, one push</li>
+                    <li>Audit trail formatted per marketplace</li>
+                    <li>Stockroom-synced inventory and listings</li>
+                </ul>
+                <span class="footer-link">Talk about marketplace push →</span>
+            </a>
+
+            <a href="/stockroom" class="stack-card" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>Stockroom Pro</h3>
+                </div>
+                <p class="tagline">Multi-site stock control with full per-device audit.</p>
+                <p class="body">
+                    Multi-warehouse, multi-team Stockroom with role-based access. Every device shows IMEI, photos, diagnostics, wipe certificate, margin and full audit trail. The chain of custody auditors actually want to see.
+                </p>
+                <ul>
+                    <li>Multi-warehouse, role-based access</li>
+                    <li>Per-device audit trail front and centre</li>
+                    <li>Direct integration with Flow and Pricer</li>
+                </ul>
+                <span class="footer-link">See the Stockroom page →</span>
+            </a>
+
+            <a href="/enterprise/contact/" class="stack-card" style="text-decoration: none; color: inherit;">
+                <span class="badge flag">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>B2B Trade Zone</h3>
+                </div>
+                <p class="tagline">Buy and sell trade stock with vetted businesses.</p>
+                <p class="body">
+                    Source stock from other refurbishers. Sell graded-down lots to wholesalers. The Trade Zone connects vetted businesses, with all transactions stamped to the same audit trail as your retail sales.
+                </p>
+                <ul>
+                    <li>Vetted business network</li>
+                    <li>Bulk lot buying and selling</li>
+                    <li>Audit-trailed B2B transactions</li>
+                </ul>
+                <span class="footer-link">Talk about Trade Zone →</span>
+            </a>
+
+            <a href="/pulse/" class="stack-card" style="text-decoration: none; color: inherit;">
+                <span class="badge live">Live</span>
+                <div class="head">
+                    <div class="icon"><img src="/favicon.svg" alt="GSX" style="width:30px;height:30px;display:block;"></div>
+                    <h3>GSX Pulse</h3>
+                </div>
+                <p class="tagline">UK, Europe, USA, Middle East and Australia pricing.</p>
+                <p class="body">
+                    Live market pricing data across the UK, EU, USA, Middle East and Australia — by recycler, by marketplace, by SKU. Compare what every major player is paying or selling for, in every major region. Feeds straight into Pricer and your buyback widget.
+                </p>
+                <ul>
+                    <li>Multi-country market coverage</li>
+                    <li>Recycler-by-recycler comparison</li>
+                    <li>Live pricing feeds into your widget</li>
+                </ul>
+                <span class="footer-link">See the GSX Pulse page →</span>
+            </a>
+
+        </div>
+
+        <div class="mkt-strip">
+            <div class="mh">
+                <strong>5 live, 4 coming Q3.</strong>
+                <span>Marketplace Push delivers the audit trail each channel requires. <strong style="color: #34d399;">Official Shopify Partner</strong> — deep push integration in build.</span>
+            </div>
+            <div class="mkt-list">
+                <span class="mkt-pill">eBay</span>
+                <span class="mkt-pill">BackMarket</span>
+                <span class="mkt-pill">OnBuy</span>
+                <span class="mkt-pill">Refurbed</span>
+                <span class="mkt-pill">Temu</span>
+                <span class="mkt-pill" style="background:rgba(52,211,153,0.15);border-color:rgba(52,211,153,0.4);color:#34d399;">Shopify · Partner</span>
+                <span class="mkt-pill" style="background:rgba(217,119,6,0.15);border-color:rgba(217,119,6,0.3);color:#fbbf24;">Amazon · Q3</span>
+                <span class="mkt-pill" style="background:rgba(217,119,6,0.15);border-color:rgba(217,119,6,0.3);color:#fbbf24;">Reebelo · Q3</span>
+                <span class="mkt-pill" style="background:rgba(217,119,6,0.15);border-color:rgba(217,119,6,0.3);color:#fbbf24;">TikTok Shop · Q3</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why GSX for Refurbishers -->
+<section>
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Why GSX for Refurbishers</span>
+            <h2>The compliance gap. Closed.</h2>
+            <p>Most refurbishers fly blind on compliance. GSX is the only platform that runs the full lifecycle and stamps every step. The result: marketplace accounts stay alive, margins go up, operator headcount goes down.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>Marketplace compliance</h4>
+                <p>Amazon Renewed, BackMarket certified, Refurbed audit pass — the per-device trail is the defence. Every listing carries it.</p>
+            </div>
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>No operator decisions</h4>
+                <p>Flow auto-routes. Pricer prices. Your supervisor handles the 3% of exceptions instead of 1,000 decisions a day.</p>
+            </div>
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>Multi-country pricing</h4>
+                <p>UK, EU, USA, ME, AU market data. Price the right product into the right region without flying blind.</p>
+            </div>
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>Dedicated success</h4>
+                <p>Named CSM, weekly working call, quarterly review. Not a ticket queue.</p>
+            </div>
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>Use what you need</h4>
+                <p>Got your own widget? Skip ours. Got your own NetSuite? We push data in. Got your own Shopify? Marketplace Push to that too.</p>
+            </div>
+            <div class="why-card">
+                <div class="wi"><img src="/favicon.svg" alt="GSX" style="width:26px;height:26px;display:block;"></div>
+                <h4>Onboarding in weeks</h4>
+                <p>From sign to live in 2–6 weeks. We migrate, configure rules, train the team. No big bang.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Refurbisher pricing tiers -->
+<section id="pricing" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Refurbisher plans</span>
+            <h2>Three tiers. Scoped to your volume.</h2>
+            <p>Every Refurbisher plan includes the full stack — Flow, Pricer, Marketplace Push, Stockroom Pro, Provenance and Multi-country GSX Pulse. Tier is set by device volume, Provenance allowance and region coverage. Talk to us for a custom quote.</p>
+        </div>
+
+        <style>
+            .r-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+            .r-tier { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 34px 28px; display: flex; flex-direction: column; position: relative; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+            .r-tier:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+            .r-tier.featured { border-color: var(--brand); box-shadow: var(--shadow-md); }
+            .r-tier.featured::before { content: 'Most popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 12px; background: var(--brand); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 999px; }
+            .r-tier .r-name { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 700; margin-bottom: 12px; }
+            .r-tier .r-price { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+            .r-tier .r-price small { font-size: 16px; color: var(--ink-muted); font-weight: 500; }
+            .r-tier .r-sub { font-size: 14px; color: var(--ink-soft); margin: 10px 0 22px; }
+            .r-tier .r-caps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 20px; }
+            .r-tier .r-cap { padding: 12px 14px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; }
+            .r-tier .r-cap .cl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-muted); font-weight: 700; margin-bottom: 2px; }
+            .r-tier .r-cap .cv { font-size: 14px; color: var(--ink); font-weight: 700; }
+            .r-tier .r-inc { list-style: none; padding: 0; margin: 0 0 24px; font-size: 13.5px; color: var(--ink-soft); flex-grow: 1; }
+            .r-tier .r-inc li { padding: 7px 0; padding-left: 22px; position: relative; border-bottom: 1px solid var(--line); }
+            .r-tier .r-inc li:last-child { border-bottom: 0; }
+            .r-tier .r-inc li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+            .r-tier .r-inc li strong { color: var(--ink); }
+            .r-tier .r-cta { display: block; text-align: center; padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; }
+            .r-tier .r-cta.primary { background: var(--brand); color: white; }
+            .r-tier .r-cta.primary:hover { background: var(--brand-dark); color: white; text-decoration: none; }
+            .r-tier .r-cta.secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+            .r-tier .r-cta.secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+            @media (max-width: 960px) {
+                .r-tiers { grid-template-columns: 1fr; }
+                .r-tier .r-caps { grid-template-columns: 1fr 1fr; }
+            }
+        </style>
+
+        <div class="r-tiers">
+
+            <!-- Starter -->
+            <div class="r-tier">
+                <div class="r-name">Refurbisher Starter</div>
+                <div class="r-price">£749<small> / month</small></div>
+                <div class="r-sub">For refurbishers moving 100–500 devices per month. Full core stack.</div>
+                <div class="r-caps">
+                    <div class="r-cap"><div class="cl">Sized for</div><div class="cv">100&ndash;500 devices/mo</div></div>
+                    <div class="r-cap"><div class="cl">Provenance</div><div class="cv">50 checks / mo</div></div>
+                    <div class="r-cap"><div class="cl">Marketplaces</div><div class="cv">9 channels</div></div>
+                    <div class="r-cap"><div class="cl">Regions</div><div class="cv">UK + EU</div></div>
+                </div>
+                <ul class="r-inc">
+                    <li><strong>Flow</strong> — auto-routing with audit trail</li>
+                    <li><strong>Pricer</strong> — per-channel pricing engine</li>
+                    <li><strong>Marketplace Push</strong> — all 9 channels including Shopify Partner</li>
+                    <li><strong>Stockroom Pro</strong> — full per-device audit</li>
+                    <li>PhoneCheck &amp; Digital Services (per-check billed)</li>
+                    <li>Multi-country GSX Pulse (UK + EU)</li>
+                    <li>Dedicated success manager</li>
+                    <li>Additional Provenance at £2.25 / check</li>
+                </ul>
+                <a href="/enterprise/contact/" class="r-cta secondary">Talk to sales →</a>
+            </div>
+
+            <!-- Growth (featured) -->
+            <div class="r-tier featured">
+                <div class="r-name">Refurbisher Growth</div>
+                <div class="r-price">£999<small> / month</small></div>
+                <div class="r-sub">For operations at 500–2,000 devices per month. Adds B2B and USA data.</div>
+                <div class="r-caps">
+                    <div class="r-cap"><div class="cl">Sized for</div><div class="cv">500&ndash;2,000 devices/mo</div></div>
+                    <div class="r-cap"><div class="cl">Provenance</div><div class="cv">250 checks / mo</div></div>
+                    <div class="r-cap"><div class="cl">Marketplaces</div><div class="cv">9 channels</div></div>
+                    <div class="r-cap"><div class="cl">Regions</div><div class="cv">UK + EU + US</div></div>
+                </div>
+                <ul class="r-inc">
+                    <li>Everything in Starter, plus:</li>
+                    <li><strong>B2B Trade Zone</strong> — vetted business network</li>
+                    <li><strong>Batch Pricing</strong> — bulk valuation upload</li>
+                    <li>Multi-country GSX Pulse (UK + EU + US)</li>
+                    <li><strong>SSO</strong> (SAML / OAuth) + role-based access</li>
+                    <li>Priority CSM + weekly working call</li>
+                    <li>Additional Provenance at £2.00 / check</li>
+                    <li>Marketplace &amp; Pricer alerts via email or Slack</li>
+                </ul>
+                <a href="/enterprise/contact/" class="r-cta primary">Talk to sales →</a>
+            </div>
+
+            <!-- Scale -->
+            <div class="r-tier">
+                <div class="r-name">Refurbisher Scale</div>
+                <div class="r-price">£1,999<small> / month</small></div>
+                <div class="r-sub">For 2,000–5,000 devices per month. Full-region data, API, custom integrations.</div>
+                <div class="r-caps">
+                    <div class="r-cap"><div class="cl">Sized for</div><div class="cv">2,000&ndash;5,000 devices/mo</div></div>
+                    <div class="r-cap"><div class="cl">Provenance</div><div class="cv">400 checks / mo</div></div>
+                    <div class="r-cap"><div class="cl">Marketplaces</div><div class="cv">9 channels</div></div>
+                    <div class="r-cap"><div class="cl">Regions</div><div class="cv">All 5 regions</div></div>
+                </div>
+                <ul class="r-inc">
+                    <li>Everything in Growth, plus:</li>
+                    <li><strong>Bulk Valuation API</strong> — 1,000+ devices per call</li>
+                    <li>Multi-country GSX Pulse (all 5 regions)</li>
+                    <li><strong>Custom integrations</strong> (NetSuite, SAP, Shopify Plus quoted)</li>
+                    <li><strong>Webhook events</strong> for pricing and routing changes</li>
+                    <li>Quarterly business review</li>
+                    <li>Additional Provenance at £1.75 / check</li>
+                    <li>Moving 5,000+ devices? Talk to Enterprise.</li>
+                </ul>
+                <a href="/enterprise/contact/" class="r-cta secondary">Talk to sales →</a>
+            </div>
+
+        </div>
+
+        <p style="text-align: center; margin: 30px auto 0; font-size: 14px; color: var(--ink-muted); max-width: 720px;">Volume figures indicate the operation size each tier is designed for &mdash; not hard limits. Overage priced per device, no plan interruption. All plans billed monthly, quarterly (&ndash;10%) or annually (&ndash;20%). All prices exclude VAT.</p>
+        <p style="text-align: center; margin: 12px auto 0; font-size: 13px; color: var(--ink-muted); max-width: 720px;">Also on <a href="/pricing">the retail pricing page</a>: the £49&ndash;£349 modular retail ladder if your operation is a shop rather than a floor.</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section>
+    <div class="container">
+        <div class="cta-block">
+            <span class="eyebrow">Get started</span>
+            <h2>Request a sample report on your stock.</h2>
+            <p>Send us a list of SKUs you currently sell. We'll benchmark them with Pricer, show you what Flow would route them as, and quote you a stack that fits your operation. Anonymised, no obligation.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="/enterprise/contact/" class="btn btn-primary btn-lg">Request sample report</a>
+                <a href="/flow/" class="btn btn-secondary btn-lg">Read about Flow</a>
+                <a href="/enterprise/pricer/" class="btn btn-secondary btn-lg">Read about Pricer</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="linkset">
+            <a href="/">Platform home</a>
+            <a href="/retail/">Retail</a>
+            <a href="/enterprise/">Enterprise</a>
+            <a href="/flow/">Flow</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/enterprise/contact/">Contact sales</a>
+            <a href="https://app.gsx.co.uk">Sign in →</a>
+        </div>
+        <span>&copy; GSX (Global Seller Exchange). The Mobile IQ Platform.</span>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+    try { localStorage.setItem('gsx_audience', 'refurbishers'); } catch (e) {}
+</script>
+
+</body>
+</html>

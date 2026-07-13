@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX Trade-In — Instant quote. Paid same day.</title>
+<meta name="description" content="Trade in your phone, tablet, watch or laptop with GSX — the UK's live pricing platform for the mobile trade. Instant quote, price held 14 days, free tracked postage, paid same day. 30,000+ devices supported.">
+<link rel="canonical" href="https://gsx.co.uk/sell/">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/sell/">
+<meta property="og:title" content="GSX Trade-In — Instant quote. Paid same day.">
+<meta property="og:description" content="Live pricing from the UK trade-in market. Instant quote, price held 14 days, free tracked postage, paid same day.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GSX Trade-In — Instant quote. Paid same day.">
+<meta name="twitter:description" content="Live UK trade-in pricing. Instant quote. Paid same day. 30,000+ devices supported.">
+<meta name="twitter:image" content="https://gsx.co.uk/icon-512.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "GSX Trade-In",
+  "url": "https://gsx.co.uk/sell/",
+  "description": "GSX consumer trade-in — the live pricing platform for the UK mobile trade. Instant quote, price held 14 days, free tracked postage, paid same day.",
+  "inLanguage": "en-GB",
+  "publisher": { "@type": "Organization", "name": "GSX",
+  "legalName": "GSX (Global Seller Exchange)",
+  "alternateName": "Global Seller Exchange", "url": "https://gsx.co.uk/" }
+}
+</script>
+
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c;
+        --brand-dark: #061e46;
+        --brand-light: #eff6ff;
+        --accent: #059669;
+        --accent-light: #d1fae5;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --ink-muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0; padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink); background: var(--bg);
+        line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav.top {
+        position: sticky; top: 0; z-index: 20;
+        background: rgba(255,255,255,0.9);
+        backdrop-filter: saturate(180%) blur(8px);
+        border-bottom: 1px solid var(--line);
+    }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo {
+        display: flex; align-items: center; gap: 10px;
+        font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em;
+        text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+    .logo-mark {
+        width: 30px; height: 30px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: white; font-weight: 800; font-size: 14px;
+    }
+    .nav-tag {
+        font-size: 12px; color: var(--ink-muted); font-weight: 500; padding: 4px 12px;
+        border-radius: 999px; background: var(--brand-light); color: var(--brand);
+        border: 1px solid rgba(10,46,92,0.15);
+    }
+    .nav-help {
+        color: var(--ink-soft); font-size: 14px; font-weight: 500;
+    }
+    .nav-help:hover { color: var(--brand); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+        padding: 80px 0 60px;
+        background:
+            radial-gradient(ellipse at top right, rgba(10,46,92,0.1), transparent 60%),
+            radial-gradient(ellipse at bottom left, rgba(5,150,105,0.06), transparent 60%),
+            var(--bg);
+        text-align: center;
+    }
+    .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 6px 14px; border-radius: 999px;
+        background: white; border: 1px solid var(--line);
+        font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+        margin-bottom: 22px; box-shadow: var(--shadow-sm);
+    }
+    .hero-badge .bmark {
+        width: 20px; height: 20px; border-radius: 5px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: white; font-size: 10px; font-weight: 800;
+    }
+    h1 {
+        font-size: 54px; line-height: 1.05; letter-spacing: -0.03em;
+        margin: 0 auto 18px; font-weight: 800; color: var(--ink);
+        max-width: 780px;
+    }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead {
+        font-size: 19px; color: var(--ink-soft);
+        margin: 0 auto 44px; max-width: 640px;
+    }
+
+    /* Search card */
+    .search-card {
+        max-width: 620px; margin: 0 auto;
+        background: white; border: 1px solid var(--line); border-radius: 20px;
+        padding: 28px 28px 24px; box-shadow: var(--shadow-lg);
+    }
+    .search-card .sc-label {
+        font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--ink-muted); font-weight: 700; margin-bottom: 12px;
+        text-align: left;
+    }
+    .search-form {
+        position: relative;
+        display: flex; gap: 10px; align-items: stretch;
+    }
+    .search-wrap { flex: 1; position: relative; min-width: 0; }
+    .search-wrap::before {
+        content: '<img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+        font-size: 15px; opacity: 0.45;
+        pointer-events: none;
+    }
+    .search-form input[type="text"] {
+        width: 100%; border: 1.5px solid var(--line); border-radius: 12px;
+        padding: 14px 16px 14px 42px; font-size: 15px;
+        color: var(--ink); font-family: inherit;
+        background: var(--bg-soft);
+        transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+        min-width: 0;
+    }
+    .search-form input[type="text"]:focus {
+        outline: none; border-color: var(--brand);
+        background: white; box-shadow: 0 0 0 3px rgba(10,46,92,0.12);
+    }
+    .search-form input[type="text"]::placeholder { color: var(--ink-muted); }
+    .search-form button {
+        border: 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        color: white; font-weight: 700; font-size: 15px;
+        padding: 14px 24px; border-radius: 12px; cursor: pointer;
+        white-space: nowrap; box-shadow: var(--shadow-sm);
+        transition: transform 0.08s ease, box-shadow 0.2s ease;
+    }
+    .search-form button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px -4px rgba(10,46,92,0.4);
+    }
+
+    .search-card .sc-hint {
+        margin-top: 14px; font-size: 12.5px; color: var(--ink-muted);
+        text-align: center;
+    }
+    .search-card .sc-hint strong { color: var(--ink); font-weight: 700; }
+
+    /* Suggestions */
+    .suggestions {
+        display: none;
+        position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+        background: white; border: 1px solid var(--line); border-radius: 14px;
+        box-shadow: var(--shadow-lg);
+        max-height: 320px; overflow-y: auto;
+        z-index: 30;
+        text-align: left;
+    }
+    .suggestions.open { display: block; }
+    .suggestions button.sug-item {
+        display: block; width: 100%; text-align: left;
+        padding: 12px 16px; border: 0; background: transparent;
+        font-size: 14px; color: var(--ink); font-family: inherit;
+        cursor: pointer; border-bottom: 1px solid var(--line);
+        transition: background 0.1s;
+    }
+    .suggestions button.sug-item:last-child { border-bottom: 0; }
+    .suggestions button.sug-item:hover,
+    .suggestions button.sug-item.active {
+        background: var(--brand-light); color: var(--brand);
+    }
+    .sug-mark { background: rgba(10,46,92,0.15); color: var(--brand); font-weight: 700; border-radius: 3px; padding: 0 2px; }
+    .sug-empty { padding: 16px 20px; font-size: 14px; color: var(--ink-muted); }
+
+    /* Micro trust row */
+    .micro-trust {
+        margin: 30px auto 0; display: flex; justify-content: center;
+        gap: 30px; flex-wrap: wrap;
+        font-size: 13px; color: var(--ink-soft); font-weight: 500;
+    }
+    .micro-trust span::before {
+        content: '✓ '; color: var(--accent); font-weight: 700; margin-right: 3px;
+    }
+
+    /* Widget slot */
+    #widget-slot {
+        display: none;
+        max-width: 720px; margin: 44px auto 0;
+    }
+    #widget-slot .ws-head {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 14px; gap: 12px;
+    }
+    #widget-slot .ws-head button {
+        border: 1px solid var(--line); background: white;
+        color: var(--ink); font-weight: 600; font-size: 13.5px;
+        padding: 8px 14px; border-radius: 8px; cursor: pointer;
+    }
+    #widget-slot .ws-head button:hover { border-color: var(--brand); color: var(--brand); }
+    #widget-slot .ws-head .ws-caption {
+        color: var(--ink-soft); font-size: 14px; font-weight: 600;
+    }
+    #widget-slot .ws-iframe {
+        border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+        box-shadow: var(--shadow-lg); background: white;
+    }
+
+    section { padding: 70px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+    .section-eyebrow {
+        display: inline-block; padding: 5px 12px; border-radius: 999px;
+        background: var(--brand-light); color: var(--brand);
+        font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    h2 { font-size: 32px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 10px; font-weight: 800; }
+    .section-head p { font-size: 16px; color: var(--ink-soft); margin: 0; }
+
+    /* How it works — GSX-style numbered cards */
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .how-card {
+        background: white; border: 1px solid var(--line); border-radius: 14px;
+        padding: 26px 22px; position: relative;
+        transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .how-card:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .how-card .hc-num {
+        width: 36px; height: 36px; border-radius: 10px;
+        background: var(--brand-light); color: var(--brand);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 14px; font-weight: 800; font-size: 15px;
+    }
+    .how-card h3 { font-size: 17px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .how-card p { font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+    .how-card .hc-detail {
+        margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line);
+        font-size: 12.5px; color: var(--ink-muted);
+    }
+
+    /* Why GSX */
+    .why-strip {
+        background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+        color: white; border-radius: 20px; padding: 40px 44px;
+        position: relative; overflow: hidden;
+    }
+    .why-strip::before {
+        content: ''; position: absolute; top: -50%; right: -10%;
+        width: 60%; height: 200%;
+        background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%);
+        transform: rotate(15deg);
+    }
+    .why-strip > * { position: relative; }
+    .why-strip h2 { color: white; font-size: 28px; margin: 0 0 14px; }
+    .why-strip p {
+        color: rgba(255,255,255,0.85); font-size: 16px; margin: 0 0 24px;
+        max-width: 640px;
+    }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .why-item .wl {
+        font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em;
+        color: rgba(255,255,255,0.65); font-weight: 700; margin-bottom: 6px;
+    }
+    .why-item strong { display: block; font-size: 18px; color: white; margin-bottom: 4px; }
+    .why-item span { font-size: 13.5px; color: rgba(255,255,255,0.75); }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq details {
+        border: 1px solid var(--line); border-radius: 12px;
+        margin-bottom: 12px; background: white; overflow: hidden;
+        transition: border-color 0.15s;
+    }
+    .faq details[open] { border-color: var(--brand); }
+    .faq summary {
+        padding: 18px 22px; font-weight: 700; font-size: 15.5px;
+        cursor: pointer; list-style: none; color: var(--ink);
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+        content: '+'; font-size: 22px; color: var(--brand); font-weight: 400;
+        transition: transform 0.2s;
+    }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details p {
+        margin: 0; padding: 0 22px 20px; color: var(--ink-soft); font-size: 14.5px;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--bg-soft); border-top: 1px solid var(--line);
+        padding: 40px 0; color: var(--ink-muted); font-size: 13.5px;
+    }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    footer .linkset { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    footer .linkset a { color: var(--ink-soft); font-weight: 500; }
+
+    @media (max-width: 860px) {
+        .how-grid { grid-template-columns: 1fr 1fr; }
+        .why-grid { grid-template-columns: 1fr; }
+        .why-strip { padding: 32px 28px; }
+    }
+    @media (max-width: 520px) {
+        .hero { padding: 50px 0 40px; }
+        h1 { font-size: 34px; }
+        h2 { font-size: 24px; }
+        .hero p.lead { font-size: 16px; }
+        .search-card { padding: 22px 20px; }
+        .search-form { flex-direction: column; }
+        .search-form button { width: 100%; padding: 14px 20px; }
+        .suggestions { position: static; margin-top: 8px; }
+        .how-grid { grid-template-columns: 1fr; }
+        .micro-trust { gap: 14px; }
+        section { padding: 50px 0; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+            <span class="nav-tag" style="margin-left: 8px;">Trade-In</span>
+        </a>
+        <a href="#help" class="nav-help">Help &amp; FAQ ↓</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="bmark">G</span>
+            <span>Powered by the GSX Mobile IQ Platform</span>
+        </div>
+        <h1>Instant quote for your device. <span class="hl">Paid same day.</span></h1>
+        <p class="lead">
+            Get a live trade-in price on your phone, tablet, watch or laptop — priced against the UK market, in real time. Price held 14 days. Free tracked postage. No signup.
+        </p>
+
+        <!-- Search card -->
+        <div class="search-card">
+            <div class="sc-label">Search for your device</div>
+            <form class="search-form" id="sell-form" method="GET" autocomplete="off">
+                <div class="search-wrap">
+                    <input type="text" name="q" id="sell-q" placeholder="e.g. iPhone 15 Pro, Galaxy S24, MacBook Air…" autocomplete="off" required>
+                    <div class="suggestions" id="suggestions" role="listbox"></div>
+                </div>
+                <button type="submit">Get my quote</button>
+            </form>
+            <div class="sc-hint"><strong>30,000+ devices supported</strong> — phones, tablets, watches, laptops. Just start typing a make or model.</div>
+        </div>
+
+        <div class="micro-trust">
+            <span>Price held 14 days</span>
+            <span>Free tracked postage</span>
+            <span>Paid same day</span>
+        </div>
+
+        <!-- Widget slot -->
+        <div id="widget-slot">
+            <div class="ws-head">
+                <button type="button" id="widget-back">← Start over</button>
+                <span class="ws-caption" id="widget-caption">Getting your quote…</span>
+            </div>
+            <div class="ws-iframe" id="widget-iframe-container"></div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-eyebrow">How GSX works</span>
+            <h2>Four steps. Live market pricing. Paid same day.</h2>
+            <p>Every quote you get is priced against the live UK trade-in market — so you're never leaving money on the table.</p>
+        </div>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="hc-num">1</div>
+                <h3>Search &amp; grade</h3>
+                <p>Find your device, answer a few questions about condition. Instant quote.</p>
+                <div class="hc-detail">Priced against 30,000+ devices in the live market — no undercutting.</div>
+            </div>
+            <div class="how-card">
+                <div class="hc-num">2</div>
+                <h3>Post it in</h3>
+                <p>Free tracked postage from any Royal Mail location. Packaging sent to you.</p>
+                <div class="hc-detail">Insured door-to-door with tracking codes at every step.</div>
+            </div>
+            <div class="how-card">
+                <div class="hc-num">3</div>
+                <h3>We verify</h3>
+                <p>Same-day diagnostic and cosmetic check. If different, you decide.</p>
+                <div class="hc-detail">Certified secure data wipe applied to every device on arrival.</div>
+            </div>
+            <div class="how-card">
+                <div class="hc-num">4</div>
+                <h3>You get paid</h3>
+                <p>Direct bank transfer, PayPal, or cheque — same day the check completes.</p>
+                <div class="hc-detail">Most sellers see the money within a few hours of verification.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why GSX -->
+<section>
+    <div class="container-narrow">
+        <div class="why-strip">
+            <div class="section-eyebrow" style="background: rgba(255,255,255,0.1); color: white; margin-bottom: 12px;">Why sell via GSX</div>
+            <h2>Priced by the platform behind the UK mobile trade.</h2>
+            <p>
+                GSX is the live pricing intelligence platform trusted by UK phone shops, refurbishers and networks. When you get a quote here, it's benchmarked against thousands of live listings across every major UK marketplace — so you know your price is fair, current and market-anchored, not a lowball from a single buyer.
+            </p>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="wl">Live UK pricing</div>
+                    <strong>30,000+</strong>
+                    <span>Devices priced daily from every major UK marketplace</span>
+                </div>
+                <div class="why-item">
+                    <div class="wl">Held for</div>
+                    <strong>14 days</strong>
+                    <span>Your quote won't drop while you decide. Take your time.</span>
+                </div>
+                <div class="why-item">
+                    <div class="wl">Paid</div>
+                    <strong>Same day</strong>
+                    <span>The day we verify — bank transfer, PayPal, or cheque.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="help" class="alt">
+    <div class="container-narrow">
+        <div class="section-head">
+            <span class="section-eyebrow">Help &amp; FAQ</span>
+            <h2>Quick answers to common questions.</h2>
+        </div>
+        <div class="faq">
+            <details>
+                <summary>How does the whole thing work?</summary>
+                <p>Search for your device above, tell us its condition, and you'll get an instant quote — held for 14 days. If you're happy, we'll send you a free tracked postage pack. Post your device, and once we've verified it we transfer payment the same day.</p>
+            </details>
+            <details>
+                <summary>How does GSX price my device?</summary>
+                <p>Every quote is benchmarked against thousands of live listings from every major UK marketplace — Amazon, eBay, BackMarket, Refurbed and direct-site resellers. That means your price is anchored to what the market is really paying for your device today, not a fixed price that might be months out of date.</p>
+            </details>
+            <details>
+                <summary>How do I get paid?</summary>
+                <p>Bank transfer is fastest — usually within a few hours of us verifying your device. We also offer PayPal or cheque. All three options go out the same day the check completes.</p>
+            </details>
+            <details>
+                <summary>What if my device is different from the quote when it arrives?</summary>
+                <p>We'll email you before doing anything. You choose: accept a revised offer, or have the device sent back to you free of charge. No pressure, no penalty, no auto-accept.</p>
+            </details>
+            <details>
+                <summary>Is my data safe?</summary>
+                <p>Yes. Every device we receive undergoes a certified secure data wipe on arrival — the same standard used by insurance companies and government contracts. Your data is destroyed before the device goes anywhere else.</p>
+            </details>
+            <details>
+                <summary>My device isn't in the search list.</summary>
+                <p>We support 30,000+ devices. If it's not showing up, try a shorter search — for example "Galaxy" instead of the full model name, or just "iPhone 13". If you still can't find it, contact us at <a href="mailto:hello@2wc2.com">hello@2wc2.com</a> and we'll add it.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="linkset">
+            <a href="/">Home</a>
+            <a href="/#help">Help</a>
+            <a href="mailto:hello@2wc2.com">Contact</a>
+        </div>
+        <span>&copy; GSX (Global Seller Exchange). The Mobile IQ Platform.</span>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    // GSX Sell — autocomplete search + inline widget embed on submit
+    (function() {
+        var DEVICES = [
+            "iPhone 16 Pro Max", "iPhone 16 Pro", "iPhone 16 Plus", "iPhone 16",
+            "iPhone 15 Pro Max", "iPhone 15 Pro", "iPhone 15 Plus", "iPhone 15",
+            "iPhone 14 Pro Max", "iPhone 14 Pro", "iPhone 14 Plus", "iPhone 14",
+            "iPhone 13 Pro Max", "iPhone 13 Pro", "iPhone 13", "iPhone 13 mini",
+            "iPhone SE (3rd gen)", "iPhone SE (2nd gen)",
+            "iPhone 12 Pro Max", "iPhone 12 Pro", "iPhone 12", "iPhone 12 mini",
+            "iPhone 11 Pro Max", "iPhone 11 Pro", "iPhone 11",
+            "iPhone XS Max", "iPhone XS", "iPhone XR", "iPhone X", "iPhone 8 Plus", "iPhone 8",
+            "Samsung Galaxy S25 Ultra", "Samsung Galaxy S25 Plus", "Samsung Galaxy S25",
+            "Samsung Galaxy S24 Ultra", "Samsung Galaxy S24 Plus", "Samsung Galaxy S24", "Samsung Galaxy S24 FE",
+            "Samsung Galaxy S23 Ultra", "Samsung Galaxy S23 Plus", "Samsung Galaxy S23", "Samsung Galaxy S23 FE",
+            "Samsung Galaxy S22 Ultra", "Samsung Galaxy S22 Plus", "Samsung Galaxy S22",
+            "Samsung Galaxy S21 Ultra", "Samsung Galaxy S21 Plus", "Samsung Galaxy S21",
+            "Samsung Galaxy S20 Ultra", "Samsung Galaxy S20 Plus", "Samsung Galaxy S20", "Samsung Galaxy S20 FE",
+            "Samsung Galaxy Z Fold6", "Samsung Galaxy Z Fold5", "Samsung Galaxy Z Fold4", "Samsung Galaxy Z Fold3",
+            "Samsung Galaxy Z Flip6", "Samsung Galaxy Z Flip5", "Samsung Galaxy Z Flip4", "Samsung Galaxy Z Flip3",
+            "Samsung Galaxy A55", "Samsung Galaxy A54", "Samsung Galaxy A35",
+            "Google Pixel 9 Pro Fold", "Google Pixel 9 Pro XL", "Google Pixel 9 Pro", "Google Pixel 9",
+            "Google Pixel 8 Pro", "Google Pixel 8", "Google Pixel 8a",
+            "Google Pixel 7 Pro", "Google Pixel 7", "Google Pixel 7a",
+            "Google Pixel 6 Pro", "Google Pixel 6", "Google Pixel 6a",
+            "OnePlus 12", "OnePlus 11", "OnePlus 10 Pro", "OnePlus Nord 3",
+            "iPad Pro 12.9\"", "iPad Pro 11\"", "iPad Air", "iPad", "iPad Mini",
+            "Apple Watch Series 10", "Apple Watch Series 9", "Apple Watch Series 8", "Apple Watch SE",
+            "Apple Watch Ultra 2", "Apple Watch Ultra",
+            "Galaxy Watch 7", "Galaxy Watch 6", "Galaxy Watch Ultra",
+            "MacBook Air 15\" M3", "MacBook Air 13\" M3", "MacBook Air 15\" M2", "MacBook Air 13\" M2", "MacBook Air 13\" M1",
+            "MacBook Pro 16\" M3", "MacBook Pro 14\" M3", "MacBook Pro 16\" M2", "MacBook Pro 14\" M2"
+        ];
+
+        var input = document.getElementById('sell-q');
+        var suggestions = document.getElementById('suggestions');
+        var form = document.getElementById('sell-form');
+        var slot = document.getElementById('widget-slot');
+        var iframeContainer = document.getElementById('widget-iframe-container');
+        var caption = document.getElementById('widget-caption');
+        var backBtn = document.getElementById('widget-back');
+
+        var activeIdx = -1;
+
+        function escapeHtml(s) {
+            return s.replace(/[&<>"']/g, function(c) {
+                return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+            });
+        }
+        function highlight(text, query) {
+            if (!query) return escapeHtml(text);
+            var esc = escapeHtml(text);
+            var re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+            return esc.replace(re, '<span class="sug-mark">$1</span>');
+        }
+        function setActive(i) {
+            var items = suggestions.querySelectorAll('.sug-item');
+            items.forEach(function(it, idx) { it.classList.toggle('active', idx === i); });
+            activeIdx = i;
+            if (i >= 0 && items[i]) items[i].scrollIntoView({block: 'nearest'});
+        }
+        function selectSuggestion(text) {
+            input.value = text;
+            suggestions.classList.remove('open');
+            suggestions.innerHTML = '';
+            input.focus();
+        }
+        function renderSuggestions(matches, query) {
+            if (matches.length === 0) {
+                suggestions.innerHTML = '<div class="sug-empty">No matches. Try a shorter search — e.g. "iPhone" or "Galaxy" — or contact us if your device isn\'t listed.</div>';
+                suggestions.classList.add('open');
+                return;
+            }
+            suggestions.innerHTML = matches.map(function(m, i) {
+                return '<button type="button" class="sug-item" data-idx="' + i + '" role="option">' + highlight(m, query) + '</button>';
+            }).join('');
+            suggestions.classList.add('open');
+            suggestions.querySelectorAll('.sug-item').forEach(function(btn, i) {
+                btn.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    selectSuggestion(matches[i]);
+                });
+                btn.addEventListener('mouseenter', function() { setActive(i); });
+            });
+            activeIdx = -1;
+        }
+        function showSuggestions() {
+            var q = input.value.trim();
+            if (q.length < 2) {
+                suggestions.classList.remove('open');
+                suggestions.innerHTML = '';
+                return;
+            }
+            var lower = q.toLowerCase();
+            var matches = DEVICES.filter(function(d) {
+                return d.toLowerCase().indexOf(lower) !== -1;
+            }).slice(0, 8);
+            renderSuggestions(matches, q);
+        }
+
+        input.addEventListener('input', showSuggestions);
+        input.addEventListener('focus', showSuggestions);
+        input.addEventListener('keydown', function(e) {
+            var items = suggestions.querySelectorAll('.sug-item');
+            if (!suggestions.classList.contains('open') || items.length === 0) return;
+            if (e.key === 'ArrowDown') { e.preventDefault(); setActive(Math.min(activeIdx + 1, items.length - 1)); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(Math.max(activeIdx - 1, 0)); }
+            else if (e.key === 'Enter' && activeIdx >= 0) { e.preventDefault(); selectSuggestion(items[activeIdx].textContent); }
+            else if (e.key === 'Escape') { suggestions.classList.remove('open'); activeIdx = -1; }
+        });
+        input.addEventListener('blur', function() {
+            setTimeout(function() { suggestions.classList.remove('open'); }, 200);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var q = input.value.trim();
+            if (!q) { input.focus(); return; }
+            openWidget(q);
+        });
+
+        
+        // Indicative trade-in prices (Good condition, benchmark from UK live market data)
+        var PRICE_MAP = {
+            // iPhone
+            "iphone 16 pro max": 750, "iphone 16 pro": 620, "iphone 16 plus": 500, "iphone 16": 450,
+            "iphone 15 pro max": 620, "iphone 15 pro": 500, "iphone 15 plus": 400, "iphone 15": 350,
+            "iphone 14 pro max": 450, "iphone 14 pro": 400, "iphone 14 plus": 320, "iphone 14": 280,
+            "iphone 13 pro max": 350, "iphone 13 pro": 300, "iphone 13 mini": 180, "iphone 13": 220,
+            "iphone se (3rd gen)": 130, "iphone se (2nd gen)": 80,
+            "iphone 12 pro max": 280, "iphone 12 pro": 230, "iphone 12 mini": 120, "iphone 12": 170,
+            "iphone 11 pro max": 220, "iphone 11 pro": 180, "iphone 11": 130,
+            "iphone xs max": 150, "iphone xs": 120, "iphone xr": 100, "iphone x": 80,
+            "iphone 8 plus": 60, "iphone 8": 45,
+            // Samsung Galaxy S
+            "samsung galaxy s25 ultra": 650, "samsung galaxy s25 plus": 500, "samsung galaxy s25": 420,
+            "samsung galaxy s24 ultra": 500, "samsung galaxy s24 plus": 380, "samsung galaxy s24": 320, "samsung galaxy s24 fe": 280,
+            "samsung galaxy s23 ultra": 380, "samsung galaxy s23 plus": 280, "samsung galaxy s23": 220, "samsung galaxy s23 fe": 200,
+            "samsung galaxy s22 ultra": 280, "samsung galaxy s22 plus": 200, "samsung galaxy s22": 160,
+            "samsung galaxy s21 ultra": 220, "samsung galaxy s21 plus": 160, "samsung galaxy s21": 120,
+            "samsung galaxy s20 ultra": 180, "samsung galaxy s20 plus": 130, "samsung galaxy s20": 100, "samsung galaxy s20 fe": 90,
+            // Foldables
+            "samsung galaxy z fold6": 1100, "samsung galaxy z fold5": 800, "samsung galaxy z fold4": 550, "samsung galaxy z fold3": 320,
+            "samsung galaxy z flip6": 600, "samsung galaxy z flip5": 450, "samsung galaxy z flip4": 320, "samsung galaxy z flip3": 200,
+            // Galaxy A
+            "samsung galaxy a55": 180, "samsung galaxy a54": 150, "samsung galaxy a35": 140,
+            // Pixel
+            "google pixel 9 pro fold": 1100, "google pixel 9 pro xl": 700, "google pixel 9 pro": 600, "google pixel 9": 450,
+            "google pixel 8 pro": 450, "google pixel 8": 320, "google pixel 8a": 280,
+            "google pixel 7 pro": 280, "google pixel 7": 180, "google pixel 7a": 150,
+            "google pixel 6 pro": 180, "google pixel 6": 130, "google pixel 6a": 100,
+            // OnePlus
+            "oneplus 12": 380, "oneplus 11": 250, "oneplus 10 pro": 180, "oneplus nord 3": 150,
+            // iPad
+            "ipad pro 12.9\"": 450, "ipad pro 11\"": 320, "ipad air": 220, "ipad": 150, "ipad mini": 180,
+            // Watches
+            "apple watch series 10": 280, "apple watch series 9": 220, "apple watch series 8": 180, "apple watch se": 130,
+            "apple watch ultra 2": 450, "apple watch ultra": 320,
+            "galaxy watch 7": 200, "galaxy watch 6": 150, "galaxy watch ultra": 300,
+            // MacBooks
+            "macbook air 15\" m3": 850, "macbook air 13\" m3": 750, "macbook air 15\" m2": 650, "macbook air 13\" m2": 550, "macbook air 13\" m1": 400,
+            "macbook pro 16\" m3": 1200, "macbook pro 14\" m3": 950, "macbook pro 16\" m2": 1000, "macbook pro 14\" m2": 800
+        };
+
+        function estimatePrice(deviceName) {
+            var d = deviceName.toLowerCase().trim();
+            // Direct match
+            if (PRICE_MAP[d]) return PRICE_MAP[d];
+            // Best partial match
+            var best = 0;
+            for (var k in PRICE_MAP) {
+                if (d.indexOf(k) !== -1 || k.indexOf(d) !== -1) {
+                    if (PRICE_MAP[k] > best) best = PRICE_MAP[k];
+                }
+            }
+            if (best > 0) return best;
+            // Fallback by class
+            if (d.indexOf('pro max') !== -1 || d.indexOf('ultra') !== -1) return 300;
+            if (d.indexOf('pro') !== -1) return 250;
+            if (d.indexOf('plus') !== -1) return 200;
+            if (d.indexOf('mini') !== -1) return 100;
+            if (d.indexOf('macbook') !== -1) return 500;
+            if (d.indexOf('ipad') !== -1) return 200;
+            if (d.indexOf('watch') !== -1) return 150;
+            return 150;
+        }
+
+        function openWidget(query) {
+            // Show indicative price + explanation of what the full widget captures next.
+            var price = estimatePrice(query);
+            var esc = escapeHtml(query);
+            iframeContainer.innerHTML =
+                '<div style="padding: 44px 40px 40px; background: white; text-align: center;">' +
+                '  <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--ink-muted); margin-bottom: 12px;">Indicative trade-in quote</div>' +
+                '  <h3 style="font-size: 20px; margin: 0 0 6px; letter-spacing: -0.01em; color: var(--ink);">Your quote for ' + esc + '</h3>' +
+                '  <div style="font-size: 64px; font-weight: 800; letter-spacing: -0.03em; color: var(--brand); line-height: 1; margin: 22px 0 14px;">£' + price + '</div>' +
+                '  <div style="font-size: 13px; color: var(--ink-muted); margin: 0 0 32px;">Priced against the live UK market · Good condition benchmark</div>' +
+                '  <div style="max-width: 500px; margin: 0 auto; padding: 28px 30px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 14px; text-align: left;">' +
+                '    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; color: var(--brand); margin-bottom: 10px;">What happens next</div>' +
+                '    <p style="font-size: 15px; color: var(--ink); margin: 0 0 8px; font-weight: 600;">From here on, our widget captures your customer\'s details.</p>' +
+                '    <p style="font-size: 14px; color: var(--ink-soft); margin: 0;">Email address, condition confirmation, postage preference — everything you need to conclude the trade. The customer chooses their payout method (bank, PayPal, cheque). You get their contact details and the confirmed price the moment they accept.</p>' +
+                '  </div>' +
+                '  <div style="margin-top: 26px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">' +
+                '    <a href="mailto:hello@2wc2.com?subject=' + encodeURIComponent('Book a GSX widget demo') + '" style="display: inline-block; padding: 12px 22px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white; font-weight: 700; font-size: 14px; border-radius: 10px; text-decoration: none;">Book a demo →</a>' +
+                '  </div>' +
+                '</div>';
+            if (caption) caption.textContent = 'Quote · ' + query;
+            slot.style.display = 'block';
+            setTimeout(function() { slot.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+
+        if (backBtn) {
+            backBtn.addEventListener('click', function() {
+                slot.style.display = 'none';
+                iframeContainer.innerHTML = '';
+                input.value = '';
+                if (caption) caption.textContent = 'Getting your quote…';
+                input.focus();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
+
+        var resizeListenerAttached = false;
+        function attachResizeListener() {
+            if (resizeListenerAttached) return;
+            resizeListenerAttached = true;
+            window.addEventListener('message', function(e) {
+                if (e.origin !== 'https://app.gsx.co.uk') return;
+                var iframe = document.getElementById('resizable-widget');
+                if (!iframe) return;
+                var data = e.data;
+                var h = null;
+                if (typeof data === 'number') { h = data; }
+                else if (data && typeof data === 'object') {
+                    if (typeof data.height === 'number') h = data.height;
+                    else if (data.type === 'resize' && typeof data.height === 'number') h = data.height;
+                }
+                if (h && h > 0) { iframe.style.height = h + 'px'; }
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>

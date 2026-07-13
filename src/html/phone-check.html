@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX Phone Check — Desktop Diagnostics for Phones, Tablets & Laptops</title>
+<meta name="description" content="Full cosmetic and hardware diagnostics plus blacklist, IMEI and warranty checks. A desktop app for Mac and Windows. Powered by phonecheck.com. Pay-per-check credits.">
+<link rel="canonical" href="https://gsx.co.uk/phone-check">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/phone-check">
+<meta property="og:title" content="GSX Phone Check — Desktop Diagnostics for Phones, Tablets & Laptops">
+<meta property="og:description" content="Full cosmetic and hardware diagnostics plus blacklist, IMEI and warranty checks. Desktop app for Mac and Windows. Pay-per-check credits.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+<meta property="og:site_name" content="GSX">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GSX Phone Check — Full device diagnostics in under a minute">
+<meta name="twitter:description" content="Diagnostics, blacklist, IMEI and warranty in one report. Mac + Windows desktop app. Pay only per check.">
+<meta name="twitter:image" content="https://gsx.co.uk/icon-512.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GSX Phone Check",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "macOS, Windows",
+  "url": "https://gsx.co.uk/phone-check",
+  "description": "Desktop diagnostics app for phones, tablets, watches and laptops. Full cosmetic and hardware tests plus blacklist, IMEI and warranty database checks in one report. Powered by phonecheck.com.",
+  "offers": { "@type": "Offer", "priceCurrency": "GBP" },
+  "publisher": { "@type": "Organization", "name": "GSX",
+  "legalName": "GSX (Global Seller Exchange)",
+  "alternateName": "Global Seller Exchange", "url": "https://gsx.co.uk/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this a mobile app?", "acceptedAnswer": { "@type": "Answer", "text": "No — Phone Check is a desktop application that runs on Mac and Windows. You plug the device into the counter computer with a cable and run the check from there. A mobile companion is on the roadmap." } },
+    { "@type": "Question", "name": "How is the diagnostic engine built?", "acceptedAnswer": { "@type": "Answer", "text": "The underlying diagnostic engine is powered by phonecheck.com, the industry-leading device testing platform. GSX wraps it in a unified retailer workflow — so a single check also hits blacklist, IMEI and warranty databases and pushes the result straight into your Stockroom." } },
+    { "@type": "Question", "name": "What does a check actually cost?", "acceptedAnswer": { "@type": "Answer", "text": "You buy credits in packs. 1 credit = 1 full device check regardless of whether it's a phone, tablet, watch or laptop. Per-credit pricing is shown in the portal at checkout, and credits don't expire." } },
+    { "@type": "Question", "name": "Do I need a special cable or rig?", "acceptedAnswer": { "@type": "Answer", "text": "No. For Smartphones and Tablets, a standard Lightning / USB-C / USB cable is all you need. No test rigs, no custom hardware. We can provide additional test rigs for Apple Watches" } },
+    { "@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": { "@type": "Answer", "text": "Smartphones (iPhone and the major Android brands), tablets (iPad and Android), Apple Watch, MacBooks and most mainstream Windows laptops. We add models continuously — tell us if there's a specific device you need prioritised." } },
+    { "@type": "Question", "name": "Can I see the raw report?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every check produces a full component-by-component report accessible inside your GSX portal, alongside the Stockroom record. Printable or exportable." } },
+    { "@type": "Question", "name": "Is PhoneCheck included in the subscription?", "acceptedAnswer": { "@type": "Answer", "text": "The app itself is free to install with any GSX plan. Individual checks are paid from your credits balance — that way retailers doing 5 checks a week pay a fraction of what a high-volume refurbisher pays." } }
+  ]
+}
+</script>
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c;
+        --brand-dark: #061e46;
+        --brand-light: #eff6ff;
+        --accent: #059669;
+        --accent-light: #d1fae5;
+        --danger: #dc2626;
+        --danger-light: #fee2e2;
+        --warn: #d97706;
+        --warn-light: #fef3c7;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --ink-muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    nav.top { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--line); }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 13px; }
+
+    /* Audience switch (Retail / Enterprise toggle) */
+    .audience-switch {
+        display: inline-flex; padding: 3px;
+        background: var(--bg-soft); border: 1px solid var(--line);
+        border-radius: 999px;
+    }
+    .audience-switch a {
+        font-size: 13px; font-weight: 600; padding: 6px 14px;
+        border-radius: 999px; color: var(--ink-muted);
+        text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active {
+        background: white; color: var(--ink);
+        box-shadow: 0 1px 2px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.06);
+    }
+    @media (max-width: 960px) {
+        .audience-switch { align-self: center; margin: 6px 0; }
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.signin { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
+    .nav-links a.signin:hover { border-color: var(--ink-muted); text-decoration: none; }
+    .nav-toggle {
+        display: none; background: none; border: 0; cursor: pointer;
+        width: 40px; height: 40px; border-radius: 8px; padding: 0;
+        align-items: center; justify-content: center;
+    }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars,
+    .nav-toggle .bars::before,
+    .nav-toggle .bars::after {
+        content: ''; display: block; width: 22px; height: 2px;
+        background: var(--ink); border-radius: 2px; position: relative;
+        transition: transform 0.2s ease, top 0.2s ease, opacity 0.15s ease;
+    }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 0; transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease; text-align: center; text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    .hero { padding: 80px 0 60px; background: radial-gradient(ellipse at top right, rgba(10,46,92,0.08), transparent 60%), radial-gradient(ellipse at bottom left, rgba(5,150,105,0.06), transparent 60%), var(--bg); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--brand-light); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { font-size: 52px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 20px; font-weight: 800; color: var(--ink); }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead { font-size: 19px; color: var(--ink-soft); margin: 0 0 28px; max-width: 520px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust-line { margin-top: 28px; color: var(--ink-muted); font-size: 13px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .trust-line span::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    .powered-by { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--line); font-size: 12px; color: var(--ink-muted); font-weight: 500; margin-top: 20px; }
+    .powered-by strong { color: var(--ink); font-weight: 600; }
+
+    /* Diagnostic card mockup */
+    .diag {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        box-shadow: var(--shadow-lg); overflow: hidden;
+    }
+    .diag-head {
+        padding: 18px 22px; border-bottom: 1px solid var(--line);
+        display: flex; justify-content: space-between; align-items: center;
+        background: var(--bg-soft);
+    }
+    .diag-head .left { display: flex; align-items: center; gap: 12px; }
+    .diag-head .dev-ico {
+        width: 38px; height: 38px; border-radius: 9px;
+        background: var(--ink); color: white;
+        display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .diag-head h3 { margin: 0; font-size: 16px; letter-spacing: -0.01em; }
+    .diag-head .imei { font-size: 11px; color: var(--ink-muted); margin-top: 2px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .diag-head .verdict {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 5px 10px; border-radius: 999px;
+        background: var(--accent-light); color: var(--accent);
+        font-size: 12px; font-weight: 700;
+    }
+    .diag-head .verdict .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .diag-body { padding: 18px 22px; }
+    .diag-section-title {
+        font-size: 11px; color: var(--ink-muted); font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px;
+    }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+    .check-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+    .check-row:last-child { border-bottom: 0; }
+    .check-row .label { color: var(--ink-soft); }
+    .check-row .state { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; font-size: 12px; }
+    .check-row .state.pass { color: var(--accent); }
+    .check-row .state.warn { color: var(--warn); }
+    .check-row .state.fail { color: var(--danger); }
+
+    .diag-extra { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .status-tile {
+        background: var(--bg-soft); border: 1px solid var(--line);
+        border-radius: 10px; padding: 12px;
+    }
+    .status-tile .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 600; }
+    .status-tile .v { font-size: 14px; font-weight: 700; color: var(--ink); margin-top: 4px; display: flex; align-items: center; gap: 5px; }
+    .status-tile .v.ok { color: var(--accent); }
+    .status-tile .v.warn { color: var(--warn); }
+
+    .diag-foot {
+        padding: 12px 22px; background: var(--bg-soft);
+        border-top: 1px solid var(--line);
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 12px; color: var(--ink-muted);
+    }
+    .diag-foot .credits { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-weight: 500; }
+    .diag-foot .credits b { color: var(--brand); font-weight: 700; }
+
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    section.dark { background: var(--ink); color: white; border: 0; }
+    section.dark h2 { color: white; }
+    section.dark p { color: rgba(255,255,255,0.75); }
+    .section-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 12px; }
+    h2 { font-size: 36px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; font-weight: 800; }
+    .section-head p { font-size: 17px; color: var(--ink-soft); margin: 0; }
+    section.dark .section-head p { color: rgba(255,255,255,0.7); }
+    section.dark .eyebrow { background: rgba(255,255,255,0.08); color: #93c5fd; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .feature:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .feature-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--brand-light); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 22px; }
+    .feature h3 { font-size: 18px; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .feature p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+    section.dark .feature { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    section.dark .feature:hover { border-color: #1e5d99; }
+    section.dark .feature-icon { background: rgba(30,93,153,0.15); color: #93c5fd; }
+    section.dark .feature h3 { color: white; }
+    section.dark .feature p { color: rgba(255,255,255,0.7); }
+
+    /* Device coverage strip */
+    .coverage { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; max-width: 1140px; margin: 40px auto 0; }
+    .cov-tile { background: white; border: 1px solid var(--line); border-radius: 12px; padding: 20px 12px; text-align: center; transition: border-color 0.2s, transform 0.2s; }
+    .cov-tile:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .cov-tile .em { font-size: 28px; line-height: 1; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; min-height: 28px; }
+    .cov-tile .em svg { width: 28px; height: 28px; display: block; }
+    .cov-tile .nm { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .split h2 { font-size: 30px; }
+    .split p { color: var(--ink-soft); font-size: 16px; margin: 0 0 14px; }
+    .split ul { list-style: none; padding: 0; margin: 20px 0 0; }
+    .split ul li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; }
+    .split ul li:last-child { border-bottom: 0; }
+    .split ul li .check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin-top: 1px; }
+    .split ul li strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+    .split ul li span.d { font-size: 14px; color: var(--ink-soft); }
+
+    /* How it works steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; position: relative; }
+    .step { background: white; border: 1px solid var(--line); border-radius: 12px; padding: 24px 20px; position: relative; }
+    .step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: white; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .step h4 { margin: 0 0 6px; font-size: 16px; letter-spacing: -0.01em; }
+    .step p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+    .step:not(:last-child)::after { content: "→"; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); color: var(--ink-muted); font-size: 20px; z-index: 1; }
+    @media (max-width: 900px) { .step:not(:last-child)::after { display: none; } }
+
+    /* Credits / pricing strip */
+    .credits-card {
+        background: linear-gradient(135deg, var(--brand-light) 0%, white 100%);
+        border: 1px solid var(--line); border-radius: 16px;
+        padding: 32px; box-shadow: var(--shadow-md);
+    }
+    .credits-card h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -0.01em; }
+    .credits-card p { margin: 0 0 18px; color: var(--ink-soft); font-size: 14px; }
+    .credit-packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .pack { background: white; border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
+    .pack .ct { font-size: 22px; font-weight: 800; color: var(--brand); letter-spacing: -0.02em; }
+    .pack .lbl { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-top: 2px; }
+    .pack .per { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+    .pack.featured { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-light); }
+
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; cursor: pointer; }
+    .faq details summary { font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .faq details summary::-webkit-details-marker { display: none; }
+    .faq details summary::after { content: '+'; font-size: 22px; color: var(--ink-muted); font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details p { margin: 10px 0 0; color: var(--ink-soft); font-size: 15px; }
+
+    .cta-block { background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%); color: white; border-radius: 20px; padding: 56px; text-align: center; position: relative; overflow: hidden; }
+    .cta-block::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%); transform: rotate(15deg); }
+    .cta-block > * { position: relative; }
+    .cta-block h2 { color: white; font-size: 32px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.75); font-size: 17px; margin: 0 0 28px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 40px 0; color: var(--ink-muted); font-size: 14px; }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 900px) {
+        .hero-grid, .split { grid-template-columns: 1fr; gap: 40px; }
+        .features, .coverage { grid-template-columns: repeat(2, 1fr); }
+        .steps, .credit-packs { grid-template-columns: 1fr 1fr; }
+        h1 { font-size: 38px; }
+        h2 { font-size: 28px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links {
+            display: none;
+            position: absolute; top: 64px; left: 0; right: 0;
+            flex-direction: column; align-items: stretch; gap: 4px;
+            background: white; border-bottom: 1px solid var(--line);
+            box-shadow: var(--shadow-sm); padding: 12px 20px 16px;
+        }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .nav-links a:hover { background: var(--bg-soft); }
+        .cta-block { padding: 40px 24px; }
+        .checks { grid-template-columns: 1fr; }
+        .status-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+        section { padding: 60px 0; }
+        .coverage { grid-template-columns: 1fr 1fr; }
+        .steps, .credit-packs { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" class="active" role="tab" aria-selected="true">Retail</a>
+            <a href="/refurbishers/" role="tab" aria-selected="false">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <span class="eyebrow">GSX Service · PhoneCheck</span>
+            <h1>Full <span class="hl">device diagnostics</span> — in under a minute.</h1>
+            <p class="lead">
+                Cosmetic grading, hardware diagnostics, OEM parts, blacklist, IMEI, Data Wipe and warranty — one desktop app, one click, one report. Runs on Mac and Windows. Pay only for the checks you run.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="#how" class="btn btn-secondary btn-lg">How it works</a>
+            </div>
+            <div class="trust-line">
+                <span>Mac &amp; Windows desktop app</span>
+                <span>Smartphones, tablets, watches, laptops</span>
+                <span>Pay-per-check · credits never expire</span>
+                <span>Approved PhoneCheck Reseller</span>
+            </div>
+            <div class="powered-by">
+                <span>Diagnostic engine</span>
+                <strong>powered by phonecheck.com</strong>
+            </div>
+        </div>
+        <div>
+            <!-- Diagnostic mockup -->
+            <div class="diag">
+                <div class="diag-head">
+                    <div class="left">
+                        <div class="dev-ico"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                        <div>
+                            <h3>iPhone 14 Pro · 256GB · Deep Purple</h3>
+                            <div class="imei">IMEI: 35 294011 987654 3</div>
+                        </div>
+                    </div>
+                    <div class="verdict"><span class="dot"></span>PASS</div>
+                </div>
+                <div class="diag-body">
+                    <div class="diag-section-title">Hardware &amp; cosmetic</div>
+                    <div class="checks">
+                        <div class="check-row"><span class="label">Screen</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Battery health</span><span class="state pass">✓ 91%</span></div>
+                        <div class="check-row"><span class="label">Face ID</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Rear cameras</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Front camera</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Speakers &amp; mic</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Buttons &amp; haptics</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Wi-Fi / Bluetooth</span><span class="state pass">✓ Pass</span></div>
+                        <div class="check-row"><span class="label">Chassis</span><span class="state warn">◆ Minor wear</span></div>
+                        <div class="check-row"><span class="label">Display</span><span class="state pass">✓ No marks</span></div>
+                    </div>
+
+                    <div class="diag-extra">
+                        <div class="diag-section-title">Identity &amp; status</div>
+                        <div class="status-grid">
+                            <div class="status-tile">
+                                <div class="k">Blacklist</div>
+                                <div class="v ok">✓ Clean</div>
+                            </div>
+                            <div class="status-tile">
+                                <div class="k">iCloud lock</div>
+                                <div class="v ok">✓ Unlocked</div>
+                            </div>
+                            <div class="status-tile">
+                                <div class="k">Warranty</div>
+                                <div class="v warn">Expired</div>
+                            </div>
+                            <div class="status-tile">
+                                <div class="k">Carrier</div>
+                                <div class="v">Unlocked</div>
+                            </div>
+                            <div class="status-tile">
+                                <div class="k">Grade</div>
+                                <div class="v">A — Good</div>
+                            </div>
+                            <div class="status-tile">
+                                <div class="k">Suggested price</div>
+                                <div class="v ok">£615</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="diag-foot">
+                    <span>Check #48291 · 54 seconds · Completed just now</span>
+                    <span class="credits">Credits remaining <b>127</b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What it tests -->
+<section id="tests" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">What it tests and why GSX</span>
+            <h2>Every component. Every database. One report. Only GSX.</h2>
+            <p>The PhoneCheck app is free to install with any GSX plan, and checks are paid from your credit balance.
+                We’re the only UK provider offering PhoneCheck credits that don’t expire — so a shop running 5 checks a week
+                pays a fraction of what a high-volume refurbisher pays, without being forced into a bigger commitment upfront. PhoneCheck runs a full cosmetic grade, a hardware check of every component, and hits the major identity and blacklist databases — all in one pass, all stamped with a time, a tech and an audit trail.</p>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Battery health</h3>
+                <p>True battery condition — cycles, capacity, degradation — not just what iOS reports on-screen.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Cameras &amp; sensors</h3>
+                <p>Every rear lens, front camera, Face ID, Touch ID, accelerometer, gyro — tested and chekced for non original parts.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Audio &amp; haptics</h3>
+                <p>Speakers, earpiece, microphones, vibration motor, haptic feedback — all verified.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Connectivity</h3>
+                <p>Wi-Fi, Bluetooth, GPS, cellular modem, NFC, charging port — the things that make a phone a phone.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Blacklist &amp; IMEI</h3>
+                <p>Hits the GSMA and the major UK carrier blacklists. Stolen or barred devices flagged instantly.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <h3>Warranty &amp; iCloud</h3>
+                <p>Apple / Samsung warranty lookup, iCloud activation lock status, carrier lock status — no surprises.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Device coverage -->
+<section id="coverage">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Device coverage</span>
+            <h2>Not just phones.</h2>
+            <p>PhoneCheck runs the same unified workflow across every category you're likely to trade in, refurbish or resell.</p>
+        </div>
+        <div class="coverage">
+            <div class="cov-tile">
+                <div class="em"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <div class="nm">Smartphones</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <div class="nm">Tablets</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em">⌚</div>
+                <div class="nm">Apple Watch</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <div class="nm">MacBooks</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <div class="nm">Laptops</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <div class="nm">AirPods</div>
+            </div>
+            <div class="cov-tile">
+                <div class="em" aria-label="Google">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Google logo">
+                        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+                        <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+                        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+                        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+                    </svg>
+                </div>
+                <div class="nm">Chromebook</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section id="how" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">How it works</span>
+            <h2>Desktop app. Cable. Click. Done.</h2>
+            <p>No mobile app. No complicated setup. Install once on your counter Mac or PC, plug in the device, run the check — the result flows straight into your Stockroom.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <h4>Install the app</h4>
+                <p>Download the PhoneCheck app for Mac or Windows. Sign in with your GSX portal account — your credits are already there.</p>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <h4>Plug in the device</h4>
+                <p>USB cable to the phone, tablet, watch or laptop. The app auto-detects model, capacity, colour, IMEI.</p>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <h4>Run the check</h4>
+                <p>The app walks through every hardware test, grades the cosmetic condition, and pings every identity database. 1 credit per check.</p>
+            </div>
+            <div class="step">
+                <div class="num">4</div>
+                <h4>Lands in Stockroom</h4>
+                <p>Device auto-appears in your Stockroom with the full report attached — ready to price, list and sell.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why it matters -->
+<section id="why">
+    <div class="container split">
+        <div>
+            <span class="eyebrow">Why it matters</span>
+            <h2>Every device you buy should come with a receipt you can trust.</h2>
+            <p>
+                A device you bought from a walk-in at 11am can cost you £300 at 2pm when the screen flickers, the battery drops 20%, or the IMEI turns out to be barred. PhoneCheck is the difference between a good buy and a bad write-off.
+            </p>
+            <ul>
+                <li><span class="check">✓</span><div><strong>Spot hidden faults before you pay</strong><span class="d">Battery, water damage, dead pixels, bad cameras — things that don't show up in a 30-second counter inspection.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Reject blacklisted devices instantly</strong><span class="d">GSMA + UK carrier databases hit in real time. No stolen or barred stock making it into your inventory.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Grade consistently</strong><span class="d">Every tech on your counter grades a device the same way. No more price disputes at the till.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Auditable report on every device</strong><span class="d">A stamped, timestamped, component-by-component report — invaluable when a customer disputes the grade weeks later.</span></div></li>
+            </ul>
+        </div>
+        <div>
+            <div class="credits-card">
+                <h3>Pay-per-check credits</h3>
+                <p>Buy credits in packs. 1 credit = 1 full device check. Credits never expire — use them as your volume grows.</p>
+                <div class="credit-packs">
+                    <div class="pack">
+                        <div class="ct">50</div>
+                        <div class="lbl">Starter</div>
+                        <div class="per">Small counter</div>
+                    </div>
+                    <div class="pack featured">
+                        <div class="ct">500</div>
+                        <div class="lbl">Most popular</div>
+                        <div class="per">Best per-check rate</div>
+                    </div>
+                    <div class="pack">
+                        <div class="ct">1,000</div>
+                        <div class="lbl">High volume</div>
+                        <div class="per">Multi-site / refurb</div>
+                    </div>
+                </div>
+                <p style="margin-top: 18px; font-size: 12px; color: var(--ink-muted);">Exact per-credit pricing shown at checkout in the portal. Credits are shared across all users in your account.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Integration with the rest of GSX -->
+<section class="dark">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Not a silo</span>
+            <h2>A check isn't the end — it's the start.</h2>
+            <p>PhoneCheck doesn't just spit out a PDF or QR code. The result becomes a live inventory record that flows through the rest of your GSX stack.</p>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>→ Stockroom</h3>
+                <p>Every checked device lands in your Stockroom with grade, IMEI, battery health and report attached. No re-keying.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>→ GSX Pulse</h3>
+                <p>The moment a device is checked, GSX Pulse tells you what it's worth — across every buyback source in the UK.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>→ Buyback Widget</h3>
+                <p>Use check results to validate what a customer claims online, before you commit a quote or pay out.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Common questions</h2>
+        </div>
+        <div class="faq">
+            <details>
+                <summary>Is this a mobile app?</summary>
+                <p>No — Phone Check is a desktop application that runs on Mac and Windows. You plug the device into the counter computer with a cable and run the check from there. A mobile companion is on the roadmap.</p>
+            </details>
+            <details>
+                <summary>How is the diagnostic engine built?</summary>
+                <p>The underlying diagnostic engine is powered by phonecheck.com, the industry-leading device testing platform. GSX wraps it in a unified retailer workflow — so a single check also hits blacklist, IMEI and warranty databases and pushes the result straight into your Stockroom.</p>
+            </details>
+            <details>
+                <summary>What does a check actually cost?</summary>
+                <p>You buy credits in packs. 1 credit = 1 full device check regardless of whether it's a phone, tablet, watch or laptop. Per-credit pricing is shown in the portal at checkout, and credits don't expire.</p>
+            </details>
+            <details>
+                <summary>Do I need a special cable or rig?</summary>
+                <p>No. For Smartphones and Tablets, a standard Lightning / USB-C / USB cable is all you need. No test rigs, no custom hardware. We can provide additional test rigs for Apple Watches</p>
+            </details>
+            <details>
+                <summary>Which devices are supported?</summary>
+                <p>Smartphones (iPhone and the major Android brands), tablets (iPad and Android), Apple Watch, MacBooks and most mainstream Windows laptops. We add models continuously — tell us if there's a specific device you need prioritised.</p>
+            </details>
+            <details>
+                <summary>Can I see the raw report?</summary>
+                <p>Yes. Every check produces a full component-by-component report accessible inside your GSX portal, alongside the Stockroom record. Printable or exportable.</p>
+            </details>
+            <details>
+                <summary>Is PhoneCheck included in the subscription?</summary>
+                <p>The app itself is free to install with any GSX plan. Individual checks are paid from your credits balance — that way retailers doing 5 checks a week pay a fraction of what a high-volume refurbisher pays.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="demo">
+    <div class="container">
+        <div class="cta-block">
+            <h2>See a device checked end-to-end.</h2>
+            <p>Book a 20-minute demo. We'll walk a real device through PhoneCheck and show you the full report — from cable to Stockroom — in real time.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:hello@2wc2.com?subject=Phone%20Check%20Demo" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="https://app.gsx.co.uk" class="btn btn-secondary btn-lg">Sign in to your portal →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <span style="font-size: 12px;">Diagnostic engine powered by <strong style="color: var(--ink-soft);">phonecheck.com</strong></span>
+            <a href="https://app.gsx.co.uk" style="color: var(--ink-soft); font-weight: 500;">Sign in to your portal →</a>
+            <span>&copy; GSX (Global Seller Exchange). The complete buy & sell intelligence platform for mobile retailers.</span>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    try { localStorage.setItem('gsx_audience', 'retail'); } catch (e) {}
+
+    // Mobile nav toggle
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
