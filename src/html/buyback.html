@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX Trade-In &amp; Buyback Service — Turn Your Storefront Into a Buyback Business</title>
+<meta name="description" content="GSX gives independent phone retailers a fully-managed buyback service — embed our widget on your site or link customers to a full-page buyback site we host for you. Live pricing intelligence, competitor benchmarking, product database and imagery, all done for you.">
+<link rel="canonical" href="https://gsx.co.uk/buyback">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/buyback">
+<meta property="og:title" content="GSX Trade-In & Buyback Service — Turn Your Storefront Into a Buyback Business">
+<meta property="og:description" content="A fully-managed buyback service for independent UK phone retailers. Embed the widget on your site or use the full-page version we host for you.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+<meta property="og:site_name" content="GSX">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GSX Buyback — Turn your phone shop into a buyback business">
+<meta name="twitter:description" content="Embeddable buyback widget + hosted full-page site for UK phone retailers. Live competitor pricing built in.">
+<meta name="twitter:image" content="https://gsx.co.uk/icon-512.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GSX Buyback",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, Shopify, WooCommerce, Wix",
+  "url": "https://gsx.co.uk/buyback",
+  "description": "Fully-managed phone buyback service for independent UK retailers. Embeddable widget plus a hosted buyback site, with live competitor pricing intelligence underneath.",
+  "offers": { "@type": "Offer", "priceCurrency": "GBP" },
+  "publisher": { "@type": "Organization", "name": "GSX",
+  "legalName": "GSX (Global Seller Exchange)",
+  "alternateName": "Global Seller Exchange", "url": "https://gsx.co.uk/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Embedded widget or full-page site — which should I choose?", "acceptedAnswer": { "@type": "Answer", "text": "You can use either, or both. Embed the widget on your existing site if you want customers to trade in without leaving your store. Use the full-page version we host for you if you'd rather link out from a social post, email campaign or QR code — no changes to your site needed. Same pricing, same catalogue, same payouts behind both." } },
+    { "@type": "Question", "name": "Do I need a developer to install the widget?", "acceptedAnswer": { "@type": "Answer", "text": "No. The widget is a single embed snippet that works on Shopify, WooCommerce, Wix and most custom-built sites. We'll help you install it if needed. And if you'd rather skip the embed altogether, the full-page version we host for you is ready to share from day one." } },
+    { "@type": "Question", "name": "How do I decide what to pay customers?", "acceptedAnswer": { "@type": "Answer", "text": "You pick a market benchmark (a specific competitor or a blended average) and tell us the margin you want. We calculate your buy price automatically and refresh it daily." } },
+    { "@type": "Question", "name": "What happens when the customer ships the device?", "acceptedAnswer": { "@type": "Answer", "text": "The customer gets free tracked postage, the device arrives at your premises, you inspect and grade it, and you pay out through your normal payment flow. GSX handles the quoting, the customer journey and the communications." } },
+    { "@type": "Question", "name": "Can I control which products are buyable?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — you choose every device in your buyback catalogue. Add, pause or remove any SKU at any time." } },
+    { "@type": "Question", "name": "Is this just for phones?", "acceptedAnswer": { "@type": "Answer", "text": "Phones, tablets and wearables are currently supported. Laptops and gaming are being added. Ask us about expanding your catalogue when you're ready." } },
+    { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "We keep pricing simple and tailored to your volume. Book a demo and we'll quote you on the spot." } }
+  ]
+}
+</script>
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c;
+        --brand-dark: #061e46;
+        --brand-light: #eff6ff;
+        --accent: #059669;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --ink-muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav.top {
+        position: sticky; top: 0; z-index: 20;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: saturate(180%) blur(8px);
+        border-bottom: 1px solid var(--line);
+    }
+    nav.top .row {
+        display: flex; align-items: center; justify-content: space-between;
+        height: 64px;
+    }
+    .logo {
+        display: flex; align-items: center; gap: 10px;
+        font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em;
+    }
+    .logo-mark {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: white; font-weight: 800; font-size: 13px;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a.signin {
+        padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line);
+        color: var(--ink); font-weight: 600;
+    }
+    .nav-links a.signin:hover { border-color: var(--ink-muted); text-decoration: none; }
+    .audience-switch { display: inline-flex; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; }
+    .audience-switch a { font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; color: var(--ink-muted); text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active { background: white; color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.06); }
+    @media (max-width: 960px) { .audience-switch { align-self: center; margin: 6px 0; } }
+    .nav-toggle {
+        display: none; background: none; border: 0; cursor: pointer;
+        width: 40px; height: 40px; border-radius: 8px; padding: 0;
+        align-items: center; justify-content: center;
+    }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars,
+    .nav-toggle .bars::before,
+    .nav-toggle .bars::after {
+        content: ''; display: block; width: 22px; height: 2px;
+        background: var(--ink); border-radius: 2px; position: relative;
+        transition: transform 0.2s ease, top 0.2s ease, opacity 0.15s ease;
+    }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+    .logo { text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .btn {
+        display: inline-block; padding: 10px 18px; border-radius: 8px;
+        font-weight: 600; font-size: 14px; cursor: pointer; border: 0;
+        transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+        text-align: center;
+    }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    /* Hero */
+    .hero {
+        padding: 80px 0 60px;
+        background:
+            radial-gradient(ellipse at top right, rgba(10,46,92,0.08), transparent 60%),
+            radial-gradient(ellipse at bottom left, rgba(5,150,105,0.06), transparent 60%),
+            var(--bg);
+    }
+    .hero-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .eyebrow {
+        display: inline-block; padding: 6px 12px; border-radius: 999px;
+        background: var(--brand-light); color: var(--brand);
+        font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+    h1 {
+        font-size: 52px; line-height: 1.08; letter-spacing: -0.025em;
+        margin: 0 0 20px; font-weight: 800; color: var(--ink);
+    }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead {
+        font-size: 19px; color: var(--ink-soft); margin: 0 0 28px; max-width: 520px;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust-line {
+        margin-top: 28px; color: var(--ink-muted); font-size: 13px;
+        display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .trust-line span::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    /* Widget mockup */
+    .widget {
+        background: white; border: 1px solid var(--line);
+        border-radius: 16px; box-shadow: var(--shadow-lg);
+        padding: 24px; max-width: 440px; margin-left: auto;
+    }
+    .widget-head {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 18px;
+    }
+    .widget-brand {
+        display: flex; align-items: center; gap: 8px;
+        font-weight: 700; font-size: 14px;
+    }
+    .widget-brand .mark {
+        width: 22px; height: 22px; border-radius: 6px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    }
+    .widget-tag {
+        font-size: 11px; color: var(--ink-muted);
+        background: var(--bg-soft); border: 1px solid var(--line);
+        padding: 4px 8px; border-radius: 6px;
+    }
+    .widget h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -0.01em; }
+    .widget .sub { color: var(--ink-muted); font-size: 13px; margin-bottom: 16px; }
+    .field { margin-bottom: 14px; }
+    .field label {
+        display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft);
+        margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .field select, .field .pill-group {
+        width: 100%; padding: 10px 12px; border-radius: 8px;
+        border: 1px solid var(--line); background: white; font-size: 14px; color: var(--ink);
+        font-family: inherit;
+    }
+    .field select:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+    .pill-group { display: flex; gap: 6px; padding: 6px; background: var(--bg-soft); border: 1px solid var(--line); }
+    .pill {
+        flex: 1; padding: 8px 10px; border-radius: 6px; text-align: center;
+        font-size: 13px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+        transition: all 0.15s ease;
+    }
+    .pill.active { background: white; color: var(--brand); box-shadow: var(--shadow-sm); }
+    .quote-box {
+        margin-top: 18px; padding: 18px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        color: white; border-radius: 12px;
+    }
+    .quote-box .lbl { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+    .quote-box .amt { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0; }
+    .quote-box .hint { font-size: 12px; opacity: 0.85; }
+    .widget-cta {
+        width: 100%; margin-top: 14px; background: var(--ink); color: white;
+        padding: 12px; border-radius: 8px; font-weight: 600; font-size: 14px;
+        border: 0; cursor: pointer;
+    }
+    .widget-cta:hover { background: var(--brand); }
+    .widget-foot {
+        margin-top: 12px; text-align: center; font-size: 11px; color: var(--ink-muted);
+    }
+
+    /* GSX Buyback preview — customer-facing entry point (matches /sell/ aesthetic) */
+    .gsx-buyback-hero {
+        background: white; border: 1px solid var(--line); border-radius: 20px;
+        padding: 32px 30px 28px;
+        position: relative;
+        box-shadow: var(--shadow-lg);
+    }
+    .gbh-inner { position: relative; text-align: center; }
+    .gbh-brand-tag {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 5px 12px; border-radius: 999px;
+        background: var(--brand-light); border: 1px solid rgba(10,46,92,0.15);
+        font-size: 11.5px; font-weight: 700; color: var(--brand);
+        letter-spacing: 0.04em; text-transform: uppercase;
+        margin: 0 0 16px;
+    }
+    .gbh-brand-tag .btm {
+        width: 18px; height: 18px; border-radius: 5px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: white; font-size: 10px; font-weight: 800;
+    }
+    .gbh-title {
+        font-size: 26px; line-height: 1.15; letter-spacing: -0.02em;
+        font-weight: 800; color: var(--ink); margin: 0 0 10px;
+    }
+    .gbh-accent { color: var(--brand); }
+    .gbh-sub {
+        font-size: 14px; color: var(--ink-soft);
+        margin: 0 0 22px;
+    }
+    .gbh-search {
+        position: relative;
+        display: flex; gap: 8px; align-items: stretch;
+        max-width: 420px; margin: 0 auto;
+    }
+    .gbh-search-wrap { flex: 1; position: relative; min-width: 0; }
+    .gbh-search input[type="text"] {
+        width: 100%; border: 1.5px solid var(--line); border-radius: 10px;
+        padding: 11px 14px; font-size: 14px;
+        color: var(--ink); font-family: inherit;
+        background: var(--bg-soft);
+        transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+        min-width: 0;
+    }
+    .gbh-search input[type="text"]:focus {
+        outline: none; border-color: var(--brand);
+        background: white; box-shadow: 0 0 0 3px rgba(10,46,92,0.12);
+    }
+    .gbh-search input[type="text"]::placeholder { color: var(--ink-muted); }
+    .gbh-search button {
+        border: 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+        color: white; font-weight: 700; font-size: 13.5px;
+        padding: 11px 18px; border-radius: 10px; cursor: pointer;
+        white-space: nowrap; transition: transform 0.08s ease, box-shadow 0.2s ease;
+    }
+    .gbh-search button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px -4px rgba(10,46,92,0.4); }
+
+    /* Suggestions dropdown */
+    .gbh-suggestions {
+        display: none;
+        position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+        background: white; border: 1px solid var(--line); border-radius: 12px;
+        box-shadow: var(--shadow-lg);
+        max-height: 300px; overflow-y: auto;
+        z-index: 20;
+        text-align: left;
+    }
+    .gbh-suggestions.open { display: block; }
+    .gbh-suggestions button.gbh-sug-item {
+        display: block; width: 100%; text-align: left;
+        padding: 12px 18px; border: 0; background: transparent;
+        font-size: 14px; color: var(--ink); font-family: inherit;
+        cursor: pointer; border-bottom: 1px solid var(--line);
+        transition: background 0.1s;
+    }
+    .gbh-suggestions button.gbh-sug-item:last-child { border-bottom: 0; }
+    .gbh-suggestions button.gbh-sug-item:hover,
+    .gbh-suggestions button.gbh-sug-item.active {
+        background: var(--brand-light);
+        color: var(--brand);
+    }
+    .gbh-sug-item .gbh-sug-mark {
+        background: rgba(10,46,92,0.15); color: var(--brand);
+        font-weight: 700; border-radius: 3px; padding: 0 2px;
+    }
+    .gbh-sug-empty {
+        padding: 16px 18px; font-size: 13px; color: var(--ink-muted);
+    }
+    .gbh-trust {
+        margin-top: 18px; font-size: 12.5px;
+        color: var(--ink-muted); font-weight: 500;
+    }
+    .gbh-trust span::before { content: '✓ '; color: var(--accent); font-weight: 700; margin-right: 2px; }
+    .gbh-trust span:not(:last-child)::after { content: ' · '; color: var(--line); margin: 0 4px; }
+    @media (max-width: 520px) {
+        .gsx-buyback-hero { padding: 24px 20px 22px; }
+        .gbh-title { font-size: 22px; }
+        .gbh-search { flex-direction: column; gap: 8px; }
+        .gbh-search-wrap { width: 100%; }
+        .gbh-search input[type="text"] { padding: 12px 14px; text-align: center; }
+        .gbh-search button { width: 100%; padding: 12px 18px; }
+        .gbh-suggestions { position: static; margin-top: 4px; }
+    }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 12px; }
+    h2 {
+        font-size: 36px; letter-spacing: -0.02em; line-height: 1.15;
+        margin: 0 0 14px; font-weight: 800;
+    }
+    .section-head p { font-size: 17px; color: var(--ink-soft); margin: 0; }
+
+    /* Feature grid */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 28px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .feature:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .feature-icon {
+        width: 44px; height: 44px; border-radius: 10px;
+        background: var(--brand-light); color: var(--brand);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 16px; font-size: 22px;
+    }
+    .feature h3 { font-size: 18px; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .feature p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }
+    .step {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 24px; position: relative;
+    }
+    .step .num {
+        width: 32px; height: 32px; border-radius: 8px;
+        background: var(--ink); color: white;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700; font-size: 14px; margin-bottom: 14px;
+    }
+    .step h3 { font-size: 16px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .step p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+    /* Split */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .split h2 { font-size: 30px; }
+    .split ul { list-style: none; padding: 0; margin: 20px 0 0; }
+    .split ul li {
+        padding: 12px 0; border-bottom: 1px solid var(--line);
+        display: flex; gap: 12px; align-items: flex-start;
+    }
+    .split ul li:last-child { border-bottom: 0; }
+    .split ul li .check {
+        flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+        background: var(--accent); color: white;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .split ul li strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+    .split ul li span.d { font-size: 14px; color: var(--ink-soft); }
+
+    /* Panel mockup (competitor selection) */
+    .panel {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 24px; box-shadow: var(--shadow-md);
+    }
+    .panel-title { font-size: 13px; color: var(--ink-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; }
+    .competitor-row {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
+        margin-bottom: 8px; background: var(--bg-soft);
+    }
+    .competitor-row.selected { background: var(--brand-light); border-color: var(--brand); }
+    .competitor-row .nm { font-weight: 600; font-size: 14px; }
+    .competitor-row .pr { font-weight: 700; font-size: 14px; color: var(--ink); }
+    .competitor-row.selected .pr { color: var(--brand); }
+    .competitor-row .tick {
+        width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid var(--line);
+        display: inline-flex; align-items: center; justify-content: center;
+        background: white; color: white; font-size: 11px; font-weight: 700;
+        margin-right: 10px;
+    }
+    .competitor-row.selected .tick { background: var(--brand); border-color: var(--brand); }
+    .competitor-row .left { display: flex; align-items: center; }
+    .competitor-row .pct {
+        font-size: 11px; color: var(--accent); font-weight: 600;
+        background: rgba(5,150,105,0.1); padding: 2px 6px; border-radius: 4px; margin-left: 8px;
+    }
+
+    /* Target audience */
+    .audience-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .audience-card {
+        background: white; border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 28px;
+    }
+    .audience-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .audience-card p { margin: 0 0 10px; color: var(--ink-soft); font-size: 15px; }
+
+    /* CTA section */
+    .cta-block {
+        background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+        color: white; border-radius: 20px; padding: 56px; text-align: center;
+        position: relative; overflow: hidden;
+    }
+    .cta-block::before {
+        content: ''; position: absolute; top: -50%; right: -20%;
+        width: 60%; height: 200%;
+        background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%);
+        transform: rotate(15deg);
+    }
+    .cta-block > * { position: relative; }
+    .cta-block h2 { color: white; font-size: 32px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.75); font-size: 17px; margin: 0 0 28px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    /* Contact form */
+    .contact-wrap { max-width: 560px; margin: 40px auto 0; background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-md); }
+    .contact-wrap h3 { margin: 0 0 6px; font-size: 20px; }
+    .contact-wrap p.sub { color: var(--ink-muted); font-size: 14px; margin: 0 0 20px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    .form-grid label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .form-grid input, .form-grid textarea {
+        width: 100%; padding: 10px 12px; border-radius: 8px;
+        border: 1px solid var(--line); font-size: 14px; font-family: inherit; color: var(--ink);
+    }
+    .form-grid input:focus, .form-grid textarea:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+    .form-grid textarea { min-height: 90px; resize: vertical; }
+
+    /* FAQ */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details {
+        border-bottom: 1px solid var(--line); padding: 18px 0; cursor: pointer;
+    }
+    .faq details summary {
+        font-weight: 600; font-size: 16px; list-style: none;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq details summary::-webkit-details-marker { display: none; }
+    .faq details summary::after { content: '+'; font-size: 22px; color: var(--ink-muted); font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details p { margin: 10px 0 0; color: var(--ink-soft); font-size: 15px; }
+
+    /* Footer */
+    footer {
+        background: var(--bg-soft); border-top: 1px solid var(--line);
+        padding: 40px 0; color: var(--ink-muted); font-size: 14px;
+    }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .hero-grid, .split { grid-template-columns: 1fr; gap: 40px; }
+        .widget { margin: 0 auto; }
+        .features { grid-template-columns: 1fr; }
+        .steps { grid-template-columns: 1fr 1fr; }
+        .audience-grid { grid-template-columns: 1fr; }
+        h1 { font-size: 38px; }
+        h2 { font-size: 28px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links {
+            display: none;
+            position: absolute; top: 64px; left: 0; right: 0;
+            flex-direction: column; align-items: stretch; gap: 4px;
+            background: white; border-bottom: 1px solid var(--line);
+            box-shadow: var(--shadow-sm); padding: 12px 20px 16px;
+        }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .nav-links a:hover { background: var(--bg-soft); }
+        .cta-block { padding: 40px 24px; }
+        .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+        .steps { grid-template-columns: 1fr; }
+        section { padding: 60px 0; }
+        h1 { font-size: 30px; line-height: 1.2; }
+        h2 { font-size: 24px; }
+        .lead { font-size: 17px; }
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       GSX buyback widget — live modal
+       Pattern adapted from GSX Shopify widget (buyback-widget).
+       All API calls go direct to app.gsx.co.uk with client_id.
+       All styles scoped to #gsxModal — will not affect page.
+       ───────────────────────────────────────────────────────── */
+    body.gsx-locked { overflow: hidden; }
+    #gsxModal {
+        position: fixed; inset: 0; z-index: 9999;
+        background: rgba(15, 23, 42, 0.55);
+        display: flex; align-items: center; justify-content: center;
+        padding: 24px; opacity: 0; transition: opacity 0.28s ease;
+    }
+    #gsxModal.open { opacity: 1; }
+    #gsxModal[hidden] { display: none; }
+    #gsxModal .gsx-panel {
+        background: #fff; border-radius: 20px;
+        width: 100%; max-width: 480px; max-height: 92vh;
+        display: flex; flex-direction: column; overflow: hidden;
+        transform: translateY(20px) scale(0.98);
+        transition: transform 0.28s ease;
+        box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.35);
+    }
+    #gsxModal.open .gsx-panel { transform: translateY(0) scale(1); }
+    #gsxModal .gsx-header {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 16px 20px; border-bottom: 1px solid var(--line);
+        gap: 12px; flex-shrink: 0;
+    }
+    #gsxModal .gsx-header-left {
+        display: flex; align-items: center; gap: 14px; min-width: 0; flex-wrap: wrap;
+    }
+    #gsxModal .gsx-progress {
+        display: flex; gap: 6px; font-size: 12px; color: var(--ink-muted);
+    }
+    #gsxModal .gsx-step { color: var(--ink-muted); font-weight: 500; }
+    #gsxModal .gsx-step.active { color: var(--brand); font-weight: 700; }
+    #gsxModal .gsx-step.done { color: var(--ink-soft); }
+    #gsxModal .gsx-sep { color: var(--ink-muted); }
+    #gsxModal .gsx-close {
+        background: transparent; border: 0; color: var(--ink-soft);
+        width: 32px; height: 32px; border-radius: 999px; cursor: pointer;
+        display: inline-flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+    }
+    #gsxModal .gsx-close:hover { background: var(--bg-soft); color: var(--ink); }
+    #gsxModal .gsx-body {
+        padding: 24px 20px 12px; overflow-y: auto; flex: 1 1 auto;
+    }
+    #gsxModal .gsx-pane[hidden] { display: none; }
+    #gsxModal .gsx-pane-back {
+        background: transparent; border: 0; color: var(--ink-soft);
+        font-size: 13px; font-weight: 600; padding: 4px 0 12px;
+        cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+        font-family: inherit;
+    }
+    #gsxModal .gsx-pane-back:hover { color: var(--brand); }
+    #gsxModal .gsx-pane-title { font-size: 20px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--ink); }
+    #gsxModal .gsx-pane-sub { font-size: 13px; color: var(--ink-muted); margin: 0 0 16px; }
+    #gsxModal .gsx-search-bar {
+        display: flex; gap: 8px; margin: 0 0 16px;
+    }
+    #gsxModal .gsx-search-bar input {
+        flex: 1; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
+        font-family: inherit; font-size: 15px; color: var(--ink); background: #fff; min-width: 0;
+    }
+    #gsxModal .gsx-search-bar input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(10,46,92, 0.12); }
+    #gsxModal .gsx-search-bar button {
+        padding: 12px 20px; border: 0; border-radius: 10px; background: var(--brand);
+        color: #fff; font-weight: 700; font-size: 14px; cursor: pointer; font-family: inherit;
+        flex-shrink: 0;
+    }
+    #gsxModal .gsx-search-bar button:hover { background: var(--brand-dark); }
+    #gsxModal .gsx-results { display: flex; flex-direction: column; gap: 8px; }
+    #gsxModal .gsx-result-item {
+        display: flex; align-items: center; gap: 12px; padding: 12px;
+        background: #fff; border: 1px solid var(--line); border-radius: 12px;
+        cursor: pointer; text-align: left; font-family: inherit; width: 100%;
+    }
+    #gsxModal .gsx-result-item:hover { border-color: var(--brand); background: var(--bg-soft); }
+    #gsxModal .gsx-result-img { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
+    #gsxModal .gsx-result-name { flex: 1; font-weight: 600; font-size: 14px; color: var(--ink); }
+    #gsxModal .gsx-result-arr { color: var(--ink-soft); flex-shrink: 0; }
+    #gsxModal .gsx-device-block {
+        display: flex; align-items: center; gap: 14px; padding: 12px;
+        background: var(--bg-soft); border-radius: 12px; margin-bottom: 18px;
+    }
+    #gsxModal .gsx-device-block img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+    #gsxModal .gsx-device-block .name { font-weight: 700; font-size: 15px; color: var(--ink); }
+    #gsxModal .gsx-section-label {
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+        font-weight: 700; color: var(--ink-muted); margin: 0 0 8px;
+    }
+    #gsxModal .gsx-btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    #gsxModal .gsx-opt-btn {
+        padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px;
+        background: #fff; font-family: inherit; font-size: 13px; font-weight: 600;
+        color: var(--ink); cursor: pointer;
+    }
+    #gsxModal .gsx-opt-btn:hover { border-color: var(--brand); color: var(--brand); }
+    #gsxModal .gsx-opt-btn.sel { background: var(--brand); border-color: var(--brand); color: #fff; }
+    #gsxModal .gsx-cta {
+        width: 100%; padding: 14px; border: 0; border-radius: 12px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+        color: #fff; font-weight: 700; font-size: 15px; cursor: pointer;
+        font-family: inherit; margin-top: 6px;
+    }
+    #gsxModal .gsx-cta:disabled { background: linear-gradient(135deg, #93c5fd, #60a5fa); cursor: not-allowed; }
+    #gsxModal .gsx-cta:not(:disabled):hover { transform: translateY(-1px); }
+    #gsxModal .gsx-cta-secondary {
+        display: block; width: 100%; padding: 12px; border: 1px solid var(--line);
+        border-radius: 12px; background: #fff; color: var(--ink); font-weight: 600;
+        font-size: 14px; text-align: center; text-decoration: none; margin-top: 8px;
+        font-family: inherit; cursor: pointer;
+    }
+    #gsxModal .gsx-cta-secondary:hover { border-color: var(--ink-soft); text-decoration: none; }
+    #gsxModal .gsx-state-msg {
+        padding: 24px 12px; text-align: center; font-size: 14px;
+        color: var(--ink-muted); display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    #gsxModal .gsx-state-msg.error { color: var(--neg, #a01e1e); }
+    #gsxModal .gsx-spinner {
+        width: 16px; height: 16px; border-radius: 999px;
+        border: 2px solid var(--line); border-top-color: var(--brand);
+        animation: gsx-spin 0.8s linear infinite;
+    }
+    @keyframes gsx-spin { to { transform: rotate(360deg); } }
+    #gsxModal .gsx-offer-amount {
+        font-size: 48px; font-weight: 800; letter-spacing: -0.03em;
+        color: var(--brand); text-align: center; line-height: 1; margin: 20px 0 8px;
+    }
+    #gsxModal .gsx-offer-device { text-align: center; font-weight: 700; color: var(--ink); font-size: 16px; margin: 0 0 4px; }
+    #gsxModal .gsx-offer-spec { text-align: center; color: var(--ink-muted); font-size: 13px; margin: 0 0 20px; }
+    #gsxModal .gsx-offer-copy {
+        padding: 14px; background: var(--bg-soft); border-radius: 10px;
+        font-size: 12.5px; color: var(--ink-soft); line-height: 1.5;
+        text-align: center; margin-bottom: 14px;
+    }
+    #gsxModal .gsx-offer-copy strong { color: var(--ink); }
+    #gsxModal .gsx-footer {
+        padding: 12px 20px 16px; border-top: 1px solid var(--line);
+        display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+        font-size: 11px; color: var(--ink-soft); flex-shrink: 0;
+    }
+    #gsxModal .gsx-footer span::before { content: '✓ '; color: var(--brand); font-weight: 700; }
+    @media (max-width: 520px) {
+        #gsxModal { padding: 0; }
+        #gsxModal .gsx-panel { border-radius: 0; max-width: 100%; max-height: 100%; height: 100%; }
+        #gsxModal .gsx-header { flex-wrap: wrap; }
+        #gsxModal .gsx-progress { font-size: 11px; gap: 4px; }
+        #gsxModal .gsx-offer-amount { font-size: 40px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" class="active" role="tab" aria-selected="true">Retail</a>
+            <a href="/refurbishers/" role="tab" aria-selected="false">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <span class="eyebrow">GSX Service · Trade-In &amp; Buyback</span>
+            <h1>Turn your phone shop into a <span class="hl">buyback business</span> — without the heavy lifting.</h1>
+            <p class="lead">
+                Embed our fully-managed trade-in widget into your existing site, or send customers straight to a full-page buyback site we host for you. You choose the products you want to buy back and the margin you want to make — we handle the pricing intelligence, the product database, the imagery and the live market data. You buy stock. We do the rest.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="#how" class="btn btn-secondary btn-lg">See how it works</a>
+            </div>
+            <div class="trust-line">
+                <span>No dev work required</span>
+                <span>Live competitor pricing</span>
+                <span>Built for independent retailers</span>
+            </div>
+        </div>
+        <div>
+            <!-- Live GSX buyback search — what your customer sees -->
+            <div style="max-width:520px;margin:0 auto;" id="gsx-buyback-block">
+                <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;color:var(--ink-muted);text-align:center;margin-bottom:10px;" id="gbh-caption">This is what your customers see</div>
+                <div class="gsx-buyback-hero" id="gsx-buyback-hero">
+                    <div class="gbh-inner">
+                        <span class="gbh-brand-tag"><span class="btm">G</span> GSX Trade-In</span>
+                        <h2 class="gbh-title">Instant quote for your device. <span class="gbh-accent">Paid same day.</span></h2>
+                        <p class="gbh-sub">Live UK pricing. Price held 14 days. Free tracked postage.</p>
+                        <form class="gbh-search" id="gsx-buyback-search" method="GET" autocomplete="off">
+                            <div class="gbh-search-wrap">
+                                <input type="text" name="q" id="gbh-q" placeholder="e.g. iPhone 15 Pro, Galaxy S24…" autocomplete="off" required>
+                                <div class="gbh-suggestions" id="gbh-suggestions" role="listbox"></div>
+                            </div>
+                            <button type="submit">Get quote</button>
+                        </form>
+                        <div class="gbh-trust"><span>Held 14 days</span><span>30,000+ devices</span><span>Paid same day</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align:center;margin:14px 0 0;font-size:13px;color:var(--ink-muted);">Embed this on your site — this is exactly the search flow your customers will see. One-click quote request, no signup, no third-party redirect.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section id="how" class="alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">How it works</span>
+            <h2>Four steps from zero to a live buyback business</h2>
+            <p>No development team. No product database. No pricing analysts. We give you the whole service — you just sign off on what you want to buy.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <h3>Pick your products</h3>
+                <p>Choose the devices you want to buy back from our live product catalogue — phones, tablets and wearables.</p>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <h3>Choose a pricing benchmark</h3>
+                <p>Select which market you want to value against — any of the major UK buyback competitors, or your own price.</p>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <h3>Go live — your way</h3>
+                <p>Drop a single embed snippet into your existing site, or point customers to a full-page buyback site we host for you. No redesign, no migration, no hosting headaches.</p>
+            </div>
+            <div class="step">
+                <div class="num">4</div>
+                <h3>Start buying stock</h3>
+                <p>Customers get instant quotes and ship their device. You inspect, pay out and resell — all at your chosen margin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">What's included</span>
+            <h2>Everything you need — delivered as a service</h2>
+            <p>Built on the same foundations as large-scale, in-store buyback systems deployed across the UK and Europe.
+Now available to independent retailers — without the cost, complexity, or time.</p>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Widget or full page — your choice</h3>
+                <p>Embed the widget inside your existing website, or link customers to a full-page buyback site we host for you. Branded to your store, mobile-responsive, conversion-optimised either way.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Live pricing intelligence</h3>
+                <p>Our engine scrapes and normalises competitor buyback prices every day so your offers always track the market.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;"></div>
+                <h3>Exit prices built in</h3>
+                <p>We model the resale value so you can see your margin before you set a buy price. No guesswork.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <h3>Managed product database</h3>
+                <p>Thousands of SKUs — brands, models, storage variants, conditions — all maintained by us. You never touch a spreadsheet.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <h3>Imagery handled</h3>
+                <p>Product images for every device are sourced, formatted and updated on your behalf. No asset library to manage.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="/favicon.svg" alt="GSX" style="width:22px;height:22px;display:inline-block;vertical-align:middle;">️</div>
+                <h3>You're always in control</h3>
+                <p>Override any price, adjust margins per model, or hand the whole thing to us to manage. Your call.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Split: competitor selection -->
+<section class="alt">
+    <div class="container split">
+        <div>
+            <span class="eyebrow">Competitor benchmarking</span>
+            <h2>Price against any market. Beat it by the margin you choose.</h2>
+            <p style="color: var(--ink-soft); font-size: 16px; margin: 0;">
+                Every day we track the UK buyback market — the specialists, the resellers, the network trade-ins. You tell us which competitor or market average you want to track, and we automatically keep your prices in line. Want to sit 5% above your nearest rival? Done. Want to undercut the network trade-ins to win stock? Done.
+            </p>
+            <ul>
+                <li><span class="check">✓</span><div><strong>Pick any competitor as your benchmark</strong><span class="d">Specialists, generalists or blended market average.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Set your margin once</strong><span class="d">Flat percentage, per-model, or fully managed by us.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Prices refresh automatically</strong><span class="d">We monitor the market daily and update your quotes.</span></div></li>
+            </ul>
+        </div>
+        <div>
+            <div class="panel">
+                <div class="panel-title">Benchmark your prices against</div>
+                <div class="competitor-row selected">
+                    <div class="left"><span class="tick">✓</span><span class="nm">Specialist Buyback A</span></div>
+                    <div><span class="pr">£442</span><span class="pct">+5%</span></div>
+                </div>
+                <div class="competitor-row">
+                    <div class="left"><span class="tick"></span><span class="nm">Specialist Buyback B</span></div>
+                    <div><span class="pr">£418</span></div>
+                </div>
+                <div class="competitor-row selected">
+                    <div class="left"><span class="tick">✓</span><span class="nm">Network Trade-In</span></div>
+                    <div><span class="pr">£395</span><span class="pct">+12%</span></div>
+                </div>
+                <div class="competitor-row">
+                    <div class="left"><span class="tick"></span><span class="nm">Marketplace resellers</span></div>
+                    <div><span class="pr">£455</span></div>
+                </div>
+                <div class="competitor-row">
+                    <div class="left"><span class="tick"></span><span class="nm">Market average</span></div>
+                    <div><span class="pr">£428</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who it's for -->
+<section id="who">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Who it's for</span>
+            <h2>Built for independent phone retailers</h2>
+            <p>If you already sell phones online but you aren't yet taking them in, you're leaving one of the most profitable parts of the market on the table.</p>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3>Independent phone shops with an online presence</h3>
+                <p>You've invested in a website, you sell handsets, you understand the product. You just don't have the infrastructure to take devices in at scale — yet.</p>
+            </div>
+            <div class="audience-card">
+                <h3>Retailers who already buy stock over the counter</h3>
+                <p>You buy phones in-store already. We give you the online version — valuations, postage, customer journey — so you never miss a sale because the customer wanted to do it from their sofa.</p>
+            </div>
+            <div class="audience-card">
+                <h3>Shopify &amp; small-merchant store owners</h3>
+                <p>Our widget drops into Shopify, WooCommerce and custom sites. No migration. No replatform. No procurement cycle.</p>
+            </div>
+            <div class="audience-card">
+                <h3>Resellers building a refurb pipeline</h3>
+                <p>You already sell refurbished. Our buyback service fills the top of your funnel with consumer stock priced to your target resale margin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing control -->
+<section class="alt">
+    <div class="container split">
+        <div class="panel">
+            <div class="panel-title">Manage Pricing — iPhone 14 Pro · 128GB</div>
+            <div style="padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 14px;">
+                <span style="color: var(--ink-muted);">Market benchmark</span><strong>£520</strong>
+            </div>
+            <div style="padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 14px;">
+                <span style="color: var(--ink-muted);">Your buy price</span><strong style="color: var(--brand);">£442</strong>
+            </div>
+            <div style="padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 14px;">
+                <span style="color: var(--ink-muted);">Exit price (modelled)</span><strong>£585</strong>
+            </div>
+            <div style="padding: 12px 0; display: flex; justify-content: space-between; font-size: 14px;">
+                <span style="color: var(--ink-muted);">Your margin</span><strong style="color: var(--accent);">£143 · 24%</strong>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%; margin-top: 8px;">Adjust price</button>
+        </div>
+        <div>
+            <span class="eyebrow">Your pricing, your rules</span>
+            <h2>Set prices yourself, or let us manage them for you.</h2>
+            <p style="color: var(--ink-soft); font-size: 16px; margin: 0;">
+                Every device in your database has a buy price and a modelled exit price. You can override any price at any time — up to win more stock, down to protect margin. Or hand us the keys and we'll manage it on your behalf, keeping you competitive against your chosen market benchmark without you ever needing to log in.
+            </p>
+            <ul>
+                <li><span class="check">✓</span><div><strong>Self-managed</strong><span class="d">Full admin dashboard — change any price, any time.</span></div></li>
+                <li><span class="check">✓</span><div><strong>GSX-managed</strong><span class="d">We monitor the market daily and keep your prices competitive.</span></div></li>
+                <li><span class="check">✓</span><div><strong>Hybrid</strong><span class="d">We manage the long tail, you tune the hero models.</span></div></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Common questions</h2>
+        </div>
+        <div class="faq">
+            <details>
+                <summary>Embedded widget or full-page site — which should I choose?</summary>
+                <p>You can use either, or both. Embed the widget on your existing site if you want customers to trade in without leaving your store. Use the full-page version we host for you if you'd rather link out from a social post, email campaign or QR code — no changes to your site needed. Same pricing, same catalogue, same payouts behind both.</p>
+            </details>
+            <details>
+                <summary>Do I need a developer to install the widget?</summary>
+                <p>No. The widget is a single embed snippet that works on Shopify, WooCommerce, Wix and most custom-built sites. We'll help you install it if needed. And if you'd rather skip the embed altogether, the full-page version we host for you is ready to share from day one.</p>
+            </details>
+            <details>
+                <summary>How do I decide what to pay customers?</summary>
+                <p>You pick a market benchmark (a specific competitor or a blended average) and tell us the margin you want. We calculate your buy price automatically and refresh it daily.</p>
+            </details>
+            <details>
+                <summary>What happens when the customer ships the device?</summary>
+                <p>The customer gets free tracked postage, the device arrives at your premises, you inspect and grade it, and you pay out through your normal payment flow. GSX handles the quoting, the customer journey and the communications.</p>
+            </details>
+            <details>
+                <summary>Can I control which products are buyable?</summary>
+                <p>Yes — you choose every device in your buyback catalogue. Add, pause or remove any SKU at any time.</p>
+            </details>
+            <details>
+                <summary>Is this just for phones?</summary>
+                <p>Phones, tablets and wearables are currently supported. Laptops and gaming are being added. Ask us about expanding your catalogue when you're ready.</p>
+            </details>
+            <details>
+                <summary>What does it cost?</summary>
+                <p>We keep pricing simple and tailored to your volume. Book a demo and we'll quote you on the spot.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="demo">
+    <div class="container">
+        <div class="cta-block">
+            <h2>See the widget live on your own site.</h2>
+            <p>Book a 20-minute demo and we'll show you the widget, your competitor pricing, and what your margin would look like on your top sellers.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary btn-lg">Book a demo</a>
+                <a href="mailto:hello@2wc2.com?subject=Buyback%20Demo" class="btn btn-secondary btn-lg">Email us</a>
+            </div>
+        </div>
+
+        <div id="contact" class="contact-wrap">
+            <h3>Tell us about your store</h3>
+            <p class="sub">We'll be in touch within one working day to set up your demo.</p>
+            <form onsubmit="event.preventDefault(); alert('Thanks — we\u2019ll be in touch shortly.');">
+                <div class="form-grid">
+                    <div>
+                        <label for="name">Your name</label>
+                        <input id="name" type="text" required>
+                    </div>
+                    <div>
+                        <label for="shop">Shop / brand</label>
+                        <input id="shop" type="text" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input id="phone" type="tel">
+                    </div>
+                    <div class="full">
+                        <label for="url">Website URL</label>
+                        <input id="url" type="url" placeholder="https://">
+                    </div>
+                    <div class="full">
+                        <label for="msg">Anything we should know?</label>
+                        <textarea id="msg" placeholder="e.g. products you already sell, monthly volume, current buyback setup"></textarea>
+                    </div>
+                    <div class="full">
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Book my demo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="https://app.gsx.co.uk" style="color: var(--ink-soft); font-weight: 500;">Sign in to your portal →</a>
+            <span>&copy; GSX (Global Seller Exchange). The complete buy & sell intelligence platform for mobile retailers.</span>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    // GSX buyback widget — live modal
+    // Pattern adapted from GSX Shopify widget (buyback-widget/assets/buyback.js).
+    // Talks direct to app.gsx.co.uk. Scope A: search → configure → offer, then hand-off.
+    (function () {
+        'use strict';
+        if (window.__gsxBuyback) return;
+        window.__gsxBuyback = true;
+
+        var API_BASE      = 'https://app.gsx.co.uk';
+        var CLIENT_ID     = 'ru1BBT1inVkhtcR2Zr4H4EheAyppdQpa';
+        var CLIENT_REF    = 'GSX';
+        var CLIENT_EMAIL  = 'hello@gsx.co.uk';
+        var TOKEN_KEY     = 'authToken_' + CLIENT_ID;
+        var STEPS         = ['search', 'configure', 'offer'];
+
+        var GRADE_INFO = {
+            'Grade A (Excellent)': 'Looks and works like new. No visible scratches. Battery 90%+.',
+            'Grade B (Good)':      'Fully working, light signs of use, minor scratches. Battery 80%+.',
+            'Grade C (Fair)':      'Fully working with visible marks. Battery 75%+.',
+            'Grade D (Faulty)':    'Cracked screen, charging issues, damage, or battery <75%. We still pay.'
+        };
+
+        var S = { product: null, productData: null, selGrade: null, selCap: null, selCar: null, offer: null };
+        var _token = null;
+        var _lastFocused = null;
+        var _debounce;
+
+        function esc(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // ── Auth ──────────────────────────────────────────────────────────
+        function loadToken() {
+            try { _token = sessionStorage.getItem(TOKEN_KEY) || null; } catch (e) { _token = null; }
+        }
+        function saveToken(t) {
+            _token = t;
+            try { sessionStorage.setItem(TOKEN_KEY, t); } catch (e) {}
+        }
+        async function login() {
+            var r = await fetch(API_BASE + '/v1/widget/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ client_id: CLIENT_ID, client_ref: CLIENT_REF, email: CLIENT_EMAIL })
+            });
+            if (!r.ok) throw new Error('login failed');
+            var d = await r.json();
+            saveToken(d.token);
+        }
+        async function apiFetch(path) {
+            if (!_token) await login();
+            var r = await fetch(API_BASE + path, {
+                headers: { 'Authorization': 'Bearer ' + _token, 'Accept': 'application/json' }
+            });
+            if (r.status === 401) {
+                try { sessionStorage.removeItem(TOKEN_KEY); } catch (e) {}
+                _token = null; await login();
+                r = await fetch(API_BASE + path, {
+                    headers: { 'Authorization': 'Bearer ' + _token, 'Accept': 'application/json' }
+                });
+            }
+            var d = await r.json();
+            if (!r.ok) throw new Error((d && d.message) || ('API ' + r.status));
+            return d;
+        }
+        function apiSearch(q)                     { return apiFetch('/v1/widget/products/search?query=' + encodeURIComponent(q)); }
+        function apiProduct(id)                   { return apiFetch('/v1/widget/product/' + encodeURIComponent(id)); }
+        function apiOffers(id, grade, cap, car)   {
+            return apiFetch('/v1/widget/offers/' + encodeURIComponent(id) +
+                '?grade=' + encodeURIComponent(grade) +
+                '&capacity=' + encodeURIComponent(cap) +
+                '&carrier=' + encodeURIComponent(car));
+        }
+
+        // ── Step machine ──────────────────────────────────────────────────
+        var modal, searchInput, searchForm, resultsEl, deviceThumb, deviceTitle,
+            gradesEl, capsEl, carriersEl, carriersWrap, getOfferBtn,
+            offerAmount, offerDevice, offerSpec, changeSelBtn;
+
+        function el(id) { return document.getElementById(id); }
+
+        function showStep(name) {
+            STEPS.forEach(function (s) {
+                var pane = el('gsx-' + s);
+                if (pane) pane.hidden = (s !== name);
+            });
+            var cur = STEPS.indexOf(name);
+            var progress = modal.querySelectorAll('.gsx-step');
+            progress.forEach(function (p) {
+                var i = STEPS.indexOf(p.dataset.step);
+                p.classList.toggle('active', i === cur);
+                p.classList.toggle('done', i < cur);
+            });
+            var body = modal.querySelector('.gsx-body');
+            if (body) body.scrollTop = 0;
+        }
+
+        function openModal(query) {
+            _lastFocused = document.activeElement;
+            modal.hidden = false;
+            requestAnimationFrame(function () { modal.classList.add('open'); });
+            document.body.classList.add('gsx-locked');
+            showStep('search');
+            resultsEl.innerHTML = '';
+            if (query) { searchInput.value = query; doSearch(query); }
+            else { searchInput.value = ''; setTimeout(function () { searchInput.focus(); }, 80); }
+        }
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.classList.remove('gsx-locked');
+            setTimeout(function () { modal.hidden = true; }, 280);
+            if (_lastFocused && typeof _lastFocused.focus === 'function') _lastFocused.focus();
+        }
+
+        function doSearch(q) {
+            resultsEl.innerHTML = '<div class="gsx-state-msg"><div class="gsx-spinner"></div>Searching…</div>';
+            apiSearch(q).then(function (data) {
+                if (!Array.isArray(data) || !data.length) {
+                    resultsEl.innerHTML = '<div class="gsx-state-msg">No devices found for "<strong>' + esc(q) + '</strong>". Try a different search.</div>';
+                    return;
+                }
+                resultsEl.innerHTML = data.map(function (item) {
+                    return '<button type="button" class="gsx-result-item" data-id="' + esc(item.id) + '" data-name="' + esc(item.name) + '" data-img="' + esc(item.img || '') + '">' +
+                        (item.img ? '<img class="gsx-result-img" src="' + esc(item.img) + '" alt="" onerror="this.style.display=\'none\'" />' : '<span class="gsx-result-img"></span>') +
+                        '<span class="gsx-result-name">' + esc(item.name) + '</span>' +
+                        '<svg class="gsx-result-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
+                        '</button>';
+                }).join('');
+                resultsEl.querySelectorAll('.gsx-result-item').forEach(function (b) {
+                    b.addEventListener('click', function () { selectProduct(b.dataset.id, b.dataset.name, b.dataset.img); });
+                });
+            }).catch(function () {
+                resultsEl.innerHTML = '<div class="gsx-state-msg error">Something went wrong. Please try again.</div>';
+            });
+        }
+
+        function selectProduct(id, name, img) {
+            S.product  = { id: id, name: name, img: img };
+            S.selGrade = null; S.selCap = null; S.selCar = null; S.offer = null;
+            deviceThumb.src = img || '';
+            deviceThumb.style.display = img ? '' : 'none';
+            deviceTitle.textContent = name;
+            gradesEl.innerHTML = '<div class="gsx-state-msg"><div class="gsx-spinner"></div>Loading options…</div>';
+            capsEl.innerHTML = '';
+            carriersEl.innerHTML = '';
+            getOfferBtn.disabled = true;
+            getOfferBtn.textContent = 'Get my price →';
+            showStep('configure');
+
+            apiProduct(id).then(function (d) {
+                S.productData = d;
+                gradesEl.innerHTML = (d.grades || []).map(function (g) {
+                    var val = (typeof g === 'object') ? g.value : g;
+                    var lbl = (typeof g === 'object') ? (g.display || g.value) : g;
+                    var t = GRADE_INFO[val] || '';
+                    return '<button type="button" class="gsx-opt-btn" data-val="' + esc(val) + '"' + (t ? ' title="' + esc(t) + '"' : '') + '>' + esc(lbl) + '</button>';
+                }).join('');
+                capsEl.innerHTML = (d.capacities || []).map(function (c) {
+                    return '<button type="button" class="gsx-opt-btn" data-val="' + esc(c) + '">' + esc(c) + '</button>';
+                }).join('');
+                if (d.carriers && d.carriers.length > 1) {
+                    carriersEl.innerHTML = d.carriers.map(function (c) {
+                        return '<button type="button" class="gsx-opt-btn" data-val="' + esc(c) + '">' + esc(c) + '</button>';
+                    }).join('');
+                    carriersWrap.hidden = false;
+                    S.selCar = null;
+                    bindPicker(carriersEl, function (v) { S.selCar = v; checkReady(); });
+                } else {
+                    S.selCar = (d.carriers && d.carriers[0]) || 'Unlocked';
+                    carriersWrap.hidden = true;
+                }
+                bindPicker(gradesEl, function (v) { S.selGrade = v; checkReady(); });
+                bindPicker(capsEl,   function (v) { S.selCap   = v; checkReady(); });
+            }).catch(function () {
+                gradesEl.innerHTML = '<div class="gsx-state-msg error">Could not load options. Please go back and try again.</div>';
+            });
+        }
+
+        function bindPicker(container, setter) {
+            container.querySelectorAll('.gsx-opt-btn').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    container.querySelectorAll('.gsx-opt-btn').forEach(function (x) { x.classList.remove('sel'); });
+                    b.classList.add('sel');
+                    setter(b.dataset.val);
+                });
+            });
+        }
+        function checkReady() {
+            getOfferBtn.disabled = !(S.selGrade && S.selCap && S.selCar);
+        }
+
+        function fetchOffer() {
+            getOfferBtn.disabled = true;
+            getOfferBtn.textContent = 'Getting your price…';
+            apiOffers(S.product.id, S.selGrade, S.selCap, S.selCar).then(function (data) {
+                var list = Array.isArray(data) ? data : (data.data || []);
+                var offer = list[0];
+                if (!offer) throw new Error('no offer');
+                S.offer = offer;
+                var fmt  = '£' + parseFloat(offer.price).toFixed(2);
+                var spec = S.selCap + ' · ' + S.selGrade + ' · ' + S.selCar;
+                offerAmount.textContent = fmt;
+                offerDevice.textContent = S.product.name;
+                offerSpec.textContent   = spec;
+                getOfferBtn.textContent = 'Get my price →';
+                showStep('offer');
+            }).catch(function () {
+                getOfferBtn.disabled = false;
+                getOfferBtn.textContent = 'Get my price →';
+                alert('Could not retrieve an offer for this combination. Please try again.');
+            });
+        }
+
+        // ── Boot ──────────────────────────────────────────────────────────
+        function init() {
+            modal        = el('gsxModal');
+            if (!modal) return;
+            searchInput  = el('gsxSearchInput');
+            searchForm   = el('gsxSearchForm');
+            resultsEl    = el('gsxResults');
+            deviceThumb  = el('gsxDeviceThumb');
+            deviceTitle  = el('gsxDeviceTitle');
+            gradesEl     = el('gsxGrades');
+            capsEl       = el('gsxCapacities');
+            carriersEl   = el('gsxCarriers');
+            carriersWrap = el('gsxCarriersSection');
+            getOfferBtn  = el('gsxGetOffer');
+            offerAmount  = el('gsxOfferAmount');
+            offerDevice  = el('gsxOfferDevice');
+            offerSpec    = el('gsxOfferSpec');
+            changeSelBtn = el('gsxChangeSelection');
+
+            loadToken();
+
+            // Hero form triggers modal
+            var heroForm  = el('gsx-buyback-search');
+            var heroInput = el('gbh-q');
+            if (heroForm && heroInput) {
+                heroForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var q = (heroInput.value || '').trim();
+                    openModal(q);
+                });
+            }
+
+            // Modal search
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var q = (searchInput.value || '').trim();
+                if (q.length >= 1) doSearch(q);
+            });
+            searchInput.addEventListener('input', function () {
+                clearTimeout(_debounce);
+                var q = (searchInput.value || '').trim();
+                if (q.length < 2) return;
+                _debounce = setTimeout(function () { doSearch(q); }, 320);
+            });
+
+            // Step nav
+            modal.querySelectorAll('[data-gsx-back]').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var target = b.dataset.gsxBack;
+                    if (target === 'configure') { getOfferBtn.disabled = false; }
+                    showStep(target);
+                });
+            });
+            getOfferBtn.addEventListener('click', fetchOffer);
+            changeSelBtn.addEventListener('click', function () {
+                getOfferBtn.disabled = false;
+                getOfferBtn.textContent = 'Get my price →';
+                showStep('configure');
+            });
+
+            // Close
+            modal.querySelectorAll('[data-gsx-close]').forEach(function (b) {
+                b.addEventListener('click', closeModal);
+            });
+            modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+</script>
+
+<!-- GSX buyback widget — modal markup -->
+<div id="gsxModal" role="dialog" aria-modal="true" aria-labelledby="gsxModalTitle" hidden>
+    <div class="gsx-panel" role="document">
+        <div class="gsx-header">
+            <div class="gsx-header-left">
+                <nav class="gsx-progress" aria-label="Quote progress">
+                    <span class="gsx-step active" data-step="search" id="gsxModalTitle">Device</span>
+                    <span class="gsx-sep">›</span>
+                    <span class="gsx-step" data-step="configure">Condition</span>
+                    <span class="gsx-sep">›</span>
+                    <span class="gsx-step" data-step="offer">Offer</span>
+                </nav>
+            </div>
+            <button type="button" class="gsx-close" data-gsx-close aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <div class="gsx-body">
+            <!-- Step 1: Search -->
+            <div class="gsx-pane" id="gsx-search">
+                <h2 class="gsx-pane-title">What are you selling?</h2>
+                <p class="gsx-pane-sub">Search by make and model to get your instant price.</p>
+                <form class="gsx-search-bar" id="gsxSearchForm" role="search" autocomplete="off">
+                    <input type="search" id="gsxSearchInput" placeholder="e.g. iPhone 15 Pro, Galaxy S24…" autocomplete="off" autocorrect="off" spellcheck="false" />
+                    <button type="submit">Search</button>
+                </form>
+                <div id="gsxResults" class="gsx-results" role="list" aria-live="polite"></div>
+            </div>
+
+            <!-- Step 2: Configure -->
+            <div class="gsx-pane" id="gsx-configure" hidden>
+                <button type="button" class="gsx-pane-back" data-gsx-back="search">← Back to search</button>
+                <div class="gsx-device-block">
+                    <img id="gsxDeviceThumb" src="" alt="" onerror="this.style.display='none'" />
+                    <span class="name" id="gsxDeviceTitle"></span>
+                </div>
+                <p class="gsx-section-label">Condition</p>
+                <div class="gsx-btn-row" id="gsxGrades"></div>
+                <p class="gsx-section-label">Storage</p>
+                <div class="gsx-btn-row" id="gsxCapacities"></div>
+                <div id="gsxCarriersSection" hidden>
+                    <p class="gsx-section-label">Network</p>
+                    <div class="gsx-btn-row" id="gsxCarriers"></div>
+                </div>
+                <button type="button" class="gsx-cta" id="gsxGetOffer" disabled>Get my price →</button>
+            </div>
+
+            <!-- Step 3: Offer (demo end state — no order flow) -->
+            <div class="gsx-pane" id="gsx-offer" hidden>
+                <p class="gsx-section-label" style="text-align:center;">We'll pay you</p>
+                <div class="gsx-offer-amount" id="gsxOfferAmount">£—</div>
+                <p class="gsx-offer-device" id="gsxOfferDevice"></p>
+                <p class="gsx-offer-spec" id="gsxOfferSpec"></p>
+                <p class="gsx-offer-copy" style="margin-top:14px;">
+                    This is exactly what your customers see when they use the widget on your site.
+                    <br><strong>Live pricing. No hardcoding. Refreshes daily.</strong>
+                </p>
+                <button type="button" class="gsx-cta-secondary" id="gsxChangeSelection">← Try another device</button>
+            </div>
+        </div>
+
+        <div class="gsx-footer">
+            <span>Secure &amp; encrypted</span>
+            <span>Price held 14 days</span>
+            <span>Free tracked postage</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    try { localStorage.setItem('gsx_audience', 'retail'); } catch (e) {}
+
+    // Mobile nav toggle
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSX Integrations — Diagnostics, payments and marketplace connectors</title>
+<meta name="description" content="GSX connects to 16 platforms across three integration layers. Two diagnostic paths (PhoneCheck as standard, Blancco for enterprise), five payment and accounts platforms (Stripe, QuickBooks, Xero, Ebury, Sokin), nine marketplaces (eBay, Amazon, BackMarket, Refurbed, OnBuy, Reebelo, Temu, TikTok Shop, Shopify).">
+<link rel="canonical" href="https://gsx.co.uk/integrations/">
+<meta name="theme-color" content="#0a2e5c">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gsx.co.uk/integrations/">
+<meta property="og:title" content="GSX Integrations — Two diagnostic paths, five accounts, nine marketplaces">
+<meta property="og:description" content="16 integrations across three layers. PhoneCheck as standard, Blancco for enterprise. Xero, QuickBooks and Stripe for accounts. Nine marketplaces including Shopify.">
+<meta property="og:image" content="https://gsx.co.uk/icon-512.png">
+
+<style>
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+        --brand: #0a2e5c; --brand-dark: #061e46; --brand-light: #eff6ff;
+        --accent: #059669; --accent-light: #d1fae5;
+        --warn: #d97706; --warn-light: #fef3c7;
+        --ink: #0f172a; --ink-soft: #334155; --ink-muted: #64748b;
+        --line: #e2e8f0; --bg: #ffffff; --bg-soft: #f8fafc; --bg-dark: #0f172a;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav.top { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--line); }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 13px; }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
+    .nav-links a.active { color: var(--brand); }
+    .nav-links a:hover { color: var(--brand); text-decoration: none; }
+    .nav-links a.signin { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
+    .audience-switch { display: inline-flex; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px; }
+    .audience-switch a { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--ink-muted); text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .audience-switch a:hover { color: var(--ink); text-decoration: none; }
+    .audience-switch a.active { background: white; color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,0.08); }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; width: 40px; height: 40px; border-radius: 8px; padding: 0; align-items: center; justify-content: center; }
+    .nav-toggle:hover { background: var(--bg-soft); }
+    .nav-toggle .bars, .nav-toggle .bars::before, .nav-toggle .bars::after { content: ''; display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; position: relative; transition: transform 0.2s ease, top 0.2s ease; }
+    .nav-toggle .bars::before { position: absolute; top: -7px; left: 0; }
+    .nav-toggle .bars::after  { position: absolute; top: 7px;  left: 0; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 0; transition: background 0.2s ease; text-align: center; text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--brand-dark); text-decoration: none; color: white; }
+    .btn-secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--ink-muted); text-decoration: none; color: var(--ink); }
+    .btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 10px; }
+
+    /* Hero */
+    .hero { padding: 70px 0 60px; text-align: center; background: radial-gradient(ellipse at top right, rgba(10,46,92,0.1), transparent 60%), var(--bg); }
+    .eyebrow { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--brand-light); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { font-size: 52px; line-height: 1.05; letter-spacing: -0.03em; margin: 0 auto 18px; font-weight: 800; color: var(--ink); max-width: 900px; }
+    h1 .hl { color: var(--brand); }
+    .hero p.lead { font-size: 20px; color: var(--ink-soft); margin: 0 auto 14px; max-width: 720px; }
+    .hero p.sub { font-size: 15px; color: var(--ink-muted); margin: 0 auto 32px; max-width: 640px; }
+
+    /* Stats row */
+    .stat-row { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin: 32px 0 0; }
+    .stat-row .st { text-align: center; }
+    .stat-row .st .sv { font-size: 32px; font-weight: 800; color: var(--brand); letter-spacing: -0.02em; }
+    .stat-row .st .sl { font-size: 12px; color: var(--ink-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+    section { padding: 60px 0; }
+    section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    section.dark { background: var(--bg-dark); color: white; }
+    .section-head { max-width: 820px; margin: 0 auto 44px; }
+    .section-head.center { text-align: center; }
+    h2 { font-size: 34px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 12px; font-weight: 800; }
+    section.dark h2 { color: white; }
+    .section-head p { font-size: 17px; color: var(--ink-soft); margin: 0; }
+    section.dark .section-head p { color: rgba(255,255,255,0.78); }
+    section.dark .eyebrow { background: rgba(255,255,255,0.1); color: white; }
+
+    /* Filter tabs */
+    .filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-bar button {
+        padding: 10px 20px; border-radius: 999px; border: 1px solid var(--line);
+        background: white; color: var(--ink-soft); font-size: 14px; font-weight: 600;
+        cursor: pointer; transition: all 0.15s;
+    }
+    .filter-bar button:hover { border-color: var(--brand); color: var(--brand); }
+    .filter-bar button.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .filter-bar button .count { display: inline-block; margin-left: 6px; padding: 1px 8px; background: rgba(255,255,255,0.2); border-radius: 999px; font-size: 12px; }
+    .filter-bar button:not(.active) .count { background: var(--bg-soft); color: var(--ink-muted); }
+
+    /* Integration category */
+    .category { margin-bottom: 48px; }
+    .category-head {
+        display: flex; align-items: center; gap: 16px; margin-bottom: 22px;
+        padding-bottom: 16px; border-bottom: 1px solid var(--line);
+    }
+    .category-head .ci { width: 42px; height: 42px; border-radius: 10px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .category-head .info { flex: 1; }
+    .category-head h3 { font-size: 22px; margin: 0 0 3px; letter-spacing: -0.01em; }
+    .category-head p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+    .category-head .counter { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 700; flex-shrink: 0; }
+
+    /* Integration grid */
+    .int-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .int-card {
+        background: white; border: 1px solid var(--line); border-radius: 12px;
+        padding: 20px 18px; display: flex; flex-direction: column;
+        transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        position: relative;
+    }
+    .int-card:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .int-card .badge {
+        position: absolute; top: 14px; right: 14px;
+        font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+        text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge.live { background: var(--accent-light); color: var(--accent); }
+    .badge.soon { background: var(--warn-light); color: var(--warn); }
+    .badge.partner { background: rgba(52,211,153,0.15); color: var(--accent); border: 1px solid rgba(52,211,153,0.3); }
+    .int-card .logo-slot {
+        width: 44px; height: 44px; border-radius: 10px;
+        background: var(--bg-soft); border: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 14px; font-weight: 800; color: var(--ink); font-size: 13px;
+        letter-spacing: -0.02em;
+    }
+    .int-card h4 { font-size: 15px; margin: 0 0 4px; letter-spacing: -0.01em; }
+    .int-card p { font-size: 12.5px; color: var(--ink-soft); margin: 0; line-height: 1.4; flex-grow: 1; }
+    .int-card .meta { font-size: 11px; color: var(--ink-muted); margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
+    .int-card .meta strong { color: var(--ink); }
+
+    /* Agnostic angle callout */
+    .agnostic {
+        background: white; border: 1px solid var(--line); border-radius: 16px;
+        padding: 36px 40px; margin-bottom: 44px;
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    }
+    .agnostic-item { padding: 20px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; }
+    .agnostic-item .a-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand); font-weight: 700; margin-bottom: 6px; }
+    .agnostic-item h3 { font-size: 17px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .agnostic-item p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+
+    /* CTA */
+    .cta-block { background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%); color: white; border-radius: 20px; padding: 56px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-block::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(10,46,92,0.4), transparent 70%); transform: rotate(15deg); }
+    .cta-block > * { position: relative; }
+    .cta-block .eyebrow { background: rgba(255,255,255,0.1); color: white; }
+    .cta-block h2 { color: white; font-size: 32px; margin-bottom: 10px; }
+    .cta-block p { color: rgba(255,255,255,0.8); font-size: 17px; margin: 0 auto 28px; max-width: 580px; }
+    .cta-block .btn-primary { background: white; color: var(--brand); }
+    .cta-block .btn-primary:hover { background: var(--brand-light); color: var(--brand-dark); }
+    .cta-block .btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+    .cta-block .btn-secondary:hover { border-color: white; color: white; }
+
+    footer { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 40px 0; color: var(--ink-muted); font-size: 14px; }
+    footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    footer .linkset { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    footer .linkset a { color: var(--ink-soft); font-weight: 500; }
+
+    @media (max-width: 960px) {
+        .int-grid { grid-template-columns: repeat(2, 1fr); }
+        .agnostic { grid-template-columns: 1fr; padding: 24px; }
+        h1 { font-size: 38px; }
+        h2 { font-size: 26px; }
+        .nav-toggle { display: inline-flex; }
+        .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; background: white; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-sm); padding: 12px 20px 16px; }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 12px 8px; border-radius: 6px; font-size: 15px; }
+        .audience-switch { align-self: center; margin: 6px 0; }
+    }
+    @media (max-width: 520px) {
+        .int-grid { grid-template-columns: 1fr; }
+        section { padding: 45px 0; }
+        .hero { padding: 40px 0 40px; }
+        h1 { font-size: 30px; }
+        .cta-block { padding: 40px 24px; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="top">
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="audience-switch" role="tablist" aria-label="Choose audience">
+            <a href="/retail/" role="tab" aria-selected="false">Retail</a>
+            <a href="/refurbishers/" role="tab" aria-selected="false">Refurbishers</a>
+            <a href="/enterprise/" role="tab" aria-selected="false">Enterprise</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span class="bars"></span></button>
+        <div class="nav-links" id="primary-nav">
+            <a href="/#modules">Products</a>
+            <a href="/enterprise/pricer/">Pricer</a>
+            <a href="/integrations/" class="active">Integrations</a>
+            <a href="/pricing" id="nav-pricing-link">Pricing</a>
+            <a href="/enterprise/contact/">Contact</a>
+            <a href="https://app.gsx.co.uk" class="signin">Sign in</a>
+            <a href="/enterprise/contact/" class="btn btn-primary">Book a demo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">Integrations</span>
+        <h1>Two diagnostic paths. Five accounts. <span class="hl">Nine marketplaces.</span></h1>
+        <p class="lead">
+            GSX connects to 16 platforms across three integration layers — a curated stack of best-in-class tools, so you're not paralysed by choice.
+        </p>
+        <p class="sub">
+            PhoneCheck runs as standard on every plan. Blancco is available for enterprise environments where certified data destruction is a compliance requirement. Accounts, payments and marketplaces plug in via API, webhook or CSV — into whatever you already run.
+        </p>
+
+        <div class="stat-row">
+            <div class="st">
+                <div class="sv">2</div>
+                <div class="sl">Diagnostic paths</div>
+            </div>
+            <div class="st">
+                <div class="sv">5</div>
+                <div class="sl">Payments &amp; accounts</div>
+            </div>
+            <div class="st">
+                <div class="sv">9</div>
+                <div class="sl">Marketplaces</div>
+            </div>
+            <div class="st">
+                <div class="sv">16</div>
+                <div class="sl">Total &amp; growing</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Agnostic angle -->
+<section>
+    <div class="container">
+        <div class="section-head center">
+            <span class="eyebrow">The three-layer story</span>
+            <h2>A curated stack. Not a catalogue.</h2>
+            <p>Other platforms hand you a spreadsheet of eight diagnostic tools and tell you to pick one. GSX doesn't. We've chosen the best-in-class option at every layer — and we tell you which one to use based on your stage.</p>
+        </div>
+
+        <div class="agnostic">
+            <div class="agnostic-item">
+                <div class="a-eyebrow">Layer 1</div>
+                <h3>Two diagnostic paths</h3>
+                <p><strong>PhoneCheck</strong> runs as standard on every plan — comprehensive mobile diagnostics and certified data erasure, industry-trusted at any scale. <strong>Blancco</strong> is the enterprise path where certified data destruction is a compliance requirement.</p>
+            </div>
+            <div class="agnostic-item">
+                <div class="a-eyebrow">Layer 2</div>
+                <h3>Accounts-agnostic</h3>
+                <p>Xero or QuickBooks — pick your accounts stack. Stripe for consumer buyback payouts. Ebury or Sokin for cross-border trade. Every VAT-classified sale flows through with the audit trail attached.</p>
+            </div>
+            <div class="agnostic-item">
+                <div class="a-eyebrow">Layer 3</div>
+                <h3>Marketplace-connected</h3>
+                <p>Nine marketplaces on the roadmap or already live. Push once, sell everywhere. Sale data closes the loop back into Pricer and Stockroom.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All integrations -->
+<section id="all" class="alt">
+    <div class="container">
+        <div class="section-head center">
+            <span class="eyebrow">Full integration catalogue</span>
+            <h2>16 integrations. Filter by category.</h2>
+            <p>Live and roadmap integrations across diagnostics, payments and marketplaces.</p>
+        </div>
+
+        <div class="filter-bar" role="tablist" aria-label="Filter integrations">
+            <button data-filter="all" class="active" role="tab" aria-selected="true">All <span class="count">16</span></button>
+            <button data-filter="diagnostics" role="tab" aria-selected="false">Diagnostics <span class="count">2</span></button>
+            <button data-filter="payments" role="tab" aria-selected="false">Payments &amp; Accounts <span class="count">5</span></button>
+            <button data-filter="marketplaces" role="tab" aria-selected="false">Marketplaces <span class="count">9</span></button>
+        </div>
+
+        <!-- DIAGNOSTICS -->
+        <div class="category" data-category="diagnostics">
+            <div class="category-head">
+                <div class="ci"><img src="/favicon.svg" alt="GSX" style="width:24px;height:24px;display:block;"></div>
+                <div class="info">
+                    <h3>Diagnostics &amp; Data Erasure</h3>
+                    <p>Two paths. PhoneCheck runs as standard on every GSX plan. Blancco is available for enterprise environments where certified data destruction is a compliance requirement.</p>
+                </div>
+                <div class="counter">2 paths</div>
+            </div>
+
+            <div class="int-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 720px;">
+
+                <div class="int-card featured" style="border-color: var(--brand); box-shadow: 0 4px 12px rgba(10,46,92,0.15);">
+                    <span class="badge" style="background: var(--brand-light); color: var(--brand);">Standard</span>
+                    <div class="logo-slot" style="background: #0f172a; color: white;">PC</div>
+                    <h4>PhoneCheck</h4>
+                    <p>The default diagnostic engine for GSX customers of any size. Comprehensive mobile diagnostics and certified data erasure, industry-trusted. Runs as standard on every GSX plan — from Retail Starter to Enterprise.</p>
+                    <div class="meta"><strong>Runs on:</strong> Retail · Refurbisher · Enterprise</div>
+                    <div class="meta" style="margin-top: 6px;"><strong>Supports:</strong> iOS, Android, tablets, watches, laptops</div>
+                </div>
+
+                <div class="int-card featured" style="border-color: var(--brand); box-shadow: 0 4px 12px rgba(10,46,92,0.15);">
+                    <span class="badge" style="background: rgba(15,23,42,0.85); color: white;">Enterprise</span>
+                    <div class="logo-slot" style="background: #0f172a; color: white;">BC</div>
+                    <h4>Blancco</h4>
+                    <p>Certified data erasure and mobile device diagnostics at the industry gold standard for compliance-critical environments. Available on Enterprise plans where certified data destruction is a specific requirement — insurance recyclers, government contracts, regulated finance.</p>
+                    <div class="meta"><strong>Runs on:</strong> Enterprise (compliance-critical)</div>
+                    <div class="meta" style="margin-top: 6px;"><strong>Supports:</strong> iOS, Android, laptops, drives · ISO/IEC 27040-certified</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PAYMENTS & ACCOUNTS -->
+        <div class="category" data-category="payments">
+            <div class="category-head">
+                <div class="ci"><img src="/favicon.svg" alt="GSX" style="width:24px;height:24px;display:block;"></div>
+                <div class="info">
+                    <h3>Payments &amp; Accounts</h3>
+                    <p>The compliance-loop layer — every sale, buyback and B2B trade flows into your books with VAT classification attached.</p>
+                </div>
+                <div class="counter">5 platforms</div>
+            </div>
+
+            <div class="int-grid">
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">ST</div>
+                    <h4>Stripe</h4>
+                    <p>Manage online payments and customer billing. Buyback payouts direct to consumer bank accounts.</p>
+                    <div class="meta"><strong>Use case:</strong> Consumer buyback payouts, subscription billing</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">QB</div>
+                    <h4>QuickBooks</h4>
+                    <p>Sync invoices, expenses and financial reports. VAT margin scheme records auto-classified.</p>
+                    <div class="meta"><strong>Use case:</strong> Accounts + VAT records for HMRC audit</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">XE</div>
+                    <h4>Xero</h4>
+                    <p>Cloud-based accounting software for small businesses. Same VAT auto-classification as QuickBooks.</p>
+                    <div class="meta"><strong>Use case:</strong> Accounts + VAT records for HMRC audit</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">EB</div>
+                    <h4>Ebury</h4>
+                    <p>All-in-one platform for cross-border trade. Multi-currency payments and FX for international B2B.</p>
+                    <div class="meta"><strong>Use case:</strong> Cross-border refurbisher B2B trade</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">SK</div>
+                    <h4>Sokin</h4>
+                    <p>Global payments — speed, scale and clarity. Cross-border transaction platform.</p>
+                    <div class="meta"><strong>Use case:</strong> International payments and settlement</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MARKETPLACES -->
+        <div class="category" data-category="marketplaces">
+            <div class="category-head">
+                <div class="ci"><img src="/favicon.svg" alt="GSX" style="width:24px;height:24px;display:block;"></div>
+                <div class="info">
+                    <h3>Marketplaces</h3>
+                    <p>List once, sell across the channels your buyers use. Sale data closes the loop back into Pricer.</p>
+                </div>
+                <div class="counter">9 channels</div>
+            </div>
+
+            <div class="int-grid">
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">BM</div>
+                    <h4>Back Market</h4>
+                    <p>Sync refurbished listings, pricing and orders for streamlined marketplace sales.</p>
+                    <div class="meta"><strong>Region:</strong> UK, EU, US</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">EB</div>
+                    <h4>eBay</h4>
+                    <p>Create listings and manage sales across auctions and fixed-price storefronts.</p>
+                    <div class="meta"><strong>Region:</strong> UK, EU, US, global</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">OB</div>
+                    <h4>OnBuy</h4>
+                    <p>UK marketplace integration for listing, pricing and order management.</p>
+                    <div class="meta"><strong>Region:</strong> UK</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">RF</div>
+                    <h4>Refurbed</h4>
+                    <p>List refurbished products with warranty-led positioning and structured catalogue data.</p>
+                    <div class="meta"><strong>Region:</strong> EU (DE-led)</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge live">Live</span>
+                    <div class="logo-slot">TM</div>
+                    <h4>Temu</h4>
+                    <p>Connects sellers with cost-conscious shoppers across the US and EU with aggressive promotions.</p>
+                    <div class="meta"><strong>Region:</strong> US, EU</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">AM</div>
+                    <h4>Amazon</h4>
+                    <p>List and manage products on a global marketplace with high buyer demand. Amazon Renewed compliance.</p>
+                    <div class="meta"><strong>Region:</strong> UK, EU, US</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge partner">Shopify Partner</span>
+                    <div class="logo-slot">SH</div>
+                    <h4>Shopify</h4>
+                    <p>Connect your online store to sync products, inventory and orders. GSX is an official Shopify Partner; deep integration in build.</p>
+                    <div class="meta"><strong>Status:</strong> Partner status live · Push integration coming soon</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">RE</div>
+                    <h4>Reebelo</h4>
+                    <p>Sell refurbished devices across key regions with synced listings and orders.</p>
+                    <div class="meta"><strong>Region:</strong> AU, SG, US</div>
+                </div>
+
+                <div class="int-card">
+                    <span class="badge soon">Coming soon</span>
+                    <div class="logo-slot">TT</div>
+                    <h4>TikTok Shop</h4>
+                    <p>Sell via video and live shopping with product and order sync support.</p>
+                    <div class="meta"><strong>Region:</strong> UK, US, EU</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section>
+    <div class="container">
+        <div class="cta-block">
+            <span class="eyebrow">Want an integration we don't list?</span>
+            <h2>Tell us what you run. We'll tell you the fit.</h2>
+            <p>Enterprise customers regularly ask for NetSuite, SAP, Shopify Plus, custom ERPs and one-off connectors. We build them as part of Enterprise deployments. Ask.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="/enterprise/contact/" class="btn btn-primary btn-lg">Ask about an integration</a>
+                <a href="/enterprise/" class="btn btn-secondary btn-lg">See Enterprise</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container row">
+        <a href="/" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GSX</span>
+        </a>
+        <div class="linkset">
+            <a href="/">Platform</a>
+            <a href="/retail/">Retail</a>
+            <a href="/refurbishers/">Refurbishers</a>
+            <a href="/enterprise/">Enterprise</a>
+            <a href="/integrations/">Integrations</a>
+            <a href="/provenance/">Provenance</a>
+            <a href="https://app.gsx.co.uk">Sign in →</a>
+        </div>
+        <span>&copy; GSX (Global Seller Exchange). The Mobile IQ Platform.</span>
+    </div>
+    <div class="container" style="margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center;">
+        <p style="font-size: 11px; color: var(--ink-muted); margin: 0; line-height: 1.55; max-width: 780px; margin: 0 auto;">
+            GSX (Global Seller Exchange) and the Mobile IQ Platform are not affiliated with, endorsed by, or connected to Apple Inc. or Apple's Global Service Exchange program.
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav toggle
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open menu');
+            }
+        });
+    })();
+
+    // Filter tabs
+    (function() {
+        var buttons = document.querySelectorAll('.filter-bar button');
+        var categories = document.querySelectorAll('.category');
+        buttons.forEach(function(b) {
+            b.addEventListener('click', function() {
+                var filter = b.getAttribute('data-filter');
+                buttons.forEach(function(x) {
+                    x.classList.toggle('active', x === b);
+                    x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+                });
+                categories.forEach(function(c) {
+                    var show = filter === 'all' || c.getAttribute('data-category') === filter;
+                    c.style.display = show ? '' : 'none';
+                });
+            });
+        });
+    })();
+</script>
+
+<script>
+    // Route the "Pricing" nav link to the current audience's pricing view
+    (function() {
+        try {
+            var pref = localStorage.getItem('gsx_audience');
+            if (!pref) return;
+            var link = document.getElementById('nav-pricing-link');
+            if (!link) return;
+            // Only rewrite on audience-neutral pages (link currently points at plain /pricing)
+            var href = link.getAttribute('href') || '';
+            if (href !== '/pricing') return;
+            if (pref === 'refurbishers') link.setAttribute('href', '/refurbishers/#pricing');
+            else if (pref === 'enterprise') link.setAttribute('href', '/enterprise/#pricing');
+        } catch (e) { /* localStorage blocked, no-op */ }
+    })();
+</script>
+</body>
+</html>
