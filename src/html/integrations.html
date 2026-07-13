@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>GSX Integrations — Diagnostics, payments and marketplace connectors</title>
 <meta name="description" content="GSX connects to 16 platforms across three integration layers. Two diagnostic paths (PhoneCheck as standard, Blancco for enterprise), five payment and accounts platforms (Stripe, QuickBooks, Xero, Ebury, Sokin), nine marketplaces (eBay, Amazon, BackMarket, Refurbed, OnBuy, Reebelo, Temu, TikTok Shop, Shopify).">
 <link rel="canonical" href="https://gsx.co.uk/integrations/">
@@ -193,6 +196,183 @@
         h1 { font-size: 30px; }
         .cta-block { padding: 40px 24px; }
     }
+</style>
+<style id="editorial-override">
+/* Editorial / industrial override — applied globally */
+:root {
+  --brand: #1a1a1a;
+  --brand-dark: #0d0d0d;
+  --brand-light: #ece8df;
+  --accent: #8a3324;
+  --accent-light: #f0e4df;
+  --warn: #8a6a24;
+  --warn-light: #efe8d6;
+  --bad: #8a2a24;
+  --bad-light: #efdedb;
+  --ink: #171512;
+  --ink-soft: #3a352e;
+  --ink-muted: #6f6a60;
+  --line: #d9d3c6;
+  --bg: #f5f3ee;
+  --bg-soft: #ece8df;
+  --bg-dark: #17140f;
+  --radius: 3px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+html, body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  font-feature-settings: "ss01","cv11";
+}
+h1, h2, h3, .logo {
+  font-family: "Instrument Serif", "Times New Roman", Georgia, serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+}
+h1 { font-weight: 400 !important; }
+h1 .word::after { content: '' !important; }
+h1 .hl { color: var(--accent) !important; font-style: italic; }
+h2, h3 { font-weight: 400 !important; }
+h4, h5, h6 { font-family: "Inter", sans-serif !important; font-weight: 700 !important; letter-spacing: -0.005em !important; }
+
+.logo { font-size: 20px !important; letter-spacing: -0.02em !important; }
+.logo-mark {
+  background: var(--ink) !important;
+  border-radius: 2px !important;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+nav.top {
+  background: var(--bg) !important;
+  backdrop-filter: none !important;
+  border-bottom: 1px solid var(--ink) !important;
+}
+
+/* Kill radial-gradient hero blobs — flat paper background with hairline */
+.hero {
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--ink) !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  text-align: left !important;
+}
+.hero .container > * { margin-left: 0 !important; margin-right: 0 !important; }
+.hero h1 { max-width: 900px; margin-left: 0 !important; }
+.hero p.lead, .hero p.sub { margin-left: 0 !important; max-width: 640px; }
+.hero-cta { justify-content: flex-start !important; }
+.hero-flags { justify-content: flex-start !important; }
+
+/* Eyebrow: kill pill chip, use editorial small-caps rule */
+.eyebrow {
+  background: transparent !important;
+  color: var(--ink) !important;
+  padding: 0 0 8px 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--ink) !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+}
+section.dark .eyebrow { color: #f5f3ee !important; border-bottom-color: #f5f3ee !important; background: transparent !important; }
+
+/* Sections: replace grey-alt bands with hairline dividers */
+section { padding: 88px 0 !important; }
+section.alt { background: var(--bg) !important; border-top: 1px solid var(--ink) !important; border-bottom: 1px solid var(--ink) !important; }
+section.dark { background: var(--bg-dark) !important; color: #f0ece2 !important; }
+section.dark h2, section.dark h3 { color: #f5f3ee !important; }
+.section-head { text-align: left !important; margin-left: 0 !important; }
+
+/* Buttons: squared, no shadow, ink-first */
+.btn { border-radius: 2px !important; box-shadow: none !important; font-family: "Inter", sans-serif !important; font-weight: 600 !important; }
+.btn-primary { background: var(--ink) !important; color: var(--bg) !important; }
+.btn-primary:hover { background: var(--accent) !important; color: var(--bg) !important; }
+.btn-secondary { background: transparent !important; border: 1px solid var(--ink) !important; color: var(--ink) !important; }
+.btn-secondary:hover { background: var(--ink) !important; color: var(--bg) !important; }
+
+/* Cards, tiles: kill rounded soft cards → boxy hairlines, no hover translate */
+.comp-card, .route-card, .module-tile, .lifecycle-wrap, .lc-stage, .mkt-strip {
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  background: var(--bg) !important;
+  border: 1px solid var(--ink) !important;
+}
+.comp-card:hover, .route-card:hover, .module-tile:hover, .lc-stage:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--accent) !important;
+}
+.route-card.middle { border-color: var(--accent) !important; }
+.comp-card .ci, .module-tile .mi {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--ink) !important;
+  border-radius: 0 !important;
+}
+
+/* Lifecycle: strip decorative dashed border + radial glow */
+.lifecycle-top {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--ink) !important;
+  border-radius: 0 !important;
+  font-family: "Inter", sans-serif !important;
+  letter-spacing: 0.12em !important;
+  font-size: 11px !important;
+}
+.lifecycle-base { background: var(--ink) !important; color: var(--bg) !important; border-radius: 2px !important; }
+.lifecycle-base::before { display: none !important; }
+.lc-num { background: var(--ink) !important; border-radius: 0 !important; border: 2px solid var(--bg) !important; font-family: "Inter", sans-serif !important; }
+.lc-stage::after { display: none !important; }
+
+/* ✓-in-circle bullets → editorial em-dash markers */
+.route-card .clues li::before,
+.hero-flags span::before,
+ul.check li::before {
+  content: '—' !important;
+  background: transparent !important;
+  color: var(--accent) !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  top: 8px !important;
+  left: 0 !important;
+  display: inline !important;
+}
+.route-card .clues li { padding-left: 20px !important; }
+
+/* Badges: flat, uppercase, no pill */
+.badge, .route-card .badge {
+  border-radius: 0 !important;
+  border: 1px solid currentColor !important;
+  background: transparent !important;
+  font-family: "Inter", sans-serif !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Audience switch — flat, no pill shadow */
+.audience-switch { border-radius: 0 !important; background: transparent !important; border: 1px solid var(--ink) !important; padding: 0 !important; }
+.audience-switch a { border-radius: 0 !important; box-shadow: none !important; }
+.audience-switch a.active { background: var(--ink) !important; color: var(--bg) !important; box-shadow: none !important; }
+
+/* Marketplace strip: flat ink slab */
+.mkt-strip { background: var(--ink) !important; border-radius: 2px !important; }
+.mkt-strip::before { display: none !important; }
+
+/* Links */
+a { color: var(--accent); }
+nav.top a { color: var(--ink) !important; }
+nav.top a.active { color: var(--accent) !important; }
+
+/* Selection */
+::selection { background: var(--ink); color: var(--bg); }
 </style>
 </head>
 <body>
