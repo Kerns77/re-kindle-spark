@@ -198,181 +198,209 @@
     }
 </style>
 <style id="editorial-override">
-/* Editorial / industrial override — applied globally */
+/* Apple-inspired override — applied globally */
 :root {
-  --brand: #1a1a1a;
-  --brand-dark: #0d0d0d;
-  --brand-light: #ece8df;
-  --accent: #8a3324;
-  --accent-light: #f0e4df;
-  --warn: #8a6a24;
-  --warn-light: #efe8d6;
-  --bad: #8a2a24;
-  --bad-light: #efdedb;
-  --ink: #171512;
-  --ink-soft: #3a352e;
-  --ink-muted: #6f6a60;
-  --line: #d9d3c6;
-  --bg: #f5f3ee;
-  --bg-soft: #ece8df;
-  --bg-dark: #17140f;
-  --radius: 3px;
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: none;
+  --brand: #1d1d1f;
+  --brand-dark: #000000;
+  --brand-light: #f5f5f7;
+  --accent: #0071e3;
+  --accent-light: #e8f1fd;
+  --warn: #b25000;
+  --warn-light: #fff4e5;
+  --bad: #b3261e;
+  --bad-light: #fdecea;
+  --ink: #1d1d1f;
+  --ink-soft: #424245;
+  --ink-muted: #6e6e73;
+  --line: #d2d2d7;
+  --bg: #ffffff;
+  --bg-soft: #f5f5f7;
+  --bg-dark: #000000;
+  --radius: 18px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
 }
 html, body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   background: var(--bg) !important;
   color: var(--ink) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "ss01","cv11";
 }
-h1, h2, h3, .logo {
-  font-family: "Instrument Serif", "Times New Roman", Georgia, serif !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.015em !important;
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--ink) !important;
 }
-h1 { font-weight: 400 !important; }
+h1 { font-weight: 600 !important; font-size: clamp(40px, 6vw, 72px) !important; line-height: 1.05 !important; letter-spacing: -0.035em !important; }
+h2 { font-weight: 600 !important; font-size: clamp(32px, 4vw, 52px) !important; line-height: 1.08 !important; letter-spacing: -0.03em !important; }
+h3 { font-weight: 600 !important; letter-spacing: -0.02em !important; }
 h1 .word::after { content: '' !important; }
-h1 .hl { color: var(--accent) !important; font-style: italic; }
-h2, h3 { font-weight: 400 !important; }
-h4, h5, h6 { font-family: "Inter", sans-serif !important; font-weight: 700 !important; letter-spacing: -0.005em !important; }
+h1 .hl { color: var(--accent) !important; font-style: normal !important; font-weight: 600 !important; }
 
-.logo { font-size: 20px !important; letter-spacing: -0.02em !important; }
+p.lead, .hero p, .sub { color: var(--ink-soft) !important; font-size: clamp(18px, 1.6vw, 22px) !important; line-height: 1.45 !important; font-weight: 400 !important; }
+
+.logo { font-size: 21px !important; letter-spacing: -0.02em !important; font-weight: 600 !important; }
 .logo-mark {
   background: var(--ink) !important;
-  border-radius: 2px !important;
-  font-family: "Inter", sans-serif !important;
-  font-weight: 700 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 600 !important;
 }
 
 nav.top {
-  background: var(--bg) !important;
-  backdrop-filter: none !important;
-  border-bottom: 1px solid var(--ink) !important;
+  background: rgba(255,255,255,0.72) !important;
+  backdrop-filter: saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
 }
+nav.top a { color: var(--ink) !important; font-weight: 400 !important; font-size: 14px !important; opacity: 0.88; }
+nav.top a:hover { opacity: 1; }
+nav.top a.active { color: var(--ink) !important; opacity: 1; font-weight: 500 !important; }
 
-/* Kill radial-gradient hero blobs — flat paper background with hairline */
+/* Hero: airy, centered, huge white space */
 .hero {
   background: var(--bg) !important;
-  border-bottom: 1px solid var(--ink) !important;
-  padding-top: 80px !important;
-  padding-bottom: 80px !important;
-  text-align: left !important;
+  border-bottom: 0 !important;
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+  text-align: center !important;
 }
-.hero .container > * { margin-left: 0 !important; margin-right: 0 !important; }
-.hero h1 { max-width: 900px; margin-left: 0 !important; }
-.hero p.lead, .hero p.sub { margin-left: 0 !important; max-width: 640px; }
-.hero-cta { justify-content: flex-start !important; }
-.hero-flags { justify-content: flex-start !important; }
+.hero .container > * { margin-left: auto !important; margin-right: auto !important; }
+.hero h1 { max-width: 980px; margin-left: auto !important; margin-right: auto !important; }
+.hero p.lead, .hero p.sub { margin-left: auto !important; margin-right: auto !important; max-width: 680px; text-align: center; }
+.hero-cta { justify-content: center !important; gap: 20px !important; }
+.hero-flags { justify-content: center !important; }
 
-/* Eyebrow: kill pill chip, use editorial small-caps rule */
+/* Eyebrow: thin uppercase, no chip */
 .eyebrow {
   background: transparent !important;
-  color: var(--ink) !important;
-  padding: 0 0 8px 0 !important;
+  color: var(--accent) !important;
+  padding: 0 0 12px 0 !important;
   border-radius: 0 !important;
-  border-bottom: 1px solid var(--ink) !important;
-  font-family: "Inter", sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
+  border: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
 }
-section.dark .eyebrow { color: #f5f3ee !important; border-bottom-color: #f5f3ee !important; background: transparent !important; }
+section.dark .eyebrow { color: #2997ff !important; background: transparent !important; }
 
-/* Sections: replace grey-alt bands with hairline dividers */
-section { padding: 88px 0 !important; }
-section.alt { background: var(--bg) !important; border-top: 1px solid var(--ink) !important; border-bottom: 1px solid var(--ink) !important; }
-section.dark { background: var(--bg-dark) !important; color: #f0ece2 !important; }
-section.dark h2, section.dark h3 { color: #f5f3ee !important; }
-.section-head { text-align: left !important; margin-left: 0 !important; }
+/* Sections: generous, no hard borders */
+section { padding: 120px 0 !important; }
+section.alt { background: var(--bg-soft) !important; border: 0 !important; }
+section.dark { background: var(--bg-dark) !important; color: #f5f5f7 !important; }
+section.dark h1, section.dark h2, section.dark h3, section.dark h4 { color: #f5f5f7 !important; }
+section.dark p { color: #a1a1a6 !important; }
+.section-head { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
 
-/* Buttons: squared, no shadow, ink-first */
-.btn { border-radius: 2px !important; box-shadow: none !important; font-family: "Inter", sans-serif !important; font-weight: 600 !important; }
-.btn-primary { background: var(--ink) !important; color: var(--bg) !important; }
-.btn-primary:hover { background: var(--accent) !important; color: var(--bg) !important; }
-.btn-secondary { background: transparent !important; border: 1px solid var(--ink) !important; color: var(--ink) !important; }
-.btn-secondary:hover { background: var(--ink) !important; color: var(--bg) !important; }
-
-/* Cards, tiles: kill rounded soft cards → boxy hairlines, no hover translate */
-.comp-card, .route-card, .module-tile, .lifecycle-wrap, .lc-stage, .mkt-strip {
-  border-radius: 2px !important;
+/* Buttons: Apple pill CTAs */
+.btn {
+  border-radius: 980px !important;
   box-shadow: none !important;
-  background: var(--bg) !important;
-  border: 1px solid var(--ink) !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 17px !important;
+  padding: 12px 22px !important;
+  transition: all 0.2s ease !important;
+}
+.btn-primary { background: var(--accent) !important; color: #fff !important; border: 0 !important; }
+.btn-primary:hover { background: #0077ed !important; color: #fff !important; }
+.btn-secondary { background: transparent !important; border: 0 !important; color: var(--accent) !important; padding: 12px 4px !important; }
+.btn-secondary:hover { color: #0077ed !important; text-decoration: underline; }
+.btn-secondary::after { content: ' ›'; }
+
+/* Cards: soft, rounded, pale-grey surface, no borders */
+.comp-card, .route-card, .module-tile, .lifecycle-wrap, .lc-stage {
+  border-radius: 22px !important;
+  box-shadow: none !important;
+  background: var(--bg-soft) !important;
+  border: 0 !important;
+  transition: all 0.3s ease !important;
 }
 .comp-card:hover, .route-card:hover, .module-tile:hover, .lc-stage:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  border-color: var(--accent) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+  border: 0 !important;
 }
-.route-card.middle { border-color: var(--accent) !important; }
+.route-card.middle { background: #fff !important; box-shadow: 0 10px 40px rgba(0,0,0,0.08) !important; }
 .comp-card .ci, .module-tile .mi {
-  background: transparent !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--ink) !important;
-  border-radius: 0 !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 12px !important;
 }
 
-/* Lifecycle: strip decorative dashed border + radial glow */
+/* Lifecycle */
 .lifecycle-top {
   background: transparent !important;
-  color: var(--ink) !important;
+  color: var(--ink-muted) !important;
   border: 0 !important;
-  border-bottom: 1px solid var(--ink) !important;
   border-radius: 0 !important;
-  font-family: "Inter", sans-serif !important;
-  letter-spacing: 0.12em !important;
-  font-size: 11px !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: 0 !important;
+  font-size: 13px !important;
+  text-transform: none !important;
 }
-.lifecycle-base { background: var(--ink) !important; color: var(--bg) !important; border-radius: 2px !important; }
+.lifecycle-base { background: var(--bg-soft) !important; color: var(--ink) !important; border-radius: 22px !important; }
 .lifecycle-base::before { display: none !important; }
-.lc-num { background: var(--ink) !important; border-radius: 0 !important; border: 2px solid var(--bg) !important; font-family: "Inter", sans-serif !important; }
+.lc-num { background: var(--accent) !important; color: #fff !important; border-radius: 999px !important; border: 3px solid var(--bg) !important; font-family: -apple-system, sans-serif !important; font-weight: 600 !important; }
 .lc-stage::after { display: none !important; }
 
-/* ✓-in-circle bullets → editorial em-dash markers */
+/* Checklist markers: soft blue check */
 .route-card .clues li::before,
 .hero-flags span::before,
 ul.check li::before {
-  content: '—' !important;
+  content: '✓' !important;
   background: transparent !important;
   color: var(--accent) !important;
   width: auto !important;
   height: auto !important;
   border-radius: 0 !important;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
   font-size: 14px !important;
-  top: 8px !important;
+  top: 2px !important;
   left: 0 !important;
   display: inline !important;
 }
-.route-card .clues li { padding-left: 20px !important; }
+.route-card .clues li { padding-left: 22px !important; }
 
-/* Badges: flat, uppercase, no pill */
+/* Badges: soft pill */
 .badge, .route-card .badge {
-  border-radius: 0 !important;
-  border: 1px solid currentColor !important;
-  background: transparent !important;
-  font-family: "Inter", sans-serif !important;
-  letter-spacing: 0.1em !important;
+  border-radius: 980px !important;
+  border: 0 !important;
+  background: var(--accent-light) !important;
+  color: var(--accent) !important;
+  font-family: -apple-system, sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 4px 10px !important;
 }
 
-/* Audience switch — flat, no pill shadow */
-.audience-switch { border-radius: 0 !important; background: transparent !important; border: 1px solid var(--ink) !important; padding: 0 !important; }
-.audience-switch a { border-radius: 0 !important; box-shadow: none !important; }
-.audience-switch a.active { background: var(--ink) !important; color: var(--bg) !important; box-shadow: none !important; }
+/* Audience switch — soft segmented control */
+.audience-switch { border-radius: 980px !important; background: rgba(0,0,0,0.06) !important; border: 0 !important; padding: 3px !important; }
+.audience-switch a { border-radius: 980px !important; box-shadow: none !important; font-weight: 500 !important; }
+.audience-switch a.active { background: #fff !important; color: var(--ink) !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important; }
 
-/* Marketplace strip: flat ink slab */
-.mkt-strip { background: var(--ink) !important; border-radius: 2px !important; }
+/* Marketplace strip */
+.mkt-strip { background: var(--bg-soft) !important; border-radius: 22px !important; color: var(--ink) !important; }
 .mkt-strip::before { display: none !important; }
 
 /* Links */
-a { color: var(--accent); }
-nav.top a { color: var(--ink) !important; }
-nav.top a.active { color: var(--accent) !important; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* Selection */
-::selection { background: var(--ink); color: var(--bg); }
+::selection { background: var(--accent-light); color: var(--ink); }
+
+/* Container width — Apple uses generous but capped */
+.container { max-width: 1200px !important; padding-left: 22px !important; padding-right: 22px !important; }
 </style>
 </head>
 <body>
