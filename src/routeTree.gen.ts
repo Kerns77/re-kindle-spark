@@ -22,6 +22,7 @@ import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as FlowRouteImport } from './routes/flow'
 import { Route as CustomerBuybackTemplateRouteImport } from './routes/customer-buyback-template'
 import { Route as BuybackRouteImport } from './routes/buyback'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnterpriseIndexRouteImport } from './routes/enterprise/index'
 import { Route as EnterprisePricerRouteImport } from './routes/enterprise/pricer'
@@ -29,6 +30,7 @@ import { Route as EnterpriseContactRouteImport } from './routes/enterprise/conta
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 
 const StockroomRoute = StockroomRouteImport.update({
   id: '/stockroom',
@@ -95,6 +97,11 @@ const BuybackRoute = BuybackRouteImport.update({
   path: '/buyback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -133,9 +140,15 @@ const Char91DotmcpChar93InvokeToolToolRoute =
     path: '/.mcp/invoke-tool/$tool',
     getParentRoute: () => rootRouteImport,
   } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buyback': typeof BuybackRoute
   '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
   '/flow': typeof FlowRoute
@@ -154,10 +167,12 @@ export interface FileRoutesByFullPath {
   '/enterprise/contact': typeof EnterpriseContactRoute
   '/enterprise/pricer': typeof EnterprisePricerRoute
   '/enterprise/': typeof EnterpriseIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buyback': typeof BuybackRoute
   '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
   '/flow': typeof FlowRoute
@@ -176,11 +191,13 @@ export interface FileRoutesByTo {
   '/enterprise/contact': typeof EnterpriseContactRoute
   '/enterprise/pricer': typeof EnterprisePricerRoute
   '/enterprise': typeof EnterpriseIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buyback': typeof BuybackRoute
   '/customer-buyback-template': typeof CustomerBuybackTemplateRoute
   '/flow': typeof FlowRoute
@@ -199,12 +216,14 @@ export interface FileRoutesById {
   '/enterprise/contact': typeof EnterpriseContactRoute
   '/enterprise/pricer': typeof EnterprisePricerRoute
   '/enterprise/': typeof EnterpriseIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/buyback'
     | '/customer-buyback-template'
     | '/flow'
@@ -223,10 +242,12 @@ export interface FileRouteTypes {
     | '/enterprise/contact'
     | '/enterprise/pricer'
     | '/enterprise/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/buyback'
     | '/customer-buyback-template'
     | '/flow'
@@ -245,10 +266,12 @@ export interface FileRouteTypes {
     | '/enterprise/contact'
     | '/enterprise/pricer'
     | '/enterprise'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
     | '/'
+    | '/auth'
     | '/buyback'
     | '/customer-buyback-template'
     | '/flow'
@@ -267,11 +290,13 @@ export interface FileRouteTypes {
     | '/enterprise/contact'
     | '/enterprise/pricer'
     | '/enterprise/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   BuybackRoute: typeof BuybackRoute
   CustomerBuybackTemplateRoute: typeof CustomerBuybackTemplateRoute
   FlowRoute: typeof FlowRoute
@@ -290,6 +315,7 @@ export interface RootRouteChildren {
   EnterpriseContactRoute: typeof EnterpriseContactRoute
   EnterprisePricerRoute: typeof EnterprisePricerRoute
   EnterpriseIndexRoute: typeof EnterpriseIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -386,6 +412,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuybackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -435,11 +468,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   BuybackRoute: BuybackRoute,
   CustomerBuybackTemplateRoute: CustomerBuybackTemplateRoute,
   FlowRoute: FlowRoute,
@@ -459,6 +500,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnterpriseContactRoute: EnterpriseContactRoute,
   EnterprisePricerRoute: EnterprisePricerRoute,
   EnterpriseIndexRoute: EnterpriseIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
